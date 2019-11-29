@@ -9,8 +9,8 @@ import range from './lodash/range';
 
 const ORIGIN = new CubeCoord(0, 0, 0);
 
-const distance = (p1, p2) => ['x', 'y', 'z'].reduce((d, dim) => {
-  const cDist = Math.abs(p1[dim] - p2[dim]);
+const distance = (p1) => ['x', 'y', 'z'].reduce((d, dim) => {
+  const cDist = Math.abs(p1[dim]);
   return Math.max(d, cDist);
 }, 0);
 
@@ -45,11 +45,11 @@ class GalacticContainer {
   }
 
   get localId() {
-    return `${this.coord.x}.${this.coord.y}.${this.coord.z}/${this.division}`;
+    return `x${this.coord.x}y${this.coord.y}d${this.division}`;
   }
 
   get id() {
-    const prefix = this.parent ? `${this.parent.id}:` : '';
+    const prefix = this.parent ? `${this.parent.id}.` : '';
     return `${prefix}${this.localId}`;
   }
 
@@ -57,25 +57,20 @@ class GalacticContainer {
     return new GalacticContainer({ coord, parent: this, division });
   }
 
-  divide(radius = 10, overwrite = false) {
+  divide(radius = 10) {
     const division = 2 * radius + 1;
-    const center = this.coord;
 
-    const minX = center.x - radius;
-    const maxX = center.x + radius + 1;
-    const minY = center.y - radius;
-    const maxY = center.y + radius + 1;
+    this.children.clear();
 
-    range(minX, maxX)
-      .forEach((x) => range(minY, maxY).forEach((y) => {
+    range(radius * -1, radius + 1)
+      .forEach((x) => range(radius * -1, radius + 1).forEach((y) => {
         const coord = new CubeCoord(x, y);
-        if (distance(coord, center) <= radius) {
+        // console.log('division point for ', x, y, coord.toString());
+        if (distance(coord) <= radius) {
           const child = this.makeChild(coord, division);
 
           // console.log('rad', radius, 'making child of ', this.id, 'at', x, y, child.localId);
-          if (overwrite || !this.children.has(child.localId)) {
-            this.children.set(child.localId, child);
-          }
+          this.children.set(child.localId, child);
         }
       }));
   }
@@ -148,7 +143,10 @@ class GalacticContainer {
   }
 
   generate(prop) {
-    this.setLocal(prop, this.parent.generators.get(prop)(this));
+    if (!this.parent.generators.has(prop)) {
+      throw new Error(`child ${this.id}parent does not have generator ${prop}`);
+    }
+    this.set(prop, this.parent.generators.get(prop)(this));
   }
 }
 

@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-
+const { CubeCoord } = require('@wonderlandlabs/hexagony');
 const { createCanvas } = require('canvas');
 const _N = require('@wonderlandlabs/n');
 const fs = require('fs');
@@ -15,11 +15,12 @@ const draw = async (sectors, config = {}, outputFilename) => {
   const min_y = lGet(config, 'min_y', -UNIT * 0.8);
   const max_x = lGet(config, 'max_x', UNIT);
   const max_y = lGet(config, 'max_y', UNIT * 0.8);
-  const linesPerUnit = lGet(config, 'lpu', 10);
+  const linesPerUnit = lGet(config, 'lpu', 100);
   const visual_scale = lGet(config, 'visual_scale', 5);
   const padding = lGet(config, 'padding', 5);
   const p2 = _N(padding).times(2);
   const matrix = lGet(config, 'matrix');
+
 
   const fn = lGet(config, 'fn');
 
@@ -33,6 +34,14 @@ const draw = async (sectors, config = {}, outputFilename) => {
     );
   };
 
+  const cubeCenter = new CubeCoord(0, 0).toXY(matrix);
+  const cubeScreen = screenCoord(cubeCenter);
+  const screenCenter = screenCoord(0, 0);
+
+  const hexOffset = screenCenter.clone().sub(cubeScreen);
+
+  console.log('hex offset:', hexOffset);
+
   if (!matrix) throw new Error('draw requires matrix');
 
   const cornerSets = sectors.map((sector) => matrix.corners(sector.coord));
@@ -41,8 +50,6 @@ const draw = async (sectors, config = {}, outputFilename) => {
 
   const minPoint = screenCoord(min_x, min_y);
   const maxPoint = screenCoord(max_x, max_y);
-
-  console.log('min_x', min_x, 'max_x', max_x, minPoint, maxPoint);
 
   const width = _N(maxPoint.x).sub(minPoint.x).plus(p2).value;
   const height = _N(maxPoint.y).sub(minPoint.y).plus(p2).value;
@@ -67,7 +74,7 @@ const draw = async (sectors, config = {}, outputFilename) => {
   // horionTAL lines;
   ctx.beginPath();
   ctx.strokeStyle = '#75adda';
-  ctx.lineWidth = 1;
+  ctx.lineWidth = 2;
   range(min_x, max_x + 1, linesPerUnit).forEach((x) => {
     const start = screenCoord(x, min_y);
     const end = screenCoord(x, max_y);
@@ -84,7 +91,8 @@ const draw = async (sectors, config = {}, outputFilename) => {
   ctx.closePath();
   ctx.stroke();
 
-  ctx.strokeStyle = '#FF0000';
+  ctx.lineWidth = 10;
+  ctx.strokeStyle = 'rgba(255,0,128,0.75)';
   ctx.beginPath();
   ctx.moveTo(...screenCoord(min_x, 0).toArray());
   ctx.lineTo(...screenCoord(max_x, 0).toArray());
@@ -94,9 +102,9 @@ const draw = async (sectors, config = {}, outputFilename) => {
   ctx.stroke();
 
   ctx.strokeStyle = '#4d785c';
-  ctx.lineWidth = 2;
-  ctx.beginPath();
+  ctx.lineWidth = 1;
   cornerSets.forEach((corners) => {
+    ctx.beginPath();
     corners.forEach((point, i) => {
       if (i) {
         ctx.lineTo(...screenCoord(point.x, point.y).toArray());
@@ -104,47 +112,54 @@ const draw = async (sectors, config = {}, outputFilename) => {
         ctx.moveTo(...screenCoord(point.x, point.y).toArray());
       }
     });
-    ctx.lineTo(...screenCoord(corners[0].x, corners[0].y).toArray());
+    const endpoint = corners[0];
+    ctx.lineTo(...screenCoord(endpoint.x, endpoint.y).toArray());
+    ctx.closePath();
+    ctx.stroke();
   });
-  ctx.closePath();
-  ctx.stroke();
-
-  ctx.fillStyle = '#0000FF';
-  cornerSets.forEach((corners) => {
-    if (corners.cube) {
-      const label = cubeString(corners.cube);
-      const center = screenCoord(corners.cubeCenter);
-      ctx.fillText(label, center.x, center.y);
-    }
-  });
-
 
   const PR = 15;
   if (pointMap) {
-    ctx.beginPath();
     pointMap.forEach(({ point, label }) => {
       ctx.strokeStyle = '#993300';
       ctx.lineWidth = 1;
       const screenPt = screenCoord(point);
       const { x, y } = screenPt;
+      ctx.beginPath();
       //  console.log('drawing point ', point, 'label:', label, 'at', x, y);
       ctx.moveTo(x - PR, y);
       ctx.lineTo(x + PR, y);
       ctx.moveTo(x, y - PR);
       ctx.lineTo(x, y + PR);
+      ctx.closePath();
+      ctx.stroke();
 
       ctx.fillStyle = '#009900';
       ctx.fillText(label, x + 5, y + 5);
     });
-    ctx.closePath();
-    ctx.stroke();
   }
 
   if (fn) {
+    console.log('starting function');
     fn(ctx, screenCoord);
+    console.log('done with function');
   }
 
-  return can.createPNGStream().pipe(fs.createWriteStream(`${outputFilename}.png`));
+  const stream = can.createPNGStream();
+
+  const writeStream = fs.createWriteStream(`test-images/${outputFilename}.png`);
+  stream.pipe(writeStream);
+  let done;
+  const p = new Promise((d) => {
+    done = d;
+  });
+  const dt = Date.now();
+  writeStream.on('close', () => {
+    console.log('writeStream done writing', outputFilename);
+    console.log(((Date.now() - dt) / 1000).toFixed(1), 'seconds');
+    done();
+  });
+  return p;
 };
 
 module.exports = draw;
