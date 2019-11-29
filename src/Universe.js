@@ -11,10 +11,6 @@ export default class Universe extends GalacticContainer {
     this.generateSectors();
   }
 
-  makeChild(coord, division) {
-    return new GalacticContainer({ parent: this, coord, division });
-  }
-
   get seed2() {
     return this.seed.toUpperCase();
   }

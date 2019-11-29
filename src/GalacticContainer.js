@@ -99,67 +99,41 @@ class GalacticContainer {
       this.set(name, q);
       return;
     }
-    if (this.parent) {
-      this.parent.set(name, value);
-      return;
-    }
-
-    if (!Array.isArray(value)) {
-      this.props.set(name, [value]);
-    } else {
-      this.props.set(name, value);
-    }
+    this.props.set(name, value);
   }
 
   child(id) {
     return this.children.get(id);
   }
 
-  get divisionStack() {
-    if (!this.parent) {
-      return [this.division];
-    }
-    return [...this.parent.divisionStack, this.division];
+  has(name) {
+    return this.props.has(name);
   }
 
-  get(name, depth = null, divisionStack) {
-    if (depth === null) {
-      return this.get(name, this.depth, this.divisionStack);
+  get heritage() {
+    return this.parent ? [...this.parent.heritage, this] : [this];
+  }
+
+  get root() {
+    return this.parent ? this.parent.root : this;
+  }
+
+  get(name) {
+    if (this.has(name)) {
+      return this.props.get(name);
     }
 
-    if (this.parent) {
-      return this.parent.get(name, depth, divisionStack || this.divisionStack);
-    }
-    if (!this.props.has(name)) {
-      console.log('undefined property', name);
-      return null;
-    }
-    const stack = this.props.get(name);
-    // console.log('getting ', name, 'with depth ', depth, 'from ', stack);
-    const stackLast = last(stack);
-    if (stack.length > depth) {
-      return stack[depth];
+    if (!this.parent) return null;
+    if (this.parent === this) {
+      console.log('FRY!!!');
+      return;
     }
 
-    const divisions = divisionStack.slice(stack.length);
-    //   console.log('scaling by divisions', divisions, 'from ds', divisionStack);
-    let div = 1;
-    // eslint-disable-next-line no-return-assign
-    divisions.forEach((n) => div *= n);
-
-    if (!is.number(stackLast) || (!divisionStack)) {
-      if (stackLast instanceof Qty) {
-        return stackLast.div(div);
-      }
-      return stackLast;
-    }
-
-    if (stackLast instanceof Qty) {
-      return stackLast.div(div);
-    }
-    return stackLast / div;
-
-    return stack[depth];
+    let value = this.parent.get(name);
+    if (is.number(value)) value /= this.division;
+    if (value instanceof Qty) value = value.div(this.division);
+    this.set(name, value);
+    return value;
   }
 
   getTop(name) {

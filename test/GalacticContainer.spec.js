@@ -2,9 +2,12 @@
 const tap = require('tap');
 const { CubeCoord } = require('@wonderlandlabs/hexagony');
 const { inspect } = require('util');
+const asserts = require('../addVectorAsserts');
+
+asserts(tap);
 
 const p = require('./../package.json');
-const { GalacticContainer, randomFor } = require('./../lib/index');
+const { GalacticContainer } = require('./../lib/index');
 
 const THOUSAND = 1000;
 const MIO = THOUSAND * THOUSAND;
@@ -33,27 +36,21 @@ tap.test(p.name, (suite) => {
       const BASE_POP = 10000;
       base.set('pop', BASE_POP);
       base.set('color', 'red');
-      base.set('title-size', ['24px', '18px', '12px']);
       base.set('ly-scale', MIO * 5, 'light-year');
 
       gp.same(base.get('pop'), BASE_POP);
-      gp.same(g1.get('pop'), BASE_POP / 30);
-      gp.same(g2.get('pop'), BASE_POP / (30 * 100));
-      gp.same(g3.get('pop'), BASE_POP / (30 * 100 * 50));
-      gp.same(g3.get('pop'), BASE_POP / (30 * 100 * 50));
-      gp.same(g4.get('pop'), BASE_POP / (30 * 100 * 50 * 10));
+
+      gp.realClose(g1.get('pop'), BASE_POP / 30, 10);
+      gp.realClose(g2.get('pop'), BASE_POP / (30 * 100), 10);
+      gp.realClose(g3.get('pop'), BASE_POP / (30 * 100 * 50), 10);
+      gp.realClose(g3.get('pop'), BASE_POP / (30 * 100 * 50), 10);
+      gp.realClose(g4.get('pop'), BASE_POP / (30 * 100 * 50 * 10), 10);
 
       gp.same(base.get('color'), 'red');
       gp.same(g1.get('color'), 'red');
       gp.same(g2.get('color'), 'red');
       gp.same(g3.get('color'), 'red');
       gp.same(g4.get('color'), 'red');
-
-      gp.same(base.get('title-size'), '24px');
-      gp.same(g1.get('title-size'), '18px');
-      gp.same(g2.get('title-size'), '12px');
-      gp.same(g3.get('title-size'), '12px');
-      gp.same(g4.get('title-size'), '12px');
 
       g.same(base.get('ly-scale').toString(), '5000000 ly');
       g.same(g1.get('ly-scale').toPrec(1).toString(), '166667 ly');
@@ -103,7 +100,7 @@ tap.test(p.name, (suite) => {
           ' 0.-2.2/9 0.-1.1/9 0.0.0/9 0.1.-1/9 0.2.-2/9 1.-3.2/9 1.-2.1/9 1.-1.0/9 1.0.-1/9 1.1.-2/9']
           .join('').split(' ')); */
 
-      child.children.forEach((sub) => {
+      child.do((sub) => {
         dc.ok(sub.x >= -7);
         dc.ok(sub.x <= 1);
         dc.ok(sub.y >= -3);
