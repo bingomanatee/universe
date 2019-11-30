@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 const { CubeCoord } = require('@wonderlandlabs/hexagony');
-const { createCanvas } = require('canvas');
+const { createCanvas, registerFont } = require('canvas');
 const _N = require('@wonderlandlabs/n');
 const fs = require('fs');
 const { isPoint2Like, cubeString } = require('./utils');
@@ -8,6 +8,10 @@ const { Vector2 } = require('./src/three/Vector2');
 
 const lGet = require('./src/lodash/get');
 const range = require('./src/lodash/range');
+
+
+registerFont('Helvetica.ttf', { family: 'Helvetica' });
+registerFont('Helvetica Bold.ttf', { weight: 'bold', family: 'Helvetica' });
 
 const draw = async (sectors, config = {}, outputFilename) => {
   const UNIT = 500;
@@ -33,14 +37,6 @@ const draw = async (sectors, config = {}, outputFilename) => {
       _N(y).sub(min_y).times(visual_scale).plus(padding).value,
     );
   };
-
-  const cubeCenter = new CubeCoord(0, 0).toXY(matrix);
-  const cubeScreen = screenCoord(cubeCenter);
-  const screenCenter = screenCoord(0, 0);
-
-  const hexOffset = screenCenter.clone().sub(cubeScreen);
-
-  console.log('hex offset:', hexOffset);
 
   if (!matrix) throw new Error('draw requires matrix');
 

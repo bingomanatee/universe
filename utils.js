@@ -20,6 +20,11 @@ const cubeString = (c) => {
 };
 const point2string = (c) => `xy|${fix(c.x, 3)},${fix(c.y, 3)}|`;
 
+const point2stringI = (c) => {
+  c = c.clone().round();
+  return `xy|${c.x},${c.y}|`;
+};
+
 const box2array = (box2) => {
   const { min, max } = box2;
   return [min.x, min.y, max.x, max.y];
@@ -38,6 +43,7 @@ module.exports = {
   cubeString,
   fix,
   point2string,
+  point2stringI,
   box2array,
   array2box,
 };

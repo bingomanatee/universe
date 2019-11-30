@@ -5,13 +5,16 @@ import UniverseSector from './UniverseSector';
 import randomFor from './randomFor';
 import { Vector2 } from './three/Vector2';
 
+const D1 = 1000;
+const D2 = D1 * 5;
+const D3 = D2 * 10;
+
 export default class Universe extends GalacticContainer {
   constructor(seed = 'the universe is big. Really really big.') {
     super({});
     this.seed = seed;
     this.set('diameter', 200000000000, 'ly');
     this.initGenerators();
-    this.generateSectors();
   }
 
   get sn() {
@@ -25,10 +28,6 @@ export default class Universe extends GalacticContainer {
   }
 
   initGenerators() {
-    const D1 = 1000;
-    const D2 = D1 * 5;
-    const D3 = D2 * 10;
-
     this.set('lyCoord', new Vector2(0, 0));
     this.generators.set('lyCoord', (child) => {
       const scale = child.get('diameter').scalar;
@@ -37,12 +36,16 @@ export default class Universe extends GalacticContainer {
 
     this.generators.set('galaxies', (child) => {
       const lyCoord = child.get('lyCoord');
-      const value = this.sn.noise2D(lyCoord.x / D1, lyCoord.y / D1);
-      const value2 = this.sn2.noise2D(lyCoord.x / D2, lyCoord.y / D2);
-      const value3 = this.sn2.noise2D(lyCoord.x / D3, lyCoord.y / D3);
-      const sum = (0.5 + value + value2 + value3);
-      return Math.floor((Math.max(0, sum) * 15000000));
+      return this.galaxiesFromLyCoord(lyCoord);
     });
+  }
+
+  galaxiesFromLyCoord(lyCoord) {
+    const value = this.sn.noise2D(lyCoord.x / D1, lyCoord.y / D1);
+    const value2 = this.sn2.noise2D(lyCoord.x / D2, lyCoord.y / D2);
+    const value3 = this.sn2.noise2D(lyCoord.x / D3, lyCoord.y / D3);
+    const sum = (0.5 + value + value2 + value3);
+    return Math.floor((Math.max(0, sum) * 15000000));
   }
 
   get seed2() {

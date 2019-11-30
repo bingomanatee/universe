@@ -2,6 +2,8 @@ import Noise from 'simplex-noise';
 import GalacticContainer from './GalacticContainer';
 import randomFor from './randomFor';
 import sortBy from './lodash/sortBy';
+import random from './lodash/random';
+import shuffle from './lodash/shuffle';
 
 export default class UniverseSector extends GalacticContainer {
   constructor(coord, division, parent) {
@@ -16,10 +18,11 @@ export default class UniverseSector extends GalacticContainer {
   initGenerators() {
     this.generators.set('lyCoord', (child) => {
       const scale = child.get('diameter').scalar;
-      return child.coord.toXY({ scale, pointy: true }).add(this.parent.get('lyCoord'));
+      return child.coord.toXY({ scale, pointy: true }).add(this.get('lyCoord'));
     });
-    this.generators.set('galaxy-share', (child) => {
-      const sn = new Noise(randomFor(this.id));
+    this.generators.set('galaxy-share', (child) => this.root.galaxiesFromLyCoord(child.get('lyCoord')),
+
+      /*   const sn = new Noise(randomFor(this.id));
       const sn2 = new Noise(randomFor(this.localId));
       const scale = child.division / 5;
       const scale2 = child.division / 20;
@@ -28,8 +31,8 @@ export default class UniverseSector extends GalacticContainer {
       const value2 = sn2.noise3D(child.x / scale2, child.y / scale2, child.z / scale2);
       const value3 = sn2.noise3D(child.x / scale3, child.y / scale3, child.z / scale3);
       const sum = (1 + value + value2 + value3);
-      return Math.max(0, sum);
-    });
+      return Math.max(0, sum); */
+    );
   }
 
   makeChild(coord, division) {
@@ -78,7 +81,43 @@ export default class UniverseSector extends GalacticContainer {
       children[0].set('galaxies', Math.round(children[0].get('galaxies')));
     }
 
-    console.log('time:', ((Date.now() - t) / 1000).toFixed(2), 'seconds;');
-    console.log('sum of galaxies:', this.sumOf('galaxies'), 'based on totalShares: ', totalShares);
+    const sog = this.sumOf('galaxies');
+    let difference = sog - galaxies;
+
+    const sc = (all) => shuffle(Array.from(this.children.values())
+      .filter((child) => {
+        if (all) return true;
+        const g = child.getLocal('galaxies');
+        return g > 0;
+      }));
+
+    let childrenToAdjust = sc();
+
+    while (childrenToAdjust.length && (difference > 0)) {
+      const child = childrenToAdjust.pop();
+      const g = child.get('galaxies');
+      const remove = g < 4 ? g : random(1, g);
+      difference -= remove;
+      child.set('galaxies', g - remove);
+      if (!childrenToAdjust.length) childrenToAdjust = sc();
+    }
+
+    childrenToAdjust = sc(true);
+    while (difference < 0) {
+      const child = childrenToAdjust.pop();
+      const g = child.get('galaxies');
+      const add = random(1, Math.max(g, 5));
+      difference += add;
+      child.set('galaxies', g + add);
+      if (!childrenToAdjust.length) childrenToAdjust = sc(true);
+    }
+
+    console.log('----------------------------------');
+    console.log('::time:', ((Date.now() - t) / 1000).toFixed(2), 'seconds;');
+    console.log(':: ---- end of makeSubsectors ----');
+    console.log(':: sum of galaxies:',
+      Math.round(this.sumOf('galaxies')), 'based on totalShares: ',
+      Math.round(totalShares));
+    console.log(':: target: ', this.get('galaxies'));
   }
 }

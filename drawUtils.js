@@ -38,9 +38,41 @@ function labelPoints(child, ctx, screenPoint, matrix, increment) {
   });
 }
 
+const HUNDRED_COLOR = 'rgba(0,9,102,0.8)';
+const HUND = 100;
+const THOUSAND_COLOR = 'rgba(33,0,102,0.8)';
+const THOUSAND = 1000;
+const TEN_K_COLOR = 'rgba(68,0,102,0.8)';
+const TEN_K = 10 * THOUSAND;
+const HUND_K_COLOR = 'rgba(102,0,66,0.8)';
+const HUND_K = HUND * THOUSAND;
+const MILLION_COLOR = 'rgba(102,1,0,0.8)';
+const MILLION = THOUSAND * THOUSAND;
+const TEN_MIO_COLOR = 'rgba(102,30,0,0.8)';
+const TEN_MIO = 10 * MILLION;
+const HUND_MIO_COLOR = 'rgba(46,36,0,0.8)';
+const HUND_MIO = HUND * MILLION;
+const BILLION_COLOR = 'rgba(27,46,0,0.8)';
+const BILLION = MILLION * THOUSAND;
+const TEN_B_COLOR = 'rgba(1,46,0,0.8)';
+const TEN_B = 10 * BILLION;
+const HUND_B_COLOR = 'rgba(0,46,40,0.8)';
+
+const brackets = [
+  { min: 0, max: HUND, color: HUNDRED_COLOR },
+  { min: HUND, max: THOUSAND, color: THOUSAND_COLOR },
+  { min: THOUSAND, max: TEN_K, color: TEN_K_COLOR },
+  { min: TEN_K, max: HUND_K, color: HUND_K_COLOR },
+  { min: HUND_K, max: MILLION, color: MILLION_COLOR },
+  { min: MILLION, max: TEN_MIO, color: TEN_MIO_COLOR },
+  { min: TEN_MIO, max: HUND_MIO, color: HUND_MIO_COLOR },
+  { min: HUND_MIO, max: BILLION, color: BILLION_COLOR },
+  { min: BILLION, max: TEN_B, color: TEN_B_COLOR },
+  { min: TEN_B, max: Number.MAX_SAFE_INTEGER, color: HUND_B_COLOR },
+];
+
 function drawDiscs(child, ctx, screenPoint, matrix, color) {
   ctx.lineWidth = 1;
-  ctx.fillStyle = color || 'rgba(55,102,204,0.5)';
 
   const origin = new CubeCoord(0, 0);
   const offset = new CubeCoord(1, 0);
@@ -99,12 +131,14 @@ function drawDiscs(child, ctx, screenPoint, matrix, color) {
   const GALAXY_SCALE = HEX_RADIUS / MEDIAN_GALAXIES;
 
   child.do((sector) => {
-    ctx.strokeStyle = 'rgba(0,102,255,0.5)';
     const galaxies = sector.getLocal('galaxies');
+
     const radius = galaxies * GALAXY_SCALE;
     const center = sector.coord.toXY(matrix);
     const screenCenter = screenPoint(center);
     if (radius > 2) {
+      const { color } = brackets.find(({ min, max }) => galaxies > min && galaxies <= max);
+      ctx.fillStyle = color;
       ctx.beginPath();
       ctx.arc(screenCenter.x, screenCenter.y, Math.min(radius, HEX_RADIUS), 0, 2 * Math.PI);
       ctx.closePath();
@@ -152,11 +186,10 @@ const digit = (n, large) => {
   return ((n > 10) ? Math.round(n) : n);
 };
 
-const THOUSAND = 1000;
-const MILLION = THOUSAND * THOUSAND;
+const CLEAR_BG = 'rgba(255,255,255,0.5)';
 
 function labelSectorQty(child, ctx, screenPoint, matrix, fract = false) {
-  ctx.font = '8pt Helvetica';
+  ctx.font = 'bold 8pt Helvetica';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'bottom';
   child.do((sector) => {
@@ -169,15 +202,21 @@ function labelSectorQty(child, ctx, screenPoint, matrix, fract = false) {
 
     const mio = (galaxies / MILLION);
     if (mio > 1) {
-      ctx.fillStyle = 'rgba(0,0,0,0.8)';
+      ctx.fillStyle = CLEAR_BG;
+      ctx.fillText(`${digit(mio, true)}m`, screenCenter.x, screenCenter.y);
+      ctx.fillStyle = 'rgba(153,0,51,0.8)';
       ctx.fillText(`${digit(mio, true)}m`, screenCenter.x, screenCenter.y);
     } else {
       const k = (galaxies / THOUSAND);
       if (k > 1) {
-        ctx.fillStyle = 'rgb(100,130,120)';
+        ctx.fillStyle = CLEAR_BG;
         ctx.fillText(`${digit(k, true)}k`, screenCenter.x, screenCenter.y);
-      } else if (galaxies > 2) {
-        ctx.fillStyle = 'rgb(100,25,0)';
+        ctx.fillStyle = 'rgba(100,130,120,0.8)';
+        ctx.fillText(`${digit(k, true)}k`, screenCenter.x, screenCenter.y);
+      } else if (galaxies > 0) {
+        ctx.fillStyle = CLEAR_BG;
+        ctx.fillText(`${digit(galaxies)}`, screenCenter.x, screenCenter.y);
+        ctx.fillStyle = 'rgba(80,120,60,0.8)';
         ctx.fillText(`${digit(galaxies)}`, screenCenter.x, screenCenter.y);
       }
     }
