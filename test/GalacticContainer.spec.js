@@ -36,27 +36,26 @@ tap.test(p.name, (suite) => {
       const BASE_POP = 10000;
       base.set('pop', BASE_POP);
       base.set('color', 'red');
-      base.set('ly-scale', MIO * 5, 'light-year');
+      base.set('ly-scale', MIO * 5);
 
+      /**
+       *
+       * 166666.66666666666 ==±
+       * 166667
+       */
       gp.same(base.get('pop'), BASE_POP);
 
-      gp.realClose(g1.get('pop'), BASE_POP / 30, 10);
-      gp.realClose(g2.get('pop'), BASE_POP / (30 * 100), 10);
-      gp.realClose(g3.get('pop'), BASE_POP / (30 * 100 * 50), 10);
-      gp.realClose(g3.get('pop'), BASE_POP / (30 * 100 * 50), 10);
-      gp.realClose(g4.get('pop'), BASE_POP / (30 * 100 * 50 * 10), 10);
+      gp.realClose(g1.get('pop'), BASE_POP / 30, 1, 'base pop at level 1');
+      gp.realClose(g2.get('pop'), BASE_POP / (30 * 100), 1, 'base pop at level 2');
+      gp.realClose(g3.get('pop'), BASE_POP / (30 * 100 * 50), 1);
+      gp.realClose(g3.get('pop'), BASE_POP / (30 * 100 * 50), 1);
+      gp.realClose(g4.get('pop'), BASE_POP / (30 * 100 * 50 * 10), 1);
 
       gp.same(base.get('color'), 'red');
       gp.same(g1.get('color'), 'red');
       gp.same(g2.get('color'), 'red');
       gp.same(g3.get('color'), 'red');
       gp.same(g4.get('color'), 'red');
-
-      g.same(base.get('ly-scale').toString(), '5000000 ly');
-      g.same(g1.get('ly-scale').toPrec(1).toString(), '166667 ly');
-      g.same(g2.get('ly-scale').toPrec(1).toString(), '1667 ly');
-      g.same(g3.get('ly-scale').toPrec(1).toString(), '33 ly');
-      g.same(g4.get('ly-scale').toPrec(1).toString(), '3 ly');
 
       gp.end();
     });
@@ -75,7 +74,7 @@ tap.test(p.name, (suite) => {
 
       dc.same(base.children.size, 37);
 
-      const child = base.child('x-3y1d7');
+      const child = base.child('x-3y1');
 
       child.divide(4);
 

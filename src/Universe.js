@@ -4,17 +4,35 @@ import GalacticContainer from './GalacticContainer';
 import UniverseSector from './UniverseSector';
 import randomFor from './randomFor';
 import { Vector2 } from './three/Vector2';
+import { BIL, MIO, THOU, TEN_K } from '../utils';
+import lGet from './lodash/get';
 
-const D1 = 1000;
-const D2 = D1 * 5;
-const D3 = D2 * 10;
+const D1 = MIO;
+const D2 = TEN_K;
+const D3 = 100;
+
+// the known universe is 100 billion light years across.
+// there are 200 billion galaxies in the observable universe;
+// so an average of 1 galaxy/50 billion ly squared;
+// partitioning the universe into 100 divisions gives us 30,301 hexes.
+// so, those 200 billion galaxies:
+// 200,000,000,000
+// 9,007,199,254,740,991
+// the formula below gives around
+// 205,162,994,999 galaxies in the region, varying by seed
+
+// note - cheating and lowering galaxy count to 50 billion.
 
 export default class Universe extends GalacticContainer {
-  constructor(seed = 'the universe is big. Really really big.') {
+  constructor(props = {}) {
     super({});
+    const seed = lGet(props, 'seed', 'the universe is big. really really big.');
+    const galaxies = lGet(props, 'galaxies', 50 * BIL);
+    const diameter = lGet(props, 'diameter', 100 * BIL);
     this.seed = seed;
-    this.set('diameter', 200000000000, 'ly');
-    this.initGenerators();
+    this.set('diameter', diameter);
+    this.set('galaxies', galaxies);
+    this.init();
   }
 
   get sn() {
@@ -27,25 +45,21 @@ export default class Universe extends GalacticContainer {
     return this._sn2;
   }
 
-  initGenerators() {
+  init() {
     this.set('lyCoord', new Vector2(0, 0));
-    this.generators.set('lyCoord', (child) => {
-      const scale = child.get('diameter').scalar;
-      return child.coord.toXY({ scale, pointy: true });
-    });
 
-    this.generators.set('galaxies', (child) => {
+    this.generators.set('distribution', (child) => {
       const lyCoord = child.get('lyCoord');
-      return this.galaxiesFromLyCoord(lyCoord);
+      return this.distribution(lyCoord);
     });
   }
 
-  galaxiesFromLyCoord(lyCoord) {
-    const value = this.sn.noise2D(lyCoord.x / D1, lyCoord.y / D1);
+  distribution(lyCoord) {
+    const value = Math.abs(this.sn.noise2D(lyCoord.x / D1, lyCoord.y / D1));
     const value2 = this.sn2.noise2D(lyCoord.x / D2, lyCoord.y / D2);
     const value3 = this.sn2.noise2D(lyCoord.x / D3, lyCoord.y / D3);
-    const sum = (0.5 + value + value2 + value3);
-    return Math.floor((Math.max(0, sum) * 15000000));
+    const sum = (0.5 + value + value2 + value3) * MIO;
+    return Math.floor((Math.max(0, sum)));
   }
 
   get seed2() {
@@ -54,22 +68,5 @@ export default class Universe extends GalacticContainer {
 
   makeChild(coord, division) {
     return new UniverseSector(coord, division, this);
-  }
-
-  // the known universe is 100 billion light years across.
-  // there are 200 billion galaxies in the observable universe;
-  // so an average of 1 galaxy/50 billion ly squared;
-  // partitioning the universe into 100 divisions gives us 30,301 hexes.
-  // so, those 200 billion galaxies:
-  // 200,000,000,000
-  // 9,007,199,254,740,991
-  // the formula below gives around
-  // 205,162,994,999 galaxies in the region, varying by seed
-  generateSectors(radius) {
-    this.divide(radius);
-
-    let count = 0;
-    this.children.forEach((c) => count += c.getLocal('galaxies'));
-    this.set('total-galaxies', count);
   }
 }

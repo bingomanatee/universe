@@ -19,8 +19,8 @@ const draw = async (sectors, config = {}, outputFilename) => {
   const min_y = lGet(config, 'min_y', -UNIT * 0.8);
   const max_x = lGet(config, 'max_x', UNIT);
   const max_y = lGet(config, 'max_y', UNIT * 0.8);
-  const linesPerUnit = lGet(config, 'lpu', 100);
-  const visual_scale = lGet(config, 'visual_scale', 5);
+  const linesPerUnit = lGet(config, 'lpu', 200);
+  const visual_scale = lGet(config, 'visual_scale', 1);
   const padding = lGet(config, 'padding', 5);
   const p2 = _N(padding).times(2);
   const matrix = lGet(config, 'matrix');
@@ -62,14 +62,14 @@ const draw = async (sectors, config = {}, outputFilename) => {
 
   // background
   ctx.beginPath();
-  ctx.fillStyle = '#FFFFFF';
+  ctx.fillStyle = 'black';
   ctx.rect(-1, -1, width + 2, height + 2);
   ctx.closePath();
   ctx.fill();
 
-  // horionTAL lines;
+  // grid lines;
   ctx.beginPath();
-  ctx.strokeStyle = '#75adda';
+  ctx.strokeStyle = 'rgba(117,173,218,0.2)';
   ctx.lineWidth = 2;
   range(min_x, max_x + 1, linesPerUnit).forEach((x) => {
     const start = screenCoord(x, min_y);
@@ -88,7 +88,7 @@ const draw = async (sectors, config = {}, outputFilename) => {
   ctx.stroke();
 
   ctx.lineWidth = 10;
-  ctx.strokeStyle = 'rgba(255,0,128,0.75)';
+  ctx.strokeStyle = 'rgba(122,4,23,0.75)';
   ctx.beginPath();
   ctx.moveTo(...screenCoord(min_x, 0).toArray());
   ctx.lineTo(...screenCoord(max_x, 0).toArray());
@@ -97,7 +97,7 @@ const draw = async (sectors, config = {}, outputFilename) => {
   ctx.closePath();
   ctx.stroke();
 
-  ctx.strokeStyle = '#4d785c';
+  ctx.strokeStyle = 'rgba(172,255,201,0.11)';
   ctx.lineWidth = 1;
   cornerSets.forEach((corners) => {
     ctx.beginPath();
@@ -137,7 +137,7 @@ const draw = async (sectors, config = {}, outputFilename) => {
 
   if (fn) {
     console.log('starting function');
-    fn(ctx, screenCoord);
+    fn(ctx, screenCoord, can);
     console.log('done with function');
   }
 

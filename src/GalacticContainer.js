@@ -6,6 +6,12 @@ import is from 'is';
 import lGet from './lodash/get';
 import last from './lodash/last';
 import range from './lodash/range';
+import sortBy from './lodash/sortBy';
+import mean from './lodash/mean';
+import map from './lodash/map';
+import groupBy from './lodash/groupBy';
+
+const tens = (x) => Math.floor(Math.log(x) / Math.log(10) + 1);
 
 const ORIGIN = new CubeCoord(0, 0, 0);
 
@@ -18,18 +24,30 @@ class GalacticContainer {
   constructor(props) {
     this.coord = lGet(props, 'coord', ORIGIN);
     this.parent = lGet(props, 'parent', null);
-    this.division = lGet(props, 'division', (this.parent ? 1000 : 1));
+    this.division = lGet(props, 'division', 1);
+    this.generators.set('lyCoord', (child) => {
+      const scale = child.get('diameter');
+      return child.coord.toXY({ scale, pointy: true });
+    });
   }
 
-  get x() { return this.coord.x; }
+  get x() {
+    return this.coord.x;
+  }
 
-  get y() { return this.coord.y; }
+  get y() {
+    return this.coord.y;
+  }
 
-  get z() { return this.coord.z; }
+  get z() {
+    return this.coord.z;
+  }
 
   do(fn, fn2) {
     this.children.forEach(fn);
-    if (fn2) fn2(this);
+    if (fn2) {
+      fn2(this);
+    }
   }
 
   sumOf(prop, local = false) {
@@ -44,8 +62,12 @@ class GalacticContainer {
     return value;
   }
 
-  get localId() {
+  get localIdLong() {
     return `x${this.coord.x}y${this.coord.y}d${this.division}`;
+  }
+
+  get localId() {
+    return `x${this.coord.x}y${this.coord.y}`;
   }
 
   get id() {
@@ -53,17 +75,35 @@ class GalacticContainer {
     return `${prefix}${this.localId}`;
   }
 
+  get idLong() {
+    const prefix = this.parent ? `${this.parent.idLong}.` : '';
+    return `${prefix}${this.localIdLong}`;
+  }
+
+  get childDivisions() {
+    const firstChild = Array.from(this.children.values())[0];
+    return firstChild.division;
+  }
+
   makeChild(coord, division) {
     return new GalacticContainer({ coord, parent: this, division });
   }
 
-  divide(radius = 10) {
-    const division = 2 * radius + 1;
+  /**
+   * if clip is true, we will end up with an even number of sectors;
+   * this will make divisions of units cleaner, but will mean that the map
+   * is not perfectly symmertric - there will be more hexes to the left/up of the
+   * region than the right/down.
+   * @param radius
+   * @param clip
+   */
+  divide(radius = 10, clip = false) {
+    const division = 2 * radius;
 
     this.children.clear();
 
-    range(radius * -1, radius + 1)
-      .forEach((x) => range(radius * -1, radius + 1).forEach((y) => {
+    range(radius * -1, radius + (clip ? 0 : 1))
+      .forEach((x) => range(radius * -1, radius + (clip ? 0 : 1)).forEach((y) => {
         const coord = new CubeCoord(x, y);
         // console.log('division point for ', x, y, coord.toString());
         if (distance(coord) <= radius) {
@@ -75,12 +115,7 @@ class GalacticContainer {
       }));
   }
 
-  setLocal(name, value, unit) {
-    if (unit) {
-      const q = Qty(value, unit);
-      this.setLocal(name, q);
-      return;
-    }
+  setLocal(name, value) {
     this.props.set(name, value);
   }
 
@@ -90,9 +125,7 @@ class GalacticContainer {
 
   set(name, value, unit) {
     if (unit) {
-      const q = Qty(value, unit);
-      this.set(name, q);
-      return;
+      throw new Error('cannot set units now');
     }
     this.props.set(name, value);
   }
@@ -118,16 +151,21 @@ class GalacticContainer {
       return this.props.get(name);
     }
 
-    if (!this.parent) return null;
+    if (!this.parent) {
+      return null;
+    }
     if (this.parent === this) {
       console.log('FRY!!!');
       return;
     }
 
     let value = this.parent.get(name);
-    if (is.number(value)) value /= this.division;
-    if (value instanceof Qty) value = value.div(this.division);
-    this.set(name, value);
+    if (is.number(value)) {
+      value /= this.division;
+    }
+    if (value instanceof Qty) {
+      value = value.div(this.division);
+    }
     return value;
   }
 
@@ -142,11 +180,91 @@ class GalacticContainer {
     return this.parent ? this.parent.depth + 1 : 0;
   }
 
+  /**
+   * this method determines a value for this container based on a function in the parent.
+   * @param prop
+   */
   generate(prop) {
     if (!this.parent.generators.has(prop)) {
       throw new Error(`child ${this.id}parent does not have generator ${prop}`);
     }
     this.set(prop, this.parent.generators.get(prop)(this));
+  }
+
+  get galaxies() {
+    return this.get('galaxies');
+  }
+
+  getChildren() {
+    return Array.from(this.children.values());
+  }
+
+  childrenBy(unit, desc = false, trim = true) {
+    let c = sortBy(this.getChildren(), (c) => c.get(unit));
+    if (trim) c = c.filter((c) => c.get(unit));
+    return desc ? c.reverse() : c;
+  }
+
+  generateSectors(radius) {
+    this.divide(radius, true);
+    this.do((c) => {
+      c.generate('lyCoord');
+      c.generate('distribution');
+    });
+    this.distributeGalaxies();
+  }
+
+  distributeGalaxies() {
+    const descList = this.childrenBy('distribution', true);
+    const totalDist = this.sumOf('distribution');
+    let galaxiesUsed = 0;
+    let distributionUsed = 0;
+    descList.forEach((child) => {
+      const dist = child.get('distribution');
+      distributionUsed += dist;
+      const desiredGalaxies = Math.round(this.galaxies * (distributionUsed / totalDist));
+      const childGalaxies = desiredGalaxies - galaxiesUsed;
+      child.set('galaxies', childGalaxies);
+      galaxiesUsed += childGalaxies;
+    });
+    const totalChildGalaxies = this.sumOf('galaxies');
+    const fix = this.galaxies - totalChildGalaxies;
+    if (fix) {
+      const first = descList[0];
+      first.set('galaxies', first.galaxies + fix);
+    }
+  }
+
+  medianGalaxies(smallCount = 4) {
+    const list = this.childrenBy('galaxies', true, true).filter((c) => c.galaxies >= smallCount);
+    if (list.length < 1) return 0;
+
+    if (list.length < 10) return mean(map(list, 'galaxies'));
+    /**
+     * find the most typical power of ten in the data set
+     */
+    const listTens = map(list, 'galaxies').map(tens);
+    const dist = groupBy(listTens);
+
+/*    console.log('power of 10 distribution:');
+    Object.keys(dist).forEach((key) => {
+      console.log('power:', key, 'count: ', dist[key].length);
+    });*/
+
+    const averageDist = Array.from(Object.values(dist)).reduce((bestList, list) => {
+      if (list.length > bestList.length) return list;
+      return bestList;
+    }, [])[0];
+
+    /**
+     * poll elements between 10 * typical and 1/10 * typical power
+     */
+    const max = 10 ** (averageDist + 1);
+    const min = 10 ** (averageDist - 1);
+
+    const typical = list.filter((child) => child.galaxies <= max && child.galaxies >= min);
+
+    return mean(map(typical, 'galaxies'));
   }
 }
 
