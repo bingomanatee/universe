@@ -16,12 +16,12 @@ registerFont('Helvetica Bold.ttf', { weight: 'bold', family: 'Helvetica' });
 const draw = async (sectors, config = {}, outputFilename) => {
   const UNIT = 500;
   const min_x = lGet(config, 'min_x', -UNIT);
-  const min_y = lGet(config, 'min_y', -UNIT * 0.8);
+  const min_y = lGet(config, 'min_y', -UNIT );
   const max_x = lGet(config, 'max_x', UNIT);
-  const max_y = lGet(config, 'max_y', UNIT * 0.8);
+  const max_y = lGet(config, 'max_y', UNIT );
   const linesPerUnit = lGet(config, 'lpu', 200);
   const visual_scale = lGet(config, 'visual_scale', 1);
-  const padding = lGet(config, 'padding', 5);
+  const padding = lGet(config, 'padding', 15);
   const p2 = _N(padding).times(2);
   const matrix = lGet(config, 'matrix');
 

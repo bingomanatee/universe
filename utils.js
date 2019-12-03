@@ -49,15 +49,16 @@ const HUND_MIO = HUND * MIO;
 const BIL = MIO * THOU;
 const TEN_B = 10 * BIL;
 
-const ONE_COLOR = 'rgba(255,255,255,0.13)';
-const TEN_COLOR = 'rgba(255,255,255,0.51)';
-const HUNDRED_COLOR = 'rgba(255,255,255,0.8)';
-const THOU_COLOR = 'rgb(218,255,235)';
-const TEN_K_COLOR = 'rgba(171,64,189,0.8)';
-const HUND_K_COLOR = 'rgba(162,0,83,0.8)';
-const MIO_COLOR = 'rgba(143,1,0,0.8)';
-const TEN_MIO_COLOR = 'rgba(193,62,0,0.8)';
-const HUND_MIO_COLOR = 'rgba(227,207,0,0.8)';
+const ONE_COLOR = 'rgba(255,255,255,0.1)';
+const TEN_COLOR = 'rgba(255,255,255,0.25)';
+const FIFTY_COLOR = 'rgba(255,255,255,0.5)';
+const HUNDRED_COLOR = 'rgba(255,255,255,0.9)';
+const THOU_COLOR = 'rgb(255,207,237)';
+const TEN_K_COLOR = 'rgb(171,64,189)';
+const HUND_K_COLOR = 'rgb(162,0,83)';
+const MIO_COLOR = 'rgb(143,1,0)';
+const TEN_MIO_COLOR = 'rgb(193,62,0)';
+const HUND_MIO_COLOR = 'rgb(227,207,0)';
 const BIL_COLOR = 'rgb(182,255,0)';
 const TEN_B_COLOR = 'rgb(1,121,0)';
 const HUND_B_COLOR = 'rgb(1,33,163)';
@@ -80,9 +81,10 @@ const brackets = [
 const tens = (x) => Math.floor(Math.log(x) / Math.log(10) + 1);
 
 const colorOf = (n) => {
-  if (!is.number) return 'white';
+  if (!is.number(n)) return 'white';
   const power = tens(n);
-  if (power <= 0) return HUNDRED_COLOR;
+  if (power <= 0) return ONE_COLOR;
+  if (n >=10 && n < 50) return FIFTY_COLOR;
   if (power > brackets.length) return HUND_B_COLOR;
   return brackets[power];
 };

@@ -58,13 +58,13 @@ function drawDiscs(child, ctx, screenPoint, matrix, color) {
 
   console.log('--drawing +');
   child.do((sector) => {
-    ctx.strokeStyle = 'rgba(176,105,255,0.5)';
-    ctx.lineWidth = 2;
-    const galaxies = sector.getLocal('galaxies');
+    ctx.strokeStyle = 'rgba(219,192,255,0.26)';
+    ctx.lineWidth = 1;
+    const { galaxies } = sector;
     const center = sector.coord.toXY(matrix);
     const screenCenter = screenPoint(center);
 
-    const X_RADIUS = Math.max(HEX_RADIUS / 2, 3);
+    const X_RADIUS = Math.max(HEX_RADIUS / 3, 3);
 
     if ((galaxies > 0) && (galaxies < SMALL_COUNT)) {
       ctx.beginPath();
@@ -124,26 +124,29 @@ const digit = (n, large) => {
 
 const CLEAR_BG = 'rgba(255,255,255,0.5)';
 
-function labelSectorQty(child, ctx, screenPoint, matrix, fract = false) {
-  ctx.font = 'bold 8pt Helvetica';
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'bottom';
-  child.do((sector) => {
-    const galaxies = sector.getLocal('galaxies');
-    if (galaxies <= 0) return;
-    if ((!fract) && (galaxies < 1)) return;
+function labelSectorQty(child, ctx, screenPoint, matrix = false) {
+  if (!child.parent) return;
 
+  ctx.font = '9pt Helvetica';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  child.do((sector) => {
+    if (sector.galaxies <= 0) return;
+    if (sector.galaxies >= 1000 * MIO) return;
     const center = sector.coord.toXY(matrix);
     const screenCenter = screenPoint(center);
 
-    const mio = (galaxies / MIO);
-    const k = (galaxies / THOU);
+    const mio = (sector.galaxies / MIO);
+    const k = (sector.galaxies / THOU);
     if (mio >= 1) {
-      ctx.fillStyle = 'rgba(153,0,51,0.8)';
+      ctx.fillStyle = 'rgb(255,255,255)';
       ctx.fillText(`${digit(mio, true)}m`, screenCenter.x, screenCenter.y);
     } else if (k >= 1) {
-      ctx.fillStyle = 'rgba(100,130,120,0.8)';
-      ctx.fillText(`${digit(k)}k`, screenCenter.x, screenCenter.y);
+      ctx.fillStyle = 'rgb(114,114,114)';
+      ctx.fillText(`${digit(k, true)}k`, screenCenter.x, screenCenter.y);
+    } else {
+      ctx.fillStyle = 'rgb(114,95,78)';
+      ctx.fillText(`${digit(sector.galaxies, false)}`, screenCenter.x, screenCenter.y);
     }
   });
 }
@@ -168,7 +171,7 @@ function legend(ctx, target, canvas) {
   ctx.fillText(`${FormatNumber(diam, 1)}ly across (diagonally)`, fontSize, fontSize * 5);
   ctx.fillText(`${firstChild.division} hexes across(diagonally)`, fontSize, fontSize * 8);
   ctx.fillText(`${FormatNumber(hexDiam, 1)} ly per hex`, fontSize, fontSize * 11);
-  ctx.fillText(`${FormatNumber(target.sumOf('galaxies'), 0)} galaxies`, fontSize, fontSize * 14);
+  ctx.fillText(`${FormatNumber(target.sumOfGalaxies(), 0)} galaxies`, fontSize, fontSize * 14);
 
   ctx.font = `bold ${fontSize / 2}pt Helvetica`;
   brackets.forEach((color, i) => {

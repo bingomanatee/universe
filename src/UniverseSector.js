@@ -15,14 +15,10 @@ export default class UniverseSector extends GalacticContainer {
       coord, division, parent,
     });
     this.init();
-    this.generate('lyCoord');
   }
 
   init() {
-    this.generators.set('distribution', (child) => {
-      const lyCoord = child.get('lyCoord');
-      return this.distribution(lyCoord);
-    });
+    this.generators.set('distribution', (child) => this.distribution(child.lyCoord));
   }
 
   distribution(lyCoord) {
@@ -33,17 +29,26 @@ export default class UniverseSector extends GalacticContainer {
     return new UniverseSector(coord, division, this);
   }
 
-  generateSectors() {
-    if (this.galaxies > HUND_K) {
-      super.generateSectors(300);
+  generateSectors(diameter) {
+    if (diameter) super.generateSectors(diameter);
+
+    let ratio = 150;
+    if (this.galaxies > BIL) {
+      ratio = 320;
     } else if (this.galaxies > MIO) {
-      super.generateSectors(250);
+      ratio = 160;
+    } else if (this.galaxies > 5 * TEN_K) {
+      ratio = 80;
     } else if (this.galaxies > THOU) {
-      super.generateSectors(100);
-    } else if (this.galaxies > 500) {
-      super.generateSectors(50);
+      ratio = 40;
     } else {
-      super.generateSectors(25);
+      ratio = 20;
     }
+
+    const diam = this.get('diameter');
+    if (diam / (2 * ratio) < 2 * HUND_K) {
+      ratio = Math.max(20, Math.ceil(HUND_K / diam));
+    }
+    super.generateSectors(ratio);
   }
 }

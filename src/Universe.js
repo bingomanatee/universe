@@ -1,15 +1,17 @@
-
 import Noise from 'simplex-noise';
 import GalacticContainer from './GalacticContainer';
 import UniverseSector from './UniverseSector';
 import randomFor from './randomFor';
 import { Vector2 } from './three/Vector2';
-import { BIL, MIO, THOU, TEN_K } from '../utils';
+import {
+  BIL, MIO, THOU, TEN_K,
+} from '../utils';
 import lGet from './lodash/get';
 
-const D1 = MIO;
-const D2 = TEN_K;
-const D3 = 100;
+const D1 = 10 * BIL;
+const D2 = MIO;
+const D3 = TEN_K;
+const D4 = 1 / TEN_K;
 
 // the known universe is 100 billion light years across.
 // there are 200 billion galaxies in the observable universe;
@@ -25,40 +27,54 @@ const D3 = 100;
 
 export default class Universe extends GalacticContainer {
   constructor(props = {}) {
-    super({});
+    super(props);
     const seed = lGet(props, 'seed', 'the universe is big. really really big.');
     const galaxies = lGet(props, 'galaxies', 50 * BIL);
     const diameter = lGet(props, 'diameter', 100 * BIL);
     this.seed = seed;
     this.set('diameter', diameter);
-    this.set('galaxies', galaxies);
+    this.galaxies = galaxies;
     this.init();
   }
 
   get sn() {
-    if (!this._sn) this._sn = new Noise(randomFor(this.seed));
+    if (!this._sn) {
+      this._sn = new Noise(randomFor(this.seed));
+    }
     return this._sn;
   }
 
   get sn2() {
-    if (!this._sn2) this._sn2 = new Noise(randomFor(this.seed2));
+    if (!this._sn2) {
+      this._sn2 = new Noise(randomFor(this.seed2));
+    }
     return this._sn2;
   }
 
-  init() {
-    this.set('lyCoord', new Vector2(0, 0));
+  get sn3() {
+    if (!this._sn3) {
+      this._sn3 = new Noise(randomFor(this.seed2 + this.seed));
+    }
+    return this._sn3;
+  }
 
-    this.generators.set('distribution', (child) => {
-      const lyCoord = child.get('lyCoord');
-      return this.distribution(lyCoord);
-    });
+  get sn4() {
+    if (!this._sn4) {
+      this._sn4 = new Noise(randomFor(this.seed + this.seed2));
+    }
+    return this._sn4;
+  }
+
+  init() {
+    this.generators.set('distribution', (child) => this.distribution(child.lyCoord));
   }
 
   distribution(lyCoord) {
-    const value = Math.abs(this.sn.noise2D(lyCoord.x / D1, lyCoord.y / D1));
+    const value = this.sn.noise2D(lyCoord.x / D1, lyCoord.y / D1);
     const value2 = this.sn2.noise2D(lyCoord.x / D2, lyCoord.y / D2);
-    const value3 = this.sn2.noise2D(lyCoord.x / D3, lyCoord.y / D3);
-    const sum = (0.5 + value + value2 + value3) * MIO;
+    const value3 = this.sn3.noise2D(lyCoord.x / D3, lyCoord.y / D3);
+    const value4 = this.sn4.noise2D(lyCoord.x / D4, lyCoord.y / D4);
+    const sum = (-0.5 + value * 0.25 + value2 * 0.5 + value3 + 1.5 * value4) * MIO;
     return Math.floor((Math.max(0, sum)));
   }
 

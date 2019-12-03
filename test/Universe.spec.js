@@ -9,6 +9,7 @@ const draw = require('../drawContainer');
 const { point2stringI, BIL } = require('../utils');
 const sortBy = require('./../src/lodash/sortBy');
 const asserts = require('../addVectorAsserts');
+const map = require('../src/lodash/map');
 
 const {
   drawDiscs, labelPoints, tellChildIDs, labelSectorQty, legend,
@@ -16,31 +17,38 @@ const {
 
 asserts(tap);
 
-const UNIVERSE_DIV = 300;
+const UNIVERSE_DIV = 150;
 const SECTOR_DIV = 50;
 const SUBSECTOR_DIV = 50;
-const HEX_SCALE = 20;
+const HEX_SCALE = 40;
+const U_GALAXIES = 5 * BIL;
+const U_DIAMETER = 100 * BIL;
+
+const makeUni = () => new Universe({
+  seed: 'test',
+  galaxies: U_GALAXIES,
+  diameter: U_DIAMETER,
+});
 
 function getChildBySize(target, fr) {
-  const sortedPopulatedKids = Array.from(target.children.values())
-    .filter((c) => c.galaxies > 1);
-  const children = sortBy(sortedPopulatedKids, 'galaxies');
-  return children[Math.round(children.length * fr)];
+  const sortedPopulatedKids = target.byGalaxies();
+  return sortedPopulatedKids[Math.round(sortedPopulatedKids.length * fr)];
 }
 
 async function drawSector(sector, hexScale = 6, name = 'sector') {
   const visualScale = 1;
   const matrixScale = 6;
-  const K = 1 / 6;
+  const K = 1 / 5;
   const matrix = new Hexes({ scale: hexScale, pointy: true });
   const hexes = sector.childDivisions;
   const width = hexScale * matrixScale * hexes * K;
-  const height = hexScale * matrixScale * hexes * 0.8 * K;
+  const height = hexScale * matrixScale * hexes * 0.9 * K;
 
   console.log('------- drawing: ', name);
   console.log('          width: ', width);
   console.log('         height: ', height);
   console.log('         diameter:', sector.get('diameter'));
+  console.log('         galaxies:', sector.galaxies);
 
   try {
     await draw(Array.from(sector.children.values()), {
@@ -51,19 +59,9 @@ async function drawSector(sector, hexScale = 6, name = 'sector') {
       visual_scale: visualScale,
       matrix,
       fn(ctx, screenPoint, canvas) {
-        const time = Date.now();
-        console.log('--- drawDiscs');
         drawDiscs(sector, ctx, screenPoint, matrix);
-        const time2 = Date.now();
-        console.log('--- done drawDiscs', Math.floor((time2 - time) / 1000));
-        /*        console.log('--- labelSectorQty');
-         labelSectorQty(sector, ctx, screenPoint, matrix);
-        const time3 = Date.now();
-        console.log('--- done labelSectorQty', Math.floor((time3 - time2) / 1000)); */
-        console.log('--- labelPoints');
-        const time4 = Date.now();
+        labelSectorQty(sector, ctx, screenPoint, matrix);
         labelPoints(sector, ctx, screenPoint, matrix, 20);
-        console.log('--- done labelPoints', Math.floor((time4 - time2) / 1000));
         legend(ctx, sector, canvas);
       },
     }, `${name}-${sector.id}`);
@@ -77,10 +75,10 @@ tap.test(p.name, (suite) => {
   suite.test('Universe', (u) => {
     u.test('drawing sectors', (dr) => {
       dr.test('universe', async (r) => {
-        const uni = new Universe('test');
+        const uni = makeUni();
         uni.generateSectors(UNIVERSE_DIV);
 
-        await drawSector(uni, HEX_SCALE * 1.25, 'universe');
+        await drawSector(uni, HEX_SCALE * 0.8, 'universe');
 
         r.end();
       });
@@ -99,23 +97,31 @@ tap.test(p.name, (suite) => {
       });
 
       dr.test('sub-sub-sectors', async (rs) => {
-        const uni = new Universe('test');
+        const uni = makeUni();
         uni.generateSectors(UNIVERSE_DIV);
 
+
         const child = getChildBySize(uni, 0.5);
+
+        console.log('---- child: ', child.galaxies);
 
         child.generateSectors();
 
         const subChild = getChildBySize(child, 0.5);
+        console.log('---- subchild: ', subChild.galaxies);
+        subChild.do((c) => {
+          if (c.galaxies) console.log('uni subChild of ', subChild.id, subChild.galaxies, ' sector', c.id, c.galaxies, 'galaxies');
+        });
 
         subChild.generateSectors();
-        await drawSector(subChild, HEX_SCALE * 0.8, 'sub-subsector-normal');
+
+        await drawSector(subChild, HEX_SCALE * 2, 'sub-subsector-normal');
 
         rs.end();
       });
 
       dr.test('subsectors - larger', async (rs) => {
-        const uni = new Universe('test');
+        const uni = makeUni();
         uni.generateSectors(UNIVERSE_DIV);
 
         const child = getChildBySize(uni, 0.75);
@@ -127,9 +133,8 @@ tap.test(p.name, (suite) => {
         rs.end();
       });
 
-
       dr.test('sub-sub-sectors - larger', async (rs) => {
-        const uni = new Universe('test');
+        const uni = makeUni();
         uni.generateSectors(UNIVERSE_DIV);
 
         const child = getChildBySize(uni, 0.75);
@@ -140,13 +145,13 @@ tap.test(p.name, (suite) => {
 
         subChild.generateSectors();
 
-        await drawSector(subChild, HEX_SCALE * 0.8, 'sub-subsector-larger');
+        await drawSector(subChild, HEX_SCALE * 2, 'sub-subsector-larger');
 
         rs.end();
       });
 
       dr.test('subsectors - largest', async (rs) => {
-        const uni = new Universe('test');
+        const uni = makeUni();
         uni.generateSectors(UNIVERSE_DIV);
 
         const child = getChildBySize(uni, 0.95);
@@ -159,7 +164,7 @@ tap.test(p.name, (suite) => {
       });
 
       dr.test('sub-sub-sectors - largest', async (rs) => {
-        const uni = new Universe('test');
+        const uni = makeUni();
         uni.generateSectors(UNIVERSE_DIV);
 
         const child = getChildBySize(uni, 0.95);
@@ -170,13 +175,13 @@ tap.test(p.name, (suite) => {
 
         subChild.generateSectors();
 
-        await drawSector(subChild, HEX_SCALE * 0.8, 'sub-subsector-largest');
+        await drawSector(subChild, HEX_SCALE * 2, 'sub-subsector-largest');
 
         rs.end();
       });
 
       dr.test('subsectors - smaller', async (rs) => {
-        const uni = new Universe('test');
+        const uni = makeUni();
         uni.generateSectors(UNIVERSE_DIV);
 
         const child = getChildBySize(uni, 0.25);
@@ -189,7 +194,7 @@ tap.test(p.name, (suite) => {
       });
 
       dr.test('sub-sub-sectors - smaller', async (rs) => {
-        const uni = new Universe('test');
+        const uni = makeUni();
         uni.generateSectors(UNIVERSE_DIV);
 
         const child = getChildBySize(uni, 0.25);
@@ -200,13 +205,13 @@ tap.test(p.name, (suite) => {
 
         subChild.generateSectors();
 
-        await drawSector(subChild, HEX_SCALE * 0.8, 'sub-subsector-smaller');
+        await drawSector(subChild, HEX_SCALE * 2, 'sub-subsector-smaller');
 
         rs.end();
       });
 
       dr.test('subsectors - smallest', async (rs) => {
-        const uni = new Universe('test');
+        const uni = makeUni();
         uni.generateSectors(UNIVERSE_DIV);
 
         const child = getChildBySize(uni, 0.1);
@@ -219,7 +224,7 @@ tap.test(p.name, (suite) => {
       });
 
       dr.test('sub-sub-sectors - smallest', async (rs) => {
-        const uni = new Universe('test');
+        const uni = makeUni();
         uni.generateSectors(UNIVERSE_DIV);
 
         const child = getChildBySize(uni, 0.1);
@@ -230,7 +235,7 @@ tap.test(p.name, (suite) => {
 
         subChild.generateSectors();
 
-        await drawSector(subChild, HEX_SCALE * 0.8, 'sub-subsector-smallest');
+        await drawSector(subChild, HEX_SCALE * 2, 'sub-subsector-smallest');
 
         rs.end();
       });
@@ -247,7 +252,7 @@ tap.test(p.name, (suite) => {
         });
 
         uni.generateSectors(10);
-        su.same(uni.galaxies, uni.sumOf('galaxies'), 'universe has the right number of galaxies');
+        su.same(uni.galaxies, uni.sumOfGalaxies(), 'universe has the right number of galaxies');
         su.same(uni.galaxies, 10000, 'universe has the right number of galaxies');
 
         const first = Array.from(uni.children.values())[0];
@@ -258,7 +263,7 @@ tap.test(p.name, (suite) => {
 
         const firstSub = Array.from(first.children.values())[0];
 
-        su.same(firstSub.get('diameter'), 12.5, 'subsector is fraction of sector');
+        su.same(firstSub.get('diameter'), 5, 'subsector is fraction of sector');
 
         su.end();
       });
@@ -270,7 +275,7 @@ tap.test(p.name, (suite) => {
 
         uni.generateSectors(UNIVERSE_DIV);
 
-        su.same(uni.galaxies, uni.sumOf('galaxies'), 'universe has the right number of galaxies');
+        su.same(uni.galaxies, uni.sumOfGalaxies(), 'universe has the right number of galaxies');
         su.end();
       });
 
