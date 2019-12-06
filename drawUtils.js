@@ -1,4 +1,3 @@
-
 const { CubeCoord } = require('@wonderlandlabs/hexagony');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { FormatNumber } = require('num-format');
@@ -6,7 +5,7 @@ const mean = require('./src/lodash/mean');
 const sortBy = require('./src/lodash/sortBy');
 const lGet = require('./src/lodash/get');
 const {
-  colorOf, tens, MIO, THOU, brackets,
+  colorOf, tens, MIO, THOU, colorBrackets,
 } = require('./utils');
 
 function tellChildIDs(item, max = 10, name = 'target') {
@@ -174,10 +173,19 @@ function legend(ctx, target, canvas) {
   ctx.fillText(`${FormatNumber(target.sumOfGalaxies(), 0)} galaxies`, fontSize, fontSize * 14);
 
   ctx.font = `bold ${fontSize / 2}pt Helvetica`;
-  brackets.forEach((color, i) => {
-    ctx.fillStyle = color;
-    ctx.fillText(`${FormatNumber(10 ** i, 1)}... ${FormatNumber(10 ** (i + 1), 1)} galaxies`, fontSize, fontSize * (i + 17));
-  });
+  try {
+    colorBrackets.forEach(([min, max], i) => {
+      ctx.fillStyle = colorOf(min);
+      ctx.fillText(`${FormatNumber(min, 1)}... `, fontSize, fontSize * (i + 17));
+      if (i < (colorBrackets.length - 1)) {
+        ctx.fillText(`${FormatNumber(max, 1)} galaxies`, fontSize * 8, fontSize * (i + 17));
+      } else {
+        ctx.fillText('+ galaxies', fontSize * 8, fontSize * (i + 17));
+      }
+    });
+  } catch (err) {
+    console.log('error in colorBrackets:', err);
+  }
 }
 
 module.exports = {

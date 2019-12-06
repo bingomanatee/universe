@@ -25,6 +25,7 @@
     "simplex-noise": "^2.4.0"
   },
   "devDependencies": {
+    "chroma-js": "^2.1.0",
     "@wonderlandlabs/n": "^1.0.2",
     "canvas": "^2.6.0",
     "eslint": "^6.3.0",
@@ -38,6 +39,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^5.1.2",
+    "simple-statistics": "^7.0.7",
     "tap": "^14.6.1"
   },
   "author": "David Edelhart",

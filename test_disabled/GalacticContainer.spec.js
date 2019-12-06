@@ -6,8 +6,8 @@ const asserts = require('../addVectorAsserts');
 
 asserts(tap);
 
-const p = require('./../package.json');
-const { GalacticContainer } = require('./../lib/index');
+const p = require('../package.json');
+const { GalacticContainer } = require('../lib');
 
 const THOUSAND = 1000;
 const MIO = THOUSAND * THOUSAND;

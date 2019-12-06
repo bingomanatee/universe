@@ -1,5 +1,6 @@
-import {CubeCoord} from '@wonderlandlabs/hexagony';
-import {proppify} from '@wonderlandlabs/propper';
+import { CubeCoord } from '@wonderlandlabs/hexagony';
+import { proppify } from '@wonderlandlabs/propper';
+import * as ss from 'simple-statistics';
 import Qty from 'js-quantities';
 
 import is from 'is';
@@ -9,9 +10,11 @@ import range from './lodash/range';
 import sortBy from './lodash/sortBy';
 import mean from './lodash/mean';
 import map from './lodash/map';
+import clamp from './lodash/clamp';
 import shuffle from './lodash/shuffle';
 import sum from './lodash/sum';
 import groupBy from './lodash/groupBy';
+import { point2stringI } from '../utils';
 
 const tens = (x) => Math.floor(Math.log(x) / Math.log(10) + 1);
 
@@ -31,7 +34,10 @@ class GalacticContainer {
 
   get lyCoord() {
     const scale = this.get('diameter');
-    const base = this.coord.toXY({scale: 1, pointy: false});
+    if (!scale) {
+      console.log('undefined diameter for ', this.id);
+    }
+    const base = this.coord.toXY({ scale, pointy: false });
     if (this.parent) {
       return this.parent.lyCoord.add(base);
     }
@@ -97,7 +103,7 @@ class GalacticContainer {
   }
 
   makeChild(coord, division) {
-    return new GalacticContainer({coord, parent: this, division});
+    return new GalacticContainer({ coord, parent: this, division });
   }
 
   /**
@@ -226,13 +232,23 @@ class GalacticContainer {
   distributeGalaxies() {
     console.log('distributing galaxies for ', this.id);
     const descList = this.childrenBy('distribution', true);
-    const totalDist = this.sumOf('distribution');
+    const distValues = map(descList, (a) => a.get('distribution'));
+    const m = ss.mean(distValues);
+    const sd = ss.standardDeviation(distValues);
+    const scaleDist = (value) => 0.5 + (value - m) / (1.5 * sd);
+    // const totalDist = sum(distValues);
+    const totalDistScaled = sum(distValues.map(scaleDist));
     let galaxiesUsed = 0;
     let distributionUsed = 0;
     descList.forEach((child) => {
       const dist = child.get('distribution');
-      distributionUsed += dist;
-      const desiredGalaxies = Math.round(this.galaxies * (distributionUsed / totalDist));
+      const scaledDist = scaleDist(dist);
+      if (scaledDist < 0) {
+        child.galaxies = 0;
+        return;
+      }
+      distributionUsed += scaledDist;
+      const desiredGalaxies = Math.round(this.galaxies * (distributionUsed / totalDistScaled));
       const childGalaxies = desiredGalaxies - galaxiesUsed;
       child.galaxies = childGalaxies;
       galaxiesUsed += childGalaxies;
@@ -241,29 +257,50 @@ class GalacticContainer {
     this.fixCount();
   }
 
+  analyze() {
+    const children = sortBy(this.getChildren(), 'galaxies');
+    const gals = map(children, 'galaxies');
+    const mn = ss.mean(gals);
+    const stdev = ss.standardDeviation(gals);
+    console.log('===== result:', this.id, 'mean:', mn, 'stdev:', stdev);
+    const samples = [];
+    const coords = [];
+    for (let i = 0; i <= 10; i += 1) {
+      const index = clamp(Math.floor(gals.length * (i / 10)), 0, gals.length - 1);
+      samples.push(gals[index]);
+      coords.push(children[index].lyCoord);
+    }
+    console.log('====== distribution:', ...samples);
+    console.log('====== points:', ...samples);
+  }
+
   sumOfGalaxies() {
     return sum(map(Array.from(this.children.values()), 'galaxies'));
   }
 
-  byGalaxies(desc = false, noZeros = true){
+  byGalaxies(desc = false, noZeros = true) {
     let out = sortBy(shuffle(Array.from(this.children.values())), 'galaxies');
-    if (noZeros) out = out.filter(a => a.galaxies > 0);
+    if (noZeros) out = out.filter((a) => a.galaxies > 0);
     if (desc) return out.reverse();
     return out;
   }
 
   fixCount() {
     const count = this.sumOfGalaxies();
+    if (count <= 0) {
+      console.log('no galaxies - cannot fix');
+      return;
+    }
     let diff = Math.round(count - this.galaxies);
 
     // note - will NOT be synced with galaxies
     if (diff === 0) {
       return;
     }
-    const galList =  this.byGalaxies(true, false);
+    const galList = this.byGalaxies(true, false);
     if (galList.length < 1) {
       console.log('no children --- cannot fix', this.id);
-      return
+      return;
     }
 
     console.log('fixing ', this.id, 'count', count, 'desired', this.galaxies, 'diff', diff, galList.length, 'children');
@@ -272,7 +309,6 @@ class GalacticContainer {
       const child = galList.shift();
       const cGalaxies = child.galaxies;
       const offset = Math.max(1, Math.round(cGalaxies / 10));
-      console.log('adjusting child.galaxies from ', child.galaxies)
       if ((diff > 0) && (cGalaxies > 0)) {
         child.galaxies = cGalaxies - offset;
         diff -= offset;
@@ -281,8 +317,6 @@ class GalacticContainer {
         child.galaxies = cGalaxies + offset;
         diff += offset;
       }
-      console.log('... to ', child.galaxies);
-      console.log('... diff = ', diff);
       if (diff === 0) {
         break;
       }
@@ -294,15 +328,15 @@ class GalacticContainer {
     }
   }
 
-  distribution() {
+  /*  distribution() {
     const list = this.childrenBy('distribution', true, true).filter((c) => c.galaxies > 0);
-    /**
+    /!**
      * find the most typical power of ten in the data set
-     */
+     *!/
     const listTens = map(list, 'galaxies').map(tens);
     const dist = [];
     listTens.forEach
-  }
+  } */
 
   medianGalaxies(smallCount = 4) {
     const list = this.childrenBy('distribution', true, true).filter((c) => c.galaxies >= smallCount);

@@ -29,7 +29,7 @@ export default class UniverseSector extends GalacticContainer {
     return new UniverseSector(coord, division, this);
   }
 
-  generateSectors(diameter) {
+/*  generateSectors(diameter) {
     if (diameter) super.generateSectors(diameter);
 
     let ratio = 150;
@@ -50,5 +50,5 @@ export default class UniverseSector extends GalacticContainer {
       ratio = Math.max(20, Math.ceil(HUND_K / diam));
     }
     super.generateSectors(ratio);
-  }
+  }*/
 }

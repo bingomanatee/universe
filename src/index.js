@@ -1,7 +1,6 @@
-import Universe from './Universe';
-import GalacticContainer from './GalacticContainer';
+import HexRegion from './HexRegion';
 import randomFor from './randomFor';
 
 export default {
-  Universe, GalacticContainer, randomFor,
+  HexRegion, randomFor,
 };

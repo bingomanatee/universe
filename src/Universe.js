@@ -4,14 +4,15 @@ import UniverseSector from './UniverseSector';
 import randomFor from './randomFor';
 import { Vector2 } from './three/Vector2';
 import {
-  BIL, MIO, THOU, TEN_K,
+  BIL, MIO, THOU, TEN_K, HUND_MIO, TEN_MIO,
 } from '../utils';
 import lGet from './lodash/get';
 
-const D1 = 10 * BIL;
-const D2 = MIO;
+const D1 = HUND_MIO;
+const D2 = TEN_MIO;
 const D3 = TEN_K;
-const D4 = 1 / TEN_K;
+const D4 = THOU;
+const D5 = 10;
 
 // the known universe is 100 billion light years across.
 // there are 200 billion galaxies in the observable universe;
@@ -25,6 +26,7 @@ const D4 = 1 / TEN_K;
 
 // note - cheating and lowering galaxy count to 50 billion.
 
+// 36,000,000,000
 export default class Universe extends GalacticContainer {
   constructor(props = {}) {
     super(props);
@@ -74,7 +76,8 @@ export default class Universe extends GalacticContainer {
     const value2 = this.sn2.noise2D(lyCoord.x / D2, lyCoord.y / D2);
     const value3 = this.sn3.noise2D(lyCoord.x / D3, lyCoord.y / D3);
     const value4 = this.sn4.noise2D(lyCoord.x / D4, lyCoord.y / D4);
-    const sum = (-0.5 + value * 0.25 + value2 * 0.5 + value3 + 1.5 * value4) * MIO;
+    const value5 = this.sn4.noise2D(lyCoord.x / D5, lyCoord.y / D5);
+    const sum = ((1 - Math.abs(value2)) * MIO); // + Math.abs(value3) + Math.abs(value5 / 2)
     return Math.floor((Math.max(0, sum)));
   }
 
