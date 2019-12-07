@@ -19,7 +19,7 @@ const draw = async (config = {}, outputFilename) => {
   const min_y = lGet(config, 'min_y', -UNIT);
   const max_x = lGet(config, 'max_x', UNIT);
   const max_y = lGet(config, 'max_y', UNIT);
-  const linesPerUnit = lGet(config, 'lpu', 200);
+  const linesPerUnit = lGet(config, 'lpu', 10);
   const visual_scale = lGet(config, 'visual_scale', 1);
   const padding = lGet(config, 'padding', 15);
   const p2 = _N(padding).times(2);
@@ -63,15 +63,15 @@ const draw = async (config = {}, outputFilename) => {
   // grid lines;
   ctx.beginPath();
   ctx.strokeStyle = 'rgba(117,173,218,0.2)';
-  ctx.lineWidth = 2;
-  range(min_x, max_x + 1, linesPerUnit).forEach((x) => {
+  ctx.lineWidth = 1;
+  range(0, max_x + 1, linesPerUnit).concat(range(0, min_x - 1, -linesPerUnit)).forEach((x) => {
     const start = screenCoord(x, min_y);
     const end = screenCoord(x, max_y);
     ctx.moveTo(...start.toArray());
     ctx.lineTo(...end.toArray());
   });
 
-  range(min_y, max_y + 1, linesPerUnit).forEach((y) => {
+  range(0, max_y + 1, linesPerUnit).concat(range(0, min_y - 1, -linesPerUnit)).forEach((y) => {
     const start = screenCoord(min_x, y);
     const end = screenCoord(max_x, y);
     ctx.moveTo(...start.toArray());

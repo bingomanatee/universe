@@ -3,6 +3,7 @@ import { proppify } from '@wonderlandlabs/propper';
 // import * as pp from 'pointinpoly';
 import is from 'is';
 
+import classsifyPIP from 'robust-point-in-polygon';
 import lGet from './lodash/get';
 import range from './lodash/range';
 import sortBy from './lodash/sortBy';
@@ -15,14 +16,14 @@ const distance = (p1) => ['x', 'y', 'z'].reduce((d, dim) => {
   return Math.max(d, cDist);
 }, 0);
 
-class HexCell {
+class HexRegion {
   constructor(props = {}) {
     this.coord = lGet(props, 'coord', ORIGIN);
     this.name = lGet(props, 'name', '');
     this.parent = lGet(props, 'parent', null);
     this.divisions = lGet(props, 'divisions', 1);
-    this.pointy = this.parent ? !this.parent.pointy : lGet(props, 'pointy', true);
-    this.diameter = this.parent ? this.parent.diameter / ((this.divisions - 1) * Math.cos(Math.PI / 6)) : lGet(props, 'diameter', 1);
+    this.pointy = this.parent ? this.parent.pointy : lGet(props, 'pointy', true);
+    this.diameter = this.parent ? this.parent.diameter / ((this.divisions)) : lGet(props, 'diameter', 1);
   }
 
   get matrix() {
@@ -53,17 +54,18 @@ class HexCell {
     return this._box;
   }
 
-  corners() {
+  corners(abs) {
     return this.matrix.corners(this.coord).map((c) => {
-      if (this.parent) {
-        return c.clone().add(this.parent.center);
+      if ((!abs) && this.parent) {
+        return c.add(this.parent.center);
       }
       return c;
     });
   }
 
-  toBox() {
-    const corners = this.corners();
+  toBox(abs) {
+    let corners = this.corners(abs);
+    if (abs) corners = this.matrix.corners(ORIGIN);
     let box = new Box2(corners[0].clone(), corners[0].clone());
     corners.forEach((v) => {
       box = box.union({ min: v, max: v });
@@ -103,6 +105,18 @@ class HexCell {
     this.children.forEach(fn);
   }
 
+  map(prop) {
+    const out = [];
+    this.forEach((child) => {
+      if (is.function(prop)) {
+        out.push(prop(child));
+      } else {
+        out.push(child.get(prop));
+      }
+    });
+    return out;
+  }
+
   reduce(fn, init) {
     let value = init;
     this.forEach((child) => {
@@ -139,25 +153,42 @@ class HexCell {
   }
 
   makeChild(coord, divisions) {
-    return new HexCell({ coord, parent: this, divisions });
+    return new HexRegion({ coord, parent: this, divisions });
+  }
+
+  insetCorners() {
+    const corners = this.corners();
+    const lerpAmount = (-1 / (2 * this.childDivisions));
+    return corners.map((p) => p.clone().lerp(this.center, lerpAmount));
   }
 
   /**
+   *
    * @param radius
+   *
+   * divides the hex into subHexes, radiating from a center hex, meaning for pointy hexes, the face parallel
+   * to the center will be centered at the border. This will result in sub-sub-hexes overlapping which for deeply divided
+   * systems is not necessarily significant but does require some adjustiment in tiled systems.
+   *
+   * if You want
    */
-  divide(radius) {
-    const divisions = 2 * radius + 1;
+  divide(radius, odd = false) {
+    if (!is.integer(radius) && radius > 0) {
+      throw new Error(`cannot divide ${this.id} by ${radius}`);
+    }
+    const divisions = 2 * radius + (odd ? 1 : 0);
     this.childDivisions = divisions;
 
     this.children.clear();
 
-    const corners = this.corners();
+    const corners = this.insetCorners().map((p) => p.toArray());
 
-    const r = range(radius * -2, radius + 2);
+    const r = range(radius * -2, radius * 2);
     r.forEach((x) => r.forEach((y) => {
       const coord = new CubeCoord(x, y);
-      if (distance(coord) <= radius) {
-        const child = this.makeChild(coord, divisions);
+      const child = this.makeChild(coord, divisions);
+
+      if (classsifyPIP(corners, child.center.toArray()) === -1) {
         this.children.set(child.localId, child);
       }
     }));
@@ -237,6 +268,14 @@ class HexCell {
     return desc ? children.reverse() : children;
   }
 
+  childrenByGalaxies(desc = false, trim = true) {
+    let children = sortBy(this.getChildren(), 'galaxies');
+    if (trim) {
+      children = children.filter((c) => c.galaxies > 0);
+    }
+    return desc ? children.reverse() : children;
+  }
+
   generateSectors(radius) {
     this.divide(radius, true);
     this.do((c) => {
@@ -246,7 +285,7 @@ class HexCell {
   }
 }
 
-proppify(HexCell)
+proppify(HexRegion)
   .addProp('children', () => new Map())
   .addProp('generators', () => new Map())
   .addProp('props', () => new Map())
@@ -257,4 +296,4 @@ proppify(HexCell)
   .addProp('coord', () => new CubeCoord(0, 0), 'object')
   .addProp('parent');
 
-export default HexCell;
+export default HexRegion;

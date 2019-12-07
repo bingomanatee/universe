@@ -22,12 +22,13 @@
     "is": "^3.3.0",
     "js-quantities": "^1.7.4",
     "random-js": "^2.1.0",
+    "robust-point-in-polygon": "^1.0.3",
     "simplex-noise": "^2.4.0"
   },
   "devDependencies": {
-    "chroma-js": "^2.1.0",
     "@wonderlandlabs/n": "^1.0.2",
     "canvas": "^2.6.0",
+    "chroma-js": "^2.1.0",
     "eslint": "^6.3.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
@@ -40,7 +41,8 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^5.1.2",
     "simple-statistics": "^7.0.7",
-    "tap": "^14.6.1"
+    "tap": "^14.6.1",
+    "tinygradient": "^1.1.0"
   },
   "author": "David Edelhart",
   "license": "MIT",
