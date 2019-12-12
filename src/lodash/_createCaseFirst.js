@@ -4,7 +4,7 @@ var castSlice = require('./_castSlice'),
     toString = require('./toString');
 
 /**
- * Creates a function like `_.lowerFirst`.
+ * Creates spiralArms function like `_.lowerFirst`.
  *
  * @private
  * @param {string} methodName The name of the `String` case method to use.

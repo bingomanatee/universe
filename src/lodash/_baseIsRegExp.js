@@ -9,7 +9,7 @@ var regexpTag = '[object RegExp]';
  *
  * @private
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a regexp, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms regexp, else `false`.
  */
 function baseIsRegExp(value) {
   return isObjectLike(value) && baseGetTag(value) == regexpTag;

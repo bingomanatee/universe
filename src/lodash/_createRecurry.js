@@ -11,7 +11,7 @@ var WRAP_BIND_FLAG = 1,
     WRAP_PARTIAL_RIGHT_FLAG = 64;
 
 /**
- * Creates a function that wraps `func` to continue currying.
+ * Creates spiralArms function that wraps `func` to continue currying.
  *
  * @private
  * @param {Function} func The function to wrap.

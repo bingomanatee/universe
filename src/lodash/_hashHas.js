@@ -7,7 +7,7 @@ var objectProto = Object.prototype;
 var hasOwnProperty = objectProto.hasOwnProperty;
 
 /**
- * Checks if a hash value for `key` exists.
+ * Checks if spiralArms hash value for `key` exists.
  *
  * @private
  * @name has

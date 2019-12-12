@@ -4,7 +4,7 @@ var arrayAggregator = require('./_arrayAggregator'),
     isArray = require('./isArray');
 
 /**
- * Creates a function like `_.groupBy`.
+ * Creates spiralArms function like `_.groupBy`.
  *
  * @private
  * @param {Function} setter The function to set accumulator values.

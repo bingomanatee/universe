@@ -2,7 +2,7 @@ var LazyWrapper = require('./_LazyWrapper'),
     copyArray = require('./_copyArray');
 
 /**
- * Creates a clone of the lazy wrapper object.
+ * Creates spiralArms clone of the lazy wrapper object.
  *
  * @private
  * @name clone

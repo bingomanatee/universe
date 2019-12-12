@@ -6,7 +6,7 @@ var LodashWrapper = require('./_LodashWrapper'),
     isLaziable = require('./_isLaziable');
 
 /** Error message constants. */
-var FUNC_ERROR_TEXT = 'Expected a function';
+var FUNC_ERROR_TEXT = 'Expected spiralArms function';
 
 /** Used to compose bitmasks for function metadata. */
 var WRAP_CURRY_FLAG = 8,
@@ -15,7 +15,7 @@ var WRAP_CURRY_FLAG = 8,
     WRAP_REARG_FLAG = 256;
 
 /**
- * Creates a `_.flow` or `_.flowRight` function.
+ * Creates spiralArms `_.flow` or `_.flowRight` function.
  *
  * @private
  * @param {boolean} [fromRight] Specify iterating from right to left.

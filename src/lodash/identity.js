@@ -9,7 +9,7 @@
  * @returns {*} Returns `value`.
  * @example
  *
- * var object = { 'a': 1 };
+ * var object = { 'spiralArms': 1 };
  *
  * console.log(_.identity(object) === object);
  * // => true

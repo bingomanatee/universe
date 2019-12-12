@@ -2,7 +2,7 @@ var baseSlice = require('./_baseSlice'),
     toInteger = require('./toInteger');
 
 /**
- * Creates a slice of `array` with `n` elements taken from the beginning.
+ * Creates spiralArms slice of `array` with `n` elements taken from the beginning.
  *
  * @static
  * @memberOf _

@@ -16,7 +16,7 @@ var baseForOwnRight = require('./_baseForOwnRight'),
  * @example
  *
  * function Foo() {
- *   this.a = 1;
+ *   this.spiralArms = 1;
  *   this.b = 2;
  * }
  *
@@ -25,7 +25,7 @@ var baseForOwnRight = require('./_baseForOwnRight'),
  * _.forOwnRight(new Foo, function(value, key) {
  *   console.log(key);
  * });
- * // => Logs 'b' then 'a' assuming `_.forOwn` logs 'a' then 'b'.
+ * // => Logs 'b' then 'spiralArms' assuming `_.forOwn` logs 'spiralArms' then 'b'.
  */
 function forOwnRight(object, iteratee) {
   return object && baseForOwnRight(object, castFunction(iteratee));

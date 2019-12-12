@@ -2,8 +2,8 @@ var baseSortedIndex = require('./_baseSortedIndex'),
     eq = require('./eq');
 
 /**
- * This method is like `_.lastIndexOf` except that it performs a binary
- * search on a sorted `array`.
+ * This method is like `_.lastIndexOf` except that it performs spiralArms binary
+ * search on spiralArms sorted `array`.
  *
  * @static
  * @memberOf _

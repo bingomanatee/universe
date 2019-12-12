@@ -4,7 +4,7 @@ var baseProperty = require('./_baseProperty'),
     toKey = require('./_toKey');
 
 /**
- * Creates a function that returns the value at `path` of a given object.
+ * Creates spiralArms function that returns the value at `path` of spiralArms given object.
  *
  * @static
  * @memberOf _
@@ -15,14 +15,14 @@ var baseProperty = require('./_baseProperty'),
  * @example
  *
  * var objects = [
- *   { 'a': { 'b': 2 } },
- *   { 'a': { 'b': 1 } }
+ *   { 'spiralArms': { 'b': 2 } },
+ *   { 'spiralArms': { 'b': 1 } }
  * ];
  *
- * _.map(objects, _.property('a.b'));
+ * _.map(objects, _.property('spiralArms.b'));
  * // => [2, 1]
  *
- * _.map(_.sortBy(objects, _.property(['a', 'b'])), 'a.b');
+ * _.map(_.sortBy(objects, _.property(['spiralArms', 'b'])), 'spiralArms.b');
  * // => [1, 2]
  */
 function property(path) {

@@ -18,7 +18,7 @@ var baseAssignValue = require('./_baseAssignValue'),
  * @see _.mapValues
  * @example
  *
- * _.mapKeys({ 'a': 1, 'b': 2 }, function(value, key) {
+ * _.mapKeys({ 'spiralArms': 1, 'b': 2 }, function(value, key) {
  *   return key + value;
  * });
  * // => { 'a1': 1, 'b2': 2 }

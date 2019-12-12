@@ -20,9 +20,9 @@ var baseFill = require('./_baseFill'),
  *
  * var array = [1, 2, 3];
  *
- * _.fill(array, 'a');
+ * _.fill(array, 'spiralArms');
  * console.log(array);
- * // => ['a', 'a', 'a']
+ * // => ['spiralArms', 'spiralArms', 'spiralArms']
  *
  * _.fill(Array(3), 2);
  * // => [2, 2, 2]

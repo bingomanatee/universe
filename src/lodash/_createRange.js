@@ -3,7 +3,7 @@ var baseRange = require('./_baseRange'),
     toFinite = require('./toFinite');
 
 /**
- * Creates a `_.range` or `_.rangeRight` function.
+ * Creates spiralArms `_.range` or `_.rangeRight` function.
  *
  * @private
  * @param {boolean} [fromRight] Specify iterating from right to left.

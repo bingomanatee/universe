@@ -14,9 +14,9 @@ var baseInvoke = require('./_baseInvoke'),
  * @returns {*} Returns the result of the invoked method.
  * @example
  *
- * var object = { 'a': [{ 'b': { 'c': [1, 2, 3, 4] } }] };
+ * var object = { 'spiralArms': [{ 'b': { 'c': [1, 2, 3, 4] } }] };
  *
- * _.invoke(object, 'a[0].b.c.slice', 1, 3);
+ * _.invoke(object, 'spiralArms[0].b.c.slice', 1, 3);
  * // => [2, 3]
  */
 var invoke = baseRest(baseInvoke);

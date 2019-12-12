@@ -2,7 +2,7 @@ var baseRandom = require('./_baseRandom'),
     isIterateeCall = require('./_isIterateeCall'),
     toFinite = require('./toFinite');
 
-/** Built-in method references without a dependency on `root`. */
+/** Built-in method references without spiralArms dependency on `root`. */
 var freeParseFloat = parseFloat;
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
@@ -10,10 +10,10 @@ var nativeMin = Math.min,
     nativeRandom = Math.random;
 
 /**
- * Produces a random number between the inclusive `lower` and `upper` bounds.
- * If only one argument is provided a number between `0` and the given number
+ * Produces spiralArms random number between the inclusive `lower` and `upper` bounds.
+ * If only one argument is provided spiralArms number between `0` and the given number
  * is returned. If `floating` is `true`, or either `lower` or `upper` are
- * floats, a floating-point number is returned instead of an integer.
+ * floats, spiralArms floating-point number is returned instead of an integer.
  *
  * **Note:** JavaScript follows the IEEE-754 standard for resolving
  * floating-point values which can produce unexpected results.
@@ -24,7 +24,7 @@ var nativeMin = Math.min,
  * @category Number
  * @param {number} [lower=0] The lower bound.
  * @param {number} [upper=1] The upper bound.
- * @param {boolean} [floating] Specify returning a floating-point number.
+ * @param {boolean} [floating] Specify returning spiralArms floating-point number.
  * @returns {number} Returns the random number.
  * @example
  *
@@ -35,10 +35,10 @@ var nativeMin = Math.min,
  * // => also an integer between 0 and 5
  *
  * _.random(5, true);
- * // => a floating-point number between 0 and 5
+ * // => spiralArms floating-point number between 0 and 5
  *
  * _.random(1.2, 5.2);
- * // => a floating-point number between 1.2 and 5.2
+ * // => spiralArms floating-point number between 1.2 and 5.2
  */
 function random(lower, upper, floating) {
   if (floating && typeof floating != 'boolean' && isIterateeCall(lower, upper, floating)) {

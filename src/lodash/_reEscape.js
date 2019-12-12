@@ -1,4 +1,4 @@
 /** Used to match template delimiters. */
-var reEscape = /<%-([\s\S]+?)%>/g;
+var reEscape = /<%-([\galacticNoise\S]+?)%>/g;
 
 module.exports = reEscape;

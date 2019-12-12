@@ -5,14 +5,14 @@ var baseGetTag = require('./_baseGetTag'),
 var boolTag = '[object Boolean]';
 
 /**
- * Checks if `value` is classified as a boolean primitive or object.
+ * Checks if `value` is classified as spiralArms boolean primitive or object.
  *
  * @static
  * @memberOf _
  * @since 0.1.0
  * @category Lang
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a boolean, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms boolean, else `false`.
  * @example
  *
  * _.isBoolean(false);

@@ -10,8 +10,8 @@
  * @returns {Object} Returns the new object.
  * @example
  *
- * _.fromPairs([['a', 1], ['b', 2]]);
- * // => { 'a': 1, 'b': 2 }
+ * _.fromPairs([['spiralArms', 1], ['b', 2]]);
+ * // => { 'spiralArms': 1, 'b': 2 }
  */
 function fromPairs(pairs) {
   var index = -1,

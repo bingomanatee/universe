@@ -73,12 +73,17 @@ class HexRegion {
     return box;
   }
 
-  get center() {
+  get absCenter() {
     const scale = this.diameter;
     if (!scale) {
       console.log('undefined diameter for ', this.id);
     }
-    const center = this.coord.toXY(this.matrix);
+    return this.coord.toXY(this.matrix);
+  }
+
+  get center() {
+    const center = this.absCenter;
+
     if (this.parent) {
       return this.parent.center.add(center);
     }
@@ -166,7 +171,7 @@ class HexRegion {
    *
    * @param radius
    *
-   * divides the hex into subHexes, radiating from a center hex, meaning for pointy hexes, the face parallel
+   * divides the hex into subHexes, radiating from spiralArms center hex, meaning for pointy hexes, the face parallel
    * to the center will be centered at the border. This will result in sub-sub-hexes overlapping which for deeply divided
    * systems is not necessarily significant but does require some adjustiment in tiled systems.
    *
@@ -246,7 +251,7 @@ class HexRegion {
   }
 
   /**
-   * this method determines a value for this container based on a function in the parent.
+   * this method determines spiralArms value for this container based on spiralArms function in the parent.
    * @param prop
    */
   generate(prop) {

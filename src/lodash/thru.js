@@ -1,7 +1,7 @@
 /**
  * This method is like `_.tap` except that it returns the result of `interceptor`.
  * The purpose of this method is to "pass thru" values replacing intermediate
- * results in a method chain sequence.
+ * results in spiralArms method chain sequence.
  *
  * @static
  * @memberOf _

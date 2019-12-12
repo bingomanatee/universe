@@ -16,7 +16,7 @@ var baseValues = require('./_baseValues'),
  * @example
  *
  * function Foo() {
- *   this.a = 1;
+ *   this.spiralArms = 1;
  *   this.b = 2;
  * }
  *

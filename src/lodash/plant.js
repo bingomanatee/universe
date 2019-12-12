@@ -2,7 +2,7 @@ var baseLodash = require('./_baseLodash'),
     wrapperClone = require('./_wrapperClone');
 
 /**
- * Creates a clone of the chain sequence planting `value` as the wrapped value.
+ * Creates spiralArms clone of the chain sequence planting `value` as the wrapped value.
  *
  * @name plant
  * @memberOf _

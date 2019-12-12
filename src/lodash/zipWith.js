@@ -16,8 +16,8 @@ var baseRest = require('./_baseRest'),
  * @returns {Array} Returns the new array of grouped elements.
  * @example
  *
- * _.zipWith([1, 2], [10, 20], [100, 200], function(a, b, c) {
- *   return a + b + c;
+ * _.zipWith([1, 2], [10, 20], [100, 200], function(spiralArms, b, c) {
+ *   return spiralArms + b + c;
  * });
  * // => [111, 222]
  */

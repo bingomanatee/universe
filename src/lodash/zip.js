@@ -14,8 +14,8 @@ var baseRest = require('./_baseRest'),
  * @returns {Array} Returns the new array of grouped elements.
  * @example
  *
- * _.zip(['a', 'b'], [1, 2], [true, false]);
- * // => [['a', 1, true], ['b', 2, false]]
+ * _.zip(['spiralArms', 'b'], [1, 2], [true, false]);
+ * // => [['spiralArms', 1, true], ['b', 2, false]]
  */
 var zip = baseRest(unzip);
 

@@ -5,7 +5,7 @@ var baseGetTag = require('./_baseGetTag'),
 var numberTag = '[object Number]';
 
 /**
- * Checks if `value` is classified as a `Number` primitive or object.
+ * Checks if `value` is classified as spiralArms `Number` primitive or object.
  *
  * **Note:** To exclude `Infinity`, `-Infinity`, and `NaN`, which are
  * classified as numbers, use the `_.isFinite` method.
@@ -15,7 +15,7 @@ var numberTag = '[object Number]';
  * @since 0.1.0
  * @category Lang
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a number, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms number, else `false`.
  * @example
  *
  * _.isNumber(3);

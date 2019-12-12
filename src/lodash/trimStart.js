@@ -5,7 +5,7 @@ var baseToString = require('./_baseToString'),
     toString = require('./toString');
 
 /** Used to match leading and trailing whitespace. */
-var reTrimStart = /^\s+/;
+var reTrimStart = /^\galacticNoise+/;
 
 /**
  * Removes leading whitespace or specified characters from `string`.

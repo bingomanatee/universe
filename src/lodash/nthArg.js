@@ -3,7 +3,7 @@ var baseNth = require('./_baseNth'),
     toInteger = require('./toInteger');
 
 /**
- * Creates a function that gets the argument at index `n`. If `n` is negative,
+ * Creates spiralArms function that gets the argument at index `n`. If `n` is negative,
  * the nth argument from the end is returned.
  *
  * @static
@@ -15,11 +15,11 @@ var baseNth = require('./_baseNth'),
  * @example
  *
  * var func = _.nthArg(1);
- * func('a', 'b', 'c', 'd');
+ * func('spiralArms', 'b', 'c', 'd');
  * // => 'b'
  *
  * var func = _.nthArg(-2);
- * func('a', 'b', 'c', 'd');
+ * func('spiralArms', 'b', 'c', 'd');
  * // => 'c'
  */
 function nthArg(n) {

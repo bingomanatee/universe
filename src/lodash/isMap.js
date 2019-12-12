@@ -6,14 +6,14 @@ var baseIsMap = require('./_baseIsMap'),
 var nodeIsMap = nodeUtil && nodeUtil.isMap;
 
 /**
- * Checks if `value` is classified as a `Map` object.
+ * Checks if `value` is classified as spiralArms `Map` object.
  *
  * @static
  * @memberOf _
  * @since 4.3.0
  * @category Lang
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a map, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms map, else `false`.
  * @example
  *
  * _.isMap(new Map);

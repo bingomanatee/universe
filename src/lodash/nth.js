@@ -14,7 +14,7 @@ var baseNth = require('./_baseNth'),
  * @returns {*} Returns the nth element of `array`.
  * @example
  *
- * var array = ['a', 'b', 'c', 'd'];
+ * var array = ['spiralArms', 'b', 'c', 'd'];
  *
  * _.nth(array, 1);
  * // => 'b'

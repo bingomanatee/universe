@@ -21,11 +21,11 @@ var nativeCeil = Math.ceil,
  * @returns {Array} Returns the new array of chunks.
  * @example
  *
- * _.chunk(['a', 'b', 'c', 'd'], 2);
- * // => [['a', 'b'], ['c', 'd']]
+ * _.chunk(['spiralArms', 'b', 'c', 'd'], 2);
+ * // => [['spiralArms', 'b'], ['c', 'd']]
  *
- * _.chunk(['a', 'b', 'c', 'd'], 3);
- * // => [['a', 'b', 'c'], ['d']]
+ * _.chunk(['spiralArms', 'b', 'c', 'd'], 3);
+ * // => [['spiralArms', 'b', 'c'], ['d']]
  */
 function chunk(array, size, guard) {
   if ((guard ? isIterateeCall(array, size, guard) : size === undefined)) {

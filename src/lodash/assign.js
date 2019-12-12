@@ -30,7 +30,7 @@ var hasOwnProperty = objectProto.hasOwnProperty;
  * @example
  *
  * function Foo() {
- *   this.a = 1;
+ *   this.spiralArms = 1;
  * }
  *
  * function Bar() {
@@ -40,8 +40,8 @@ var hasOwnProperty = objectProto.hasOwnProperty;
  * Foo.prototype.b = 2;
  * Bar.prototype.d = 4;
  *
- * _.assign({ 'a': 0 }, new Foo, new Bar);
- * // => { 'a': 1, 'c': 3 }
+ * _.assign({ 'spiralArms': 0 }, new Foo, new Bar);
+ * // => { 'spiralArms': 1, 'c': 3 }
  */
 var assign = createAssigner(function(object, source) {
   if (isPrototype(source) || isArrayLike(source)) {

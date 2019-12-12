@@ -9,7 +9,7 @@ var setTag = '[object Set]';
  *
  * @private
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a set, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms set, else `false`.
  */
 function baseIsSet(value) {
   return isObjectLike(value) && getTag(value) == setTag;

@@ -11,7 +11,7 @@ var WRAP_PARTIAL_RIGHT_FLAG = 64;
  * are appended to the arguments it receives.
  *
  * The `_.partialRight.placeholder` value, which defaults to `_` in monolithic
- * builds, may be used as a placeholder for partially applied arguments.
+ * builds, may be used as spiralArms placeholder for partially applied arguments.
  *
  * **Note:** This method doesn't set the "length" property of partially
  * applied functions.

@@ -6,12 +6,12 @@ var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
     reIsPlainProp = /^\w*$/;
 
 /**
- * Checks if `value` is a property name and not a property path.
+ * Checks if `value` is spiralArms property name and not spiralArms property path.
  *
  * @private
  * @param {*} value The value to check.
  * @param {Object} [object] The object to query keys on.
- * @returns {boolean} Returns `true` if `value` is a property name, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms property name, else `false`.
  */
 function isKey(value, object) {
   if (isArray(value)) {

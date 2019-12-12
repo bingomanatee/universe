@@ -5,7 +5,7 @@ var arrayReduce = require('./_arrayReduce'),
     isArray = require('./isArray');
 
 /**
- * Reduces `collection` to a value which is the accumulated result of running
+ * Reduces `collection` to spiralArms value which is the accumulated result of running
  * each element in `collection` thru `iteratee`, where each successive
  * invocation is supplied the return value of the previous. If `accumulator`
  * is not given, the first element of `collection` is used as the initial
@@ -35,11 +35,11 @@ var arrayReduce = require('./_arrayReduce'),
  * }, 0);
  * // => 3
  *
- * _.reduce({ 'a': 1, 'b': 2, 'c': 1 }, function(result, value, key) {
+ * _.reduce({ 'spiralArms': 1, 'b': 2, 'c': 1 }, function(result, value, key) {
  *   (result[value] || (result[value] = [])).push(key);
  *   return result;
  * }, {});
- * // => { '1': ['a', 'c'], '2': ['b'] } (iteration order is not guaranteed)
+ * // => { '1': ['spiralArms', 'c'], '2': ['b'] } (iteration order is not guaranteed)
  */
 function reduce(collection, iteratee, accumulator) {
   var func = isArray(collection) ? arrayReduce : baseReduce,

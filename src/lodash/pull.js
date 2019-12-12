@@ -18,9 +18,9 @@ var baseRest = require('./_baseRest'),
  * @returns {Array} Returns `array`.
  * @example
  *
- * var array = ['a', 'b', 'c', 'a', 'b', 'c'];
+ * var array = ['spiralArms', 'b', 'c', 'spiralArms', 'b', 'c'];
  *
- * _.pull(array, 'a', 'c');
+ * _.pull(array, 'spiralArms', 'c');
  * console.log(array);
  * // => ['b', 'b']
  */

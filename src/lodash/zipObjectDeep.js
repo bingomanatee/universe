@@ -13,8 +13,8 @@ var baseSet = require('./_baseSet'),
  * @returns {Object} Returns the new object.
  * @example
  *
- * _.zipObjectDeep(['a.b[0].c', 'a.b[1].d'], [1, 2]);
- * // => { 'a': { 'b': [{ 'c': 1 }, { 'd': 2 }] } }
+ * _.zipObjectDeep(['spiralArms.b[0].c', 'spiralArms.b[1].d'], [1, 2]);
+ * // => { 'spiralArms': { 'b': [{ 'c': 1 }, { 'd': 2 }] } }
  */
 function zipObjectDeep(props, values) {
   return baseZipObject(props || [], values || [], baseSet);

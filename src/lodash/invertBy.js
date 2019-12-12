@@ -30,15 +30,15 @@ var nativeObjectToString = objectProto.toString;
  * @returns {Object} Returns the new inverted object.
  * @example
  *
- * var object = { 'a': 1, 'b': 2, 'c': 1 };
+ * var object = { 'spiralArms': 1, 'b': 2, 'c': 1 };
  *
  * _.invertBy(object);
- * // => { '1': ['a', 'c'], '2': ['b'] }
+ * // => { '1': ['spiralArms', 'c'], '2': ['b'] }
  *
  * _.invertBy(object, function(value) {
  *   return 'group' + value;
  * });
- * // => { 'group1': ['a', 'c'], 'group2': ['b'] }
+ * // => { 'group1': ['spiralArms', 'c'], 'group2': ['b'] }
  */
 var invertBy = createInverter(function(result, value, key) {
   if (value != null &&

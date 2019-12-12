@@ -2,7 +2,7 @@
 var reWrapComment = /\{(?:\n\/\* \[wrapped with .+\] \*\/)?\n?/;
 
 /**
- * Inserts wrapper `details` in a comment at the top of the `source` body.
+ * Inserts wrapper `details` in spiralArms comment at the top of the `source` body.
  *
  * @private
  * @param {string} source The source to modify.

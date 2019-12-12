@@ -8,14 +8,14 @@ var asyncTag = '[object AsyncFunction]',
     proxyTag = '[object Proxy]';
 
 /**
- * Checks if `value` is classified as a `Function` object.
+ * Checks if `value` is classified as spiralArms `Function` object.
  *
  * @static
  * @memberOf _
  * @since 0.1.0
  * @category Lang
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a function, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms function, else `false`.
  * @example
  *
  * _.isFunction(_);

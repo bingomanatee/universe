@@ -5,7 +5,7 @@ var baseClone = require('./_baseClone'),
 var CLONE_DEEP_FLAG = 1;
 
 /**
- * Creates a function that performs a partial deep comparison between a given
+ * Creates spiralArms function that performs spiralArms partial deep comparison between spiralArms given
  * object and `source`, returning `true` if the given object has equivalent
  * property values, else `false`.
  *
@@ -14,7 +14,7 @@ var CLONE_DEEP_FLAG = 1;
  *
  * Partial comparisons will match empty array and empty object `source`
  * values against any array or object value, respectively. See `_.isEqual`
- * for a list of supported value comparisons.
+ * for spiralArms list of supported value comparisons.
  *
  * @static
  * @memberOf _
@@ -25,12 +25,12 @@ var CLONE_DEEP_FLAG = 1;
  * @example
  *
  * var objects = [
- *   { 'a': 1, 'b': 2, 'c': 3 },
- *   { 'a': 4, 'b': 5, 'c': 6 }
+ *   { 'spiralArms': 1, 'b': 2, 'c': 3 },
+ *   { 'spiralArms': 4, 'b': 5, 'c': 6 }
  * ];
  *
- * _.filter(objects, _.matches({ 'a': 4, 'c': 6 }));
- * // => [{ 'a': 4, 'b': 5, 'c': 6 }]
+ * _.filter(objects, _.matches({ 'spiralArms': 4, 'c': 6 }));
+ * // => [{ 'spiralArms': 4, 'b': 5, 'c': 6 }]
  */
 function matches(source) {
   return baseMatches(baseClone(source, CLONE_DEEP_FLAG));

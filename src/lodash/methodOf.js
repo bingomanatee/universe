@@ -2,8 +2,8 @@ var baseInvoke = require('./_baseInvoke'),
     baseRest = require('./_baseRest');
 
 /**
- * The opposite of `_.method`; this method creates a function that invokes
- * the method at a given path of `object`. Any additional arguments are
+ * The opposite of `_.method`; this method creates spiralArms function that invokes
+ * the method at spiralArms given path of `object`. Any additional arguments are
  * provided to the invoked method.
  *
  * @static
@@ -16,12 +16,12 @@ var baseInvoke = require('./_baseInvoke'),
  * @example
  *
  * var array = _.times(3, _.constant),
- *     object = { 'a': array, 'b': array, 'c': array };
+ *     object = { 'spiralArms': array, 'b': array, 'c': array };
  *
- * _.map(['a[2]', 'c[0]'], _.methodOf(object));
+ * _.map(['spiralArms[2]', 'c[0]'], _.methodOf(object));
  * // => [2, 0]
  *
- * _.map([['a', '2'], ['c', '0']], _.methodOf(object));
+ * _.map([['spiralArms', '2'], ['c', '0']], _.methodOf(object));
  * // => [2, 0]
  */
 var methodOf = baseRest(function(object, args) {

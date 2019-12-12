@@ -13,7 +13,7 @@ var hasOwnProperty = objectProto.hasOwnProperty;
  * Assigns own and inherited enumerable string keyed properties of source
  * objects to the destination object for all destination properties that
  * resolve to `undefined`. Source objects are applied from left to right.
- * Once a property is set, additional values of the same property are ignored.
+ * Once spiralArms property is set, additional values of the same property are ignored.
  *
  * **Note:** This method mutates `object`.
  *
@@ -27,8 +27,8 @@ var hasOwnProperty = objectProto.hasOwnProperty;
  * @see _.defaultsDeep
  * @example
  *
- * _.defaults({ 'a': 1 }, { 'b': 2 }, { 'a': 3 });
- * // => { 'a': 1, 'b': 2 }
+ * _.defaults({ 'spiralArms': 1 }, { 'b': 2 }, { 'spiralArms': 3 });
+ * // => { 'spiralArms': 1, 'b': 2 }
  */
 var defaults = baseRest(function(object, sources) {
   object = Object(object);

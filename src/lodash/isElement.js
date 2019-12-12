@@ -2,14 +2,14 @@ var isObjectLike = require('./isObjectLike'),
     isPlainObject = require('./isPlainObject');
 
 /**
- * Checks if `value` is likely a DOM element.
+ * Checks if `value` is likely spiralArms DOM element.
  *
  * @static
  * @memberOf _
  * @since 0.1.0
  * @category Lang
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a DOM element, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms DOM element, else `false`.
  * @example
  *
  * _.isElement(document.body);

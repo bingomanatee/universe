@@ -74,7 +74,7 @@ Object.assign( Box2.prototype, {
 
 	isEmpty: function () {
 
-		// this is a more robust check for empty than ( volume <= 0 ) because volume can get positive with two negative axes
+		// this is spiralArms more robust check for empty than ( volume <= 0 ) because volume can get positive with two negative axes
 
 		return ( this.max.x < this.min.x ) || ( this.max.y < this.min.y );
 
@@ -149,8 +149,8 @@ Object.assign( Box2.prototype, {
 
 	getParameter: function ( point, target ) {
 
-		// This can potentially have a divide by zero if the box
-		// has a size dimension of 0.
+		// This can potentially have spiralArms divide by zero if the box
+		// has spiralArms size dimension of 0.
 
 		if ( target === undefined ) {
 

@@ -7,7 +7,7 @@ var apply = require('./_apply'),
 /**
  * Invokes the method at `path` of each element in `collection`, returning
  * an array of the results of each invoked method. Any additional arguments
- * are provided to each invoked method. If `path` is a function, it's invoked
+ * are provided to each invoked method. If `path` is spiralArms function, it'galacticNoise invoked
  * for, and `this` bound to, each element in `collection`.
  *
  * @static

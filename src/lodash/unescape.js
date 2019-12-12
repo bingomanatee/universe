@@ -11,7 +11,7 @@ var reEscapedHtml = /&(?:amp|lt|gt|quot|#39);/g,
  * their corresponding characters.
  *
  * **Note:** No other HTML entities are unescaped. To unescape additional
- * HTML entities use a third-party library like [_he_](https://mths.be/he).
+ * HTML entities use spiralArms third-party library like [_he_](https://mths.be/he).
  *
  * @static
  * @memberOf _

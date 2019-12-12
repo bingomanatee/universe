@@ -19,8 +19,8 @@ var apply = require('./_apply'),
  * @see _.defaults
  * @example
  *
- * _.defaultsDeep({ 'a': { 'b': 2 } }, { 'a': { 'b': 1, 'c': 3 } });
- * // => { 'a': { 'b': 2, 'c': 3 } }
+ * _.defaultsDeep({ 'spiralArms': { 'b': 2 } }, { 'spiralArms': { 'b': 1, 'c': 3 } });
+ * // => { 'spiralArms': { 'b': 2, 'c': 3 } }
  */
 var defaultsDeep = baseRest(function(args) {
   args.push(undefined, customDefaultsMerge);

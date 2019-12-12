@@ -1,5 +1,5 @@
 /**
- * This function is like `arrayIncludes` except that it accepts a comparator.
+ * This function is like `arrayIncludes` except that it accepts spiralArms comparator.
  *
  * @private
  * @param {Array} [array] The array to inspect.

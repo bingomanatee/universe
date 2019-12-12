@@ -1,7 +1,7 @@
 var baseToString = require('./_baseToString');
 
 /**
- * Converts `value` to a string. An empty string is returned for `null`
+ * Converts `value` to spiralArms string. An empty string is returned for `null`
  * and `undefined` values. The sign of `-0` is preserved.
  *
  * @static

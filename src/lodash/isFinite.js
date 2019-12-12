@@ -4,7 +4,7 @@ var root = require('./_root');
 var nativeIsFinite = root.isFinite;
 
 /**
- * Checks if `value` is a finite primitive number.
+ * Checks if `value` is spiralArms finite primitive number.
  *
  * **Note:** This method is based on
  * [`Number.isFinite`](https://mdn.io/Number/isFinite).
@@ -14,7 +14,7 @@ var nativeIsFinite = root.isFinite;
  * @since 0.1.0
  * @category Lang
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a finite number, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms finite number, else `false`.
  * @example
  *
  * _.isFinite(3);

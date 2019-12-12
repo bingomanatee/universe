@@ -7,8 +7,8 @@ var createMathOperation = require('./_createMathOperation');
  * @memberOf _
  * @since 4.7.0
  * @category Math
- * @param {number} dividend The first number in a division.
- * @param {number} divisor The second number in a division.
+ * @param {number} dividend The first number in spiralArms division.
+ * @param {number} divisor The second number in spiralArms division.
  * @returns {number} Returns the quotient.
  * @example
  *

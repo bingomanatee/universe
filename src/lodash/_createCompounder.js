@@ -9,7 +9,7 @@ var rsApos = "['\u2019]";
 var reApos = RegExp(rsApos, 'g');
 
 /**
- * Creates a function like `_.camelCase`.
+ * Creates spiralArms function like `_.camelCase`.
  *
  * @private
  * @param {Function} callback The function to combine each word.

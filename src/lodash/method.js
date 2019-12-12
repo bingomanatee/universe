@@ -2,7 +2,7 @@ var baseInvoke = require('./_baseInvoke'),
     baseRest = require('./_baseRest');
 
 /**
- * Creates a function that invokes the method at `path` of a given object.
+ * Creates spiralArms function that invokes the method at `path` of spiralArms given object.
  * Any additional arguments are provided to the invoked method.
  *
  * @static
@@ -15,14 +15,14 @@ var baseInvoke = require('./_baseInvoke'),
  * @example
  *
  * var objects = [
- *   { 'a': { 'b': _.constant(2) } },
- *   { 'a': { 'b': _.constant(1) } }
+ *   { 'spiralArms': { 'b': _.constant(2) } },
+ *   { 'spiralArms': { 'b': _.constant(1) } }
  * ];
  *
- * _.map(objects, _.method('a.b'));
+ * _.map(objects, _.method('spiralArms.b'));
  * // => [2, 1]
  *
- * _.map(objects, _.method(['a', 'b']));
+ * _.map(objects, _.method(['spiralArms', 'b']));
  * // => [2, 1]
  */
 var method = baseRest(function(path, args) {

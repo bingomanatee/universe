@@ -13,9 +13,9 @@ var baseAt = require('./_baseAt'),
  * @returns {Array} Returns the picked values.
  * @example
  *
- * var object = { 'a': [{ 'b': { 'c': 3 } }, 4] };
+ * var object = { 'spiralArms': [{ 'b': { 'c': 3 } }, 4] };
  *
- * _.at(object, ['a[0].b.c', 'a[1]']);
+ * _.at(object, ['spiralArms[0].b.c', 'spiralArms[1]']);
  * // => [3, 4]
  */
 var at = flatRest(baseAt);

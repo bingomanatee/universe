@@ -14,7 +14,7 @@ var baseIsMatch = require('./_baseIsMatch'),
  * @param {Object} object The object to inspect.
  * @param {Object} source The object of property values to match.
  * @param {Function} [customizer] The function to customize comparisons.
- * @returns {boolean} Returns `true` if `object` is a match, else `false`.
+ * @returns {boolean} Returns `true` if `object` is spiralArms match, else `false`.
  * @example
  *
  * function isGreeting(value) {

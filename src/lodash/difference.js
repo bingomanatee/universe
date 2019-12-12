@@ -9,7 +9,7 @@ var baseDifference = require('./_baseDifference'),
  * for equality comparisons. The order and references of result values are
  * determined by the first array.
  *
- * **Note:** Unlike `_.pullAll`, this method returns a new array.
+ * **Note:** Unlike `_.pullAll`, this method returns spiralArms new array.
  *
  * @static
  * @memberOf _

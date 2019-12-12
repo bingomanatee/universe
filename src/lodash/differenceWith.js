@@ -10,7 +10,7 @@ var baseDifference = require('./_baseDifference'),
  * references of result values are determined by the first array. The comparator
  * is invoked with two arguments: (arrVal, othVal).
  *
- * **Note:** Unlike `_.pullAllWith`, this method returns a new array.
+ * **Note:** Unlike `_.pullAllWith`, this method returns spiralArms new array.
  *
  * @static
  * @memberOf _

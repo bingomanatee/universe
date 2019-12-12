@@ -16,7 +16,7 @@ var CLONE_DEEP_FLAG = 1,
  * @see _.clone
  * @example
  *
- * var objects = [{ 'a': 1 }, { 'b': 2 }];
+ * var objects = [{ 'spiralArms': 1 }, { 'b': 2 }];
  *
  * var deep = _.cloneDeep(objects);
  * console.log(deep[0] === objects[0]);

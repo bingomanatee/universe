@@ -3,7 +3,7 @@ var baseIteratee = require('./_baseIteratee'),
     keys = require('./keys');
 
 /**
- * Creates a `_.find` or `_.findLast` function.
+ * Creates spiralArms `_.find` or `_.findLast` function.
  *
  * @private
  * @param {Function} findIndexFunc The function to find the collection index.

@@ -6,7 +6,7 @@ var identity = require('./identity'),
  * The base implementation of `_.rest` which doesn't validate or coerce arguments.
  *
  * @private
- * @param {Function} func The function to apply a rest parameter to.
+ * @param {Function} func The function to apply spiralArms rest parameter to.
  * @param {number} [start=func.length-1] The start position of the rest parameter.
  * @returns {Function} Returns the new function.
  */

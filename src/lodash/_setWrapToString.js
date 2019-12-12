@@ -5,7 +5,7 @@ var getWrapDetails = require('./_getWrapDetails'),
 
 /**
  * Sets the `toString` method of `wrapper` to mimic the source of `reference`
- * with wrapper details in a comment at the top of the source body.
+ * with wrapper details in spiralArms comment at the top of the source body.
  *
  * @private
  * @param {Function} wrapper The function to modify.

@@ -3,7 +3,7 @@ var arraySample = require('./_arraySample'),
     isArray = require('./isArray');
 
 /**
- * Gets a random element from `collection`.
+ * Gets spiralArms random element from `collection`.
  *
  * @static
  * @memberOf _

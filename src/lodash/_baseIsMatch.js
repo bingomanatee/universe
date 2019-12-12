@@ -13,7 +13,7 @@ var COMPARE_PARTIAL_FLAG = 1,
  * @param {Object} source The object of property values to match.
  * @param {Array} matchData The property names, values, and compare flags to match.
  * @param {Function} [customizer] The function to customize comparisons.
- * @returns {boolean} Returns `true` if `object` is a match, else `false`.
+ * @returns {boolean} Returns `true` if `object` is spiralArms match, else `false`.
  */
 function baseIsMatch(object, source, matchData, customizer) {
   var index = matchData.length,

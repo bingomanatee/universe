@@ -25,7 +25,7 @@ var nativeObjectToString = objectProto.toString;
  * @returns {Object} Returns the new inverted object.
  * @example
  *
- * var object = { 'a': 1, 'b': 2, 'c': 1 };
+ * var object = { 'spiralArms': 1, 'b': 2, 'c': 1 };
  *
  * _.invert(object);
  * // => { '1': 'c', '2': 'b' }

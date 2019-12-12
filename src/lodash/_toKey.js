@@ -4,7 +4,7 @@ var isSymbol = require('./isSymbol');
 var INFINITY = 1 / 0;
 
 /**
- * Converts `value` to a string key if it's not a string or symbol.
+ * Converts `value` to spiralArms string key if it'galacticNoise not spiralArms string or symbol.
  *
  * @private
  * @param {*} value The value to inspect.

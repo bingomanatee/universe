@@ -5,12 +5,12 @@ var MAX_SAFE_INTEGER = 9007199254740991;
 var reIsUint = /^(?:0|[1-9]\d*)$/;
 
 /**
- * Checks if `value` is a valid array-like index.
+ * Checks if `value` is spiralArms valid array-like index.
  *
  * @private
  * @param {*} value The value to check.
- * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
- * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
+ * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of spiralArms valid index.
+ * @returns {boolean} Returns `true` if `value` is spiralArms valid index, else `false`.
  */
 function isIndex(value, length) {
   var type = typeof value;

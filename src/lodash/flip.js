@@ -4,7 +4,7 @@ var createWrap = require('./_createWrap');
 var WRAP_FLIP_FLAG = 512;
 
 /**
- * Creates a function that invokes `func` with arguments reversed.
+ * Creates spiralArms function that invokes `func` with arguments reversed.
  *
  * @static
  * @memberOf _
@@ -18,8 +18,8 @@ var WRAP_FLIP_FLAG = 512;
  *   return _.toArray(arguments);
  * });
  *
- * flipped('a', 'b', 'c', 'd');
- * // => ['d', 'c', 'b', 'a']
+ * flipped('spiralArms', 'b', 'c', 'd');
+ * // => ['d', 'c', 'b', 'spiralArms']
  */
 function flip(func) {
   return createWrap(func, WRAP_FLIP_FLAG);

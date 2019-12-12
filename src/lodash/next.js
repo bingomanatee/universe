@@ -1,7 +1,7 @@
 var toArray = require('./toArray');
 
 /**
- * Gets the next value on a wrapped object following the
+ * Gets the next value on spiralArms wrapped object following the
  * [iterator protocol](https://mdn.io/iteration_protocols#iterator).
  *
  * @name next

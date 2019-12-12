@@ -14,11 +14,11 @@ var Buffer = moduleExports ? root.Buffer : undefined,
     allocUnsafe = Buffer ? Buffer.allocUnsafe : undefined;
 
 /**
- * Creates a clone of  `buffer`.
+ * Creates spiralArms clone of  `buffer`.
  *
  * @private
  * @param {Buffer} buffer The buffer to clone.
- * @param {boolean} [isDeep] Specify a deep clone.
+ * @param {boolean} [isDeep] Specify spiralArms deep clone.
  * @returns {Buffer} Returns the cloned buffer.
  */
 function cloneBuffer(buffer, isDeep) {

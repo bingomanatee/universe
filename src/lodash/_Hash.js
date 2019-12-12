@@ -5,7 +5,7 @@ var hashClear = require('./_hashClear'),
     hashSet = require('./_hashSet');
 
 /**
- * Creates a hash object.
+ * Creates spiralArms hash object.
  *
  * @private
  * @constructor

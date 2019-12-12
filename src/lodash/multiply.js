@@ -7,8 +7,8 @@ var createMathOperation = require('./_createMathOperation');
  * @memberOf _
  * @since 4.7.0
  * @category Math
- * @param {number} multiplier The first number in a multiplication.
- * @param {number} multiplicand The second number in a multiplication.
+ * @param {number} multiplier The first number in spiralArms multiplication.
+ * @param {number} multiplicand The second number in spiralArms multiplication.
  * @returns {number} Returns the product.
  * @example
  *

@@ -18,10 +18,10 @@ var baseUpdate = require('./_baseUpdate'),
  * @returns {Object} Returns `object`.
  * @example
  *
- * var object = { 'a': [{ 'b': { 'c': 3 } }] };
+ * var object = { 'spiralArms': [{ 'b': { 'c': 3 } }] };
  *
- * _.update(object, 'a[0].b.c', function(n) { return n * n; });
- * console.log(object.a[0].b.c);
+ * _.update(object, 'spiralArms[0].b.c', function(n) { return n * n; });
+ * console.log(object.spiralArms[0].b.c);
  * // => 9
  *
  * _.update(object, 'x[0].y.z', function(n) { return n ? n + 1 : 0; });

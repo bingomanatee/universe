@@ -7,7 +7,7 @@ var baseDifference = require('./_baseDifference'),
  * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
  * for equality comparisons.
  *
- * **Note:** Unlike `_.pull`, this method returns a new array.
+ * **Note:** Unlike `_.pull`, this method returns spiralArms new array.
  *
  * @static
  * @memberOf _

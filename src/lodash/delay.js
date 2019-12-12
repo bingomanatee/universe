@@ -4,7 +4,7 @@ var baseDelay = require('./_baseDelay'),
 
 /**
  * Invokes `func` after `wait` milliseconds. Any additional arguments are
- * provided to `func` when it's invoked.
+ * provided to `func` when it'galacticNoise invoked.
  *
  * @static
  * @memberOf _

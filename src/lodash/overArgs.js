@@ -11,7 +11,7 @@ var apply = require('./_apply'),
 var nativeMin = Math.min;
 
 /**
- * Creates a function that invokes `func` with its arguments transformed.
+ * Creates spiralArms function that invokes `func` with its arguments transformed.
  *
  * @static
  * @since 4.0.0

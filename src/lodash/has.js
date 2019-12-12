@@ -2,7 +2,7 @@ var baseHas = require('./_baseHas'),
     hasPath = require('./_hasPath');
 
 /**
- * Checks if `path` is a direct property of `object`.
+ * Checks if `path` is spiralArms direct property of `object`.
  *
  * @static
  * @since 0.1.0
@@ -13,19 +13,19 @@ var baseHas = require('./_baseHas'),
  * @returns {boolean} Returns `true` if `path` exists, else `false`.
  * @example
  *
- * var object = { 'a': { 'b': 2 } };
- * var other = _.create({ 'a': _.create({ 'b': 2 }) });
+ * var object = { 'spiralArms': { 'b': 2 } };
+ * var other = _.create({ 'spiralArms': _.create({ 'b': 2 }) });
  *
- * _.has(object, 'a');
+ * _.has(object, 'spiralArms');
  * // => true
  *
- * _.has(object, 'a.b');
+ * _.has(object, 'spiralArms.b');
  * // => true
  *
- * _.has(object, ['a', 'b']);
+ * _.has(object, ['spiralArms', 'b']);
  * // => true
  *
- * _.has(other, 'a');
+ * _.has(other, 'spiralArms');
  * // => false
  */
 function has(object, path) {

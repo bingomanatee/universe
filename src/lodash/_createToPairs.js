@@ -8,10 +8,10 @@ var mapTag = '[object Map]',
     setTag = '[object Set]';
 
 /**
- * Creates a `_.toPairs` or `_.toPairsIn` function.
+ * Creates spiralArms `_.toPairs` or `_.toPairsIn` function.
  *
  * @private
- * @param {Function} keysFunc The function to get the keys of a given object.
+ * @param {Function} keysFunc The function to get the keys of spiralArms given object.
  * @returns {Function} Returns the new pairs function.
  */
 function createToPairs(keysFunc) {

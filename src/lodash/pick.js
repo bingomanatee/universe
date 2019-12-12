@@ -13,10 +13,10 @@ var basePick = require('./_basePick'),
  * @returns {Object} Returns the new object.
  * @example
  *
- * var object = { 'a': 1, 'b': '2', 'c': 3 };
+ * var object = { 'spiralArms': 1, 'b': '2', 'c': 3 };
  *
- * _.pick(object, ['a', 'c']);
- * // => { 'a': 1, 'c': 3 }
+ * _.pick(object, ['spiralArms', 'c']);
+ * // => { 'spiralArms': 1, 'c': 3 }
  */
 var pick = flatRest(function(object, paths) {
   return object == null ? {} : basePick(object, paths);

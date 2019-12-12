@@ -2,7 +2,7 @@ var baseRest = require('./_baseRest'),
     isIterateeCall = require('./_isIterateeCall');
 
 /**
- * Creates a function like `_.assign`.
+ * Creates spiralArms function like `_.assign`.
  *
  * @private
  * @param {Function} assigner The function to assign values.

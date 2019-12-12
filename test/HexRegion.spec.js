@@ -3,7 +3,7 @@ const tap = require('tap');
 const Noise = require('simplex-noise');
 const { CubeCoord, Hexes } = require('@wonderlandlabs/hexagony');
 const { Vector2 } = require('./../src/three/Vector2');
-const drawHexes = require('./../drawHexes');
+const drawHexes = require('../src/drawHexes');
 const clamp = require('./../src/lodash/clamp');
 const asserts = require('../addVectorAsserts');
 

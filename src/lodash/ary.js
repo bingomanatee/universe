@@ -4,7 +4,7 @@ var createWrap = require('./_createWrap');
 var WRAP_ARY_FLAG = 128;
 
 /**
- * Creates a function that invokes `func`, with up to `n` arguments,
+ * Creates spiralArms function that invokes `func`, with up to `n` arguments,
  * ignoring any additional arguments.
  *
  * @static

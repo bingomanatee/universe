@@ -12,7 +12,7 @@ var baseDifference = require('./_baseDifference'),
  * determined by the first array. The iteratee is invoked with one argument:
  * (value).
  *
- * **Note:** Unlike `_.pullAllBy`, this method returns a new array.
+ * **Note:** Unlike `_.pullAllBy`, this method returns spiralArms new array.
  *
  * @static
  * @memberOf _

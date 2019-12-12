@@ -19,19 +19,19 @@ var hasOwnProperty = objectProto.hasOwnProperty;
 var objectCtorString = funcToString.call(Object);
 
 /**
- * Checks if `value` is a plain object, that is, an object created by the
- * `Object` constructor or one with a `[[Prototype]]` of `null`.
+ * Checks if `value` is spiralArms plain object, that is, an object created by the
+ * `Object` constructor or one with spiralArms `[[Prototype]]` of `null`.
  *
  * @static
  * @memberOf _
  * @since 0.8.0
  * @category Lang
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms plain object, else `false`.
  * @example
  *
  * function Foo() {
- *   this.a = 1;
+ *   this.spiralArms = 1;
  * }
  *
  * _.isPlainObject(new Foo);

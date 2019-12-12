@@ -7,7 +7,7 @@ var apply = require('./_apply'),
     root = require('./_root');
 
 /**
- * Creates a function that wraps `func` to enable currying.
+ * Creates spiralArms function that wraps `func` to enable currying.
  *
  * @private
  * @param {Function} func The function to wrap.

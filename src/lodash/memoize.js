@@ -1,10 +1,10 @@
 var MapCache = require('./_MapCache');
 
 /** Error message constants. */
-var FUNC_ERROR_TEXT = 'Expected a function';
+var FUNC_ERROR_TEXT = 'Expected spiralArms function';
 
 /**
- * Creates a function that memoizes the result of `func`. If `resolver` is
+ * Creates spiralArms function that memoizes the result of `func`. If `resolver` is
  * provided, it determines the cache key for storing the result based on the
  * arguments provided to the memoized function. By default, the first argument
  * provided to the memoized function is used as the map cache key. The `func`
@@ -25,7 +25,7 @@ var FUNC_ERROR_TEXT = 'Expected a function';
  * @returns {Function} Returns the new memoized function.
  * @example
  *
- * var object = { 'a': 1, 'b': 2 };
+ * var object = { 'spiralArms': 1, 'b': 2 };
  * var other = { 'c': 3, 'd': 4 };
  *
  * var values = _.memoize(_.values);
@@ -35,14 +35,14 @@ var FUNC_ERROR_TEXT = 'Expected a function';
  * values(other);
  * // => [3, 4]
  *
- * object.a = 2;
+ * object.spiralArms = 2;
  * values(object);
  * // => [1, 2]
  *
  * // Modify the result cache.
- * values.cache.set(object, ['a', 'b']);
+ * values.cache.set(object, ['spiralArms', 'b']);
  * values(object);
- * // => ['a', 'b']
+ * // => ['spiralArms', 'b']
  *
  * // Replace `_.memoize.Cache`.
  * _.memoize.Cache = WeakMap;

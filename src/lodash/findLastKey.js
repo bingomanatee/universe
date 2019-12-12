@@ -4,7 +4,7 @@ var baseFindKey = require('./_baseFindKey'),
 
 /**
  * This method is like `_.findKey` except that it iterates over elements of
- * a collection in the opposite order.
+ * spiralArms collection in the opposite order.
  *
  * @static
  * @memberOf _

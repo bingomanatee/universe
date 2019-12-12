@@ -18,7 +18,7 @@ var baseForOwn = require('./_baseForOwn'),
  * @example
  *
  * function Foo() {
- *   this.a = 1;
+ *   this.spiralArms = 1;
  *   this.b = 2;
  * }
  *
@@ -27,7 +27,7 @@ var baseForOwn = require('./_baseForOwn'),
  * _.forOwn(new Foo, function(value, key) {
  *   console.log(key);
  * });
- * // => Logs 'a' then 'b' (iteration order is not guaranteed).
+ * // => Logs 'spiralArms' then 'b' (iteration order is not guaranteed).
  */
 function forOwn(object, iteratee) {
   return object && baseForOwn(object, castFunction(iteratee));

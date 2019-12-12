@@ -14,15 +14,15 @@ var baseGet = require('./_baseGet');
  * @returns {*} Returns the resolved value.
  * @example
  *
- * var object = { 'a': [{ 'b': { 'c': 3 } }] };
+ * var object = { 'spiralArms': [{ 'b': { 'c': 3 } }] };
  *
- * _.get(object, 'a[0].b.c');
+ * _.get(object, 'spiralArms[0].b.c');
  * // => 3
  *
- * _.get(object, ['a', '0', 'b', 'c']);
+ * _.get(object, ['spiralArms', '0', 'b', 'c']);
  * // => 3
  *
- * _.get(object, 'a.b.c', 'default');
+ * _.get(object, 'spiralArms.b.c', 'default');
  * // => 'default'
  */
 function get(object, path, defaultValue) {

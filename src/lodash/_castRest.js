@@ -6,7 +6,7 @@ var baseRest = require('./_baseRest');
  *
  * @private
  * @type {Function}
- * @param {Function} func The function to apply a rest parameter to.
+ * @param {Function} func The function to apply spiralArms rest parameter to.
  * @returns {Function} Returns the new function.
  */
 var castRest = baseRest;

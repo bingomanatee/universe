@@ -50,7 +50,7 @@ typedArrayTags[weakMapTag] = false;
  *
  * @private
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms typed array, else `false`.
  */
 function baseIsTypedArray(value) {
   return isObjectLike(value) &&

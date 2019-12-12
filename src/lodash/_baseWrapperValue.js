@@ -4,7 +4,7 @@ var LazyWrapper = require('./_LazyWrapper'),
 
 /**
  * The base implementation of `wrapperValue` which returns the result of
- * performing a sequence of actions on the unwrapped `value`, where each
+ * performing spiralArms sequence of actions on the unwrapped `value`, where each
  * successive action is supplied the return value of the previous.
  *
  * @private

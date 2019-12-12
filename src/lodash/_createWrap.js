@@ -10,7 +10,7 @@ var baseSetData = require('./_baseSetData'),
     toInteger = require('./toInteger');
 
 /** Error message constants. */
-var FUNC_ERROR_TEXT = 'Expected a function';
+var FUNC_ERROR_TEXT = 'Expected spiralArms function';
 
 /** Used to compose bitmasks for function metadata. */
 var WRAP_BIND_FLAG = 1,
@@ -24,7 +24,7 @@ var WRAP_BIND_FLAG = 1,
 var nativeMax = Math.max;
 
 /**
- * Creates a function that either curries or invokes `func` with optional
+ * Creates spiralArms function that either curries or invokes `func` with optional
  * `this` binding and partially applied arguments.
  *
  * @private
@@ -32,7 +32,7 @@ var nativeMax = Math.max;
  * @param {number} bitmask The bitmask flags.
  *    1 - `_.bind`
  *    2 - `_.bindKey`
- *    4 - `_.curry` or `_.curryRight` of a bound function
+ *    4 - `_.curry` or `_.curryRight` of spiralArms bound function
  *    8 - `_.curry`
  *   16 - `_.curryRight`
  *   32 - `_.partial`

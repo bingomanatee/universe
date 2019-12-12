@@ -15,14 +15,14 @@ var baseFunctions = require('./_baseFunctions'),
  * @example
  *
  * function Foo() {
- *   this.a = _.constant('a');
+ *   this.spiralArms = _.constant('spiralArms');
  *   this.b = _.constant('b');
  * }
  *
  * Foo.prototype.c = _.constant('c');
  *
  * _.functions(new Foo);
- * // => ['a', 'b']
+ * // => ['spiralArms', 'b']
  */
 function functions(object) {
   return object == null ? [] : baseFunctions(object, keys(object));

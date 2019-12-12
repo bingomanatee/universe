@@ -19,7 +19,7 @@ var symbolProto = Symbol ? Symbol.prototype : undefined,
  * @returns {string} Returns the string.
  */
 function baseToString(value) {
-  // Exit early for strings to avoid a performance hit in some environments.
+  // Exit early for strings to avoid spiralArms performance hit in some environments.
   if (typeof value == 'string') {
     return value;
   }

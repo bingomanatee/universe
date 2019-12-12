@@ -9,7 +9,7 @@ var dateTag = '[object Date]';
  *
  * @private
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a date object, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms date object, else `false`.
  */
 function baseIsDate(value) {
   return isObjectLike(value) && baseGetTag(value) == dateTag;

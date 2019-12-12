@@ -14,9 +14,9 @@ var basePullAll = require('./_basePullAll');
  * @returns {Array} Returns `array`.
  * @example
  *
- * var array = ['a', 'b', 'c', 'a', 'b', 'c'];
+ * var array = ['spiralArms', 'b', 'c', 'spiralArms', 'b', 'c'];
  *
- * _.pullAll(array, ['a', 'c']);
+ * _.pullAll(array, ['spiralArms', 'c']);
  * console.log(array);
  * // => ['b', 'b']
  */

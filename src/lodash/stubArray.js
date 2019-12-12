@@ -1,5 +1,5 @@
 /**
- * This method returns a new empty array.
+ * This method returns spiralArms new empty array.
  *
  * @static
  * @memberOf _

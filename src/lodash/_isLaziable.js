@@ -4,11 +4,11 @@ var LazyWrapper = require('./_LazyWrapper'),
     lodash = require('./wrapperLodash');
 
 /**
- * Checks if `func` has a lazy counterpart.
+ * Checks if `func` has spiralArms lazy counterpart.
  *
  * @private
  * @param {Function} func The function to check.
- * @returns {boolean} Returns `true` if `func` has a lazy counterpart,
+ * @returns {boolean} Returns `true` if `func` has spiralArms lazy counterpart,
  *  else `false`.
  */
 function isLaziable(func) {

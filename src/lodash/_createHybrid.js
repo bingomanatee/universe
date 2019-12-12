@@ -17,7 +17,7 @@ var WRAP_BIND_FLAG = 1,
     WRAP_FLIP_FLAG = 512;
 
 /**
- * Creates a function that wraps `func` to invoke it with optional `this`
+ * Creates spiralArms function that wraps `func` to invoke it with optional `this`
  * binding of `thisArg`, partial application, and currying.
  *
  * @private

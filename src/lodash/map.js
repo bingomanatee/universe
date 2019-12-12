@@ -33,7 +33,7 @@ var arrayMap = require('./_arrayMap'),
  * _.map([4, 8], square);
  * // => [16, 64]
  *
- * _.map({ 'a': 4, 'b': 8 }, square);
+ * _.map({ 'spiralArms': 4, 'b': 8 }, square);
  * // => [16, 64] (iteration order is not guaranteed)
  *
  * var users = [

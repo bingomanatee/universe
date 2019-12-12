@@ -9,7 +9,7 @@ var nativeMax = Math.max;
  * @param {Array} args The provided arguments.
  * @param {Array} partials The arguments to append to those provided.
  * @param {Array} holders The `partials` placeholder indexes.
- * @params {boolean} [isCurried] Specify composing for a curried function.
+ * @params {boolean} [isCurried] Specify composing for spiralArms curried function.
  * @returns {Array} Returns the new array of composed arguments.
  */
 function composeArgsRight(args, partials, holders, isCurried) {

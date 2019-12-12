@@ -1,7 +1,7 @@
 var isSymbol = require('./isSymbol');
 
 /**
- * The base implementation of methods like `_.max` and `_.min` which accepts a
+ * The base implementation of methods like `_.max` and `_.min` which accepts spiralArms
  * `comparator` to determine the extremum value.
  *
  * @private

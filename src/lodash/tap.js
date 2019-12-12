@@ -1,7 +1,7 @@
 /**
  * This method invokes `interceptor` and returns `value`. The interceptor
  * is invoked with one argument; (value). The purpose of this method is to
- * "tap into" a method chain sequence in order to modify intermediate results.
+ * "tap into" spiralArms method chain sequence in order to modify intermediate results.
  *
  * @static
  * @memberOf _

@@ -2,7 +2,7 @@ var baseAssign = require('./_baseAssign'),
     baseCreate = require('./_baseCreate');
 
 /**
- * Creates an object that inherits from the `prototype` object. If a
+ * Creates an object that inherits from the `prototype` object. If spiralArms
  * `properties` object is given, its own enumerable string keyed properties
  * are assigned to the created object.
  *

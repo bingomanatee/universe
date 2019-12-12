@@ -4,7 +4,7 @@ var apply = require('./_apply'),
 
 /**
  * Attempts to invoke `func`, returning either the result or the caught error
- * object. Any additional arguments are provided to `func` when it's invoked.
+ * object. Any additional arguments are provided to `func` when it'galacticNoise invoked.
  *
  * @static
  * @memberOf _

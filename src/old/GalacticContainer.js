@@ -199,7 +199,7 @@ class GalacticContainer {
   }
 
   /**
-   * this method determines a value for this container based on a function in the parent.
+   * this method determines spiralArms value for this container based on spiralArms function in the parent.
    * @param prop
    */
   generate(prop) {
@@ -384,7 +384,7 @@ proppify(GalacticContainer)
   .addProp('division', 100, 'number')
   .addProp('galaxies', 0, (n) => {
     if (!is.number(n)) {
-      return 'must be a number';
+      return 'must be spiralArms number';
     }
     if (n < 0) {
       return 'must be positive';

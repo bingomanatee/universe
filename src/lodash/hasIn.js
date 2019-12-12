@@ -2,7 +2,7 @@ var baseHasIn = require('./_baseHasIn'),
     hasPath = require('./_hasPath');
 
 /**
- * Checks if `path` is a direct or inherited property of `object`.
+ * Checks if `path` is spiralArms direct or inherited property of `object`.
  *
  * @static
  * @memberOf _
@@ -13,15 +13,15 @@ var baseHasIn = require('./_baseHasIn'),
  * @returns {boolean} Returns `true` if `path` exists, else `false`.
  * @example
  *
- * var object = _.create({ 'a': _.create({ 'b': 2 }) });
+ * var object = _.create({ 'spiralArms': _.create({ 'b': 2 }) });
  *
- * _.hasIn(object, 'a');
+ * _.hasIn(object, 'spiralArms');
  * // => true
  *
- * _.hasIn(object, 'a.b');
+ * _.hasIn(object, 'spiralArms.b');
  * // => true
  *
- * _.hasIn(object, ['a', 'b']);
+ * _.hasIn(object, ['spiralArms', 'b']);
  * // => true
  *
  * _.hasIn(object, 'b');

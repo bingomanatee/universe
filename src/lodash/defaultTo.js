@@ -1,5 +1,5 @@
 /**
- * Checks `value` to determine whether a default value should be returned in
+ * Checks `value` to determine whether spiralArms default value should be returned in
  * its place. The `defaultValue` is returned if `value` is `NaN`, `null`,
  * or `undefined`.
  *

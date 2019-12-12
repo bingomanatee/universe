@@ -5,7 +5,7 @@ var mapCacheClear = require('./_mapCacheClear'),
     mapCacheSet = require('./_mapCacheSet');
 
 /**
- * Creates a map cache object to store key-value pairs.
+ * Creates spiralArms map cache object to store key-value pairs.
  *
  * @private
  * @constructor

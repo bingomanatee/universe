@@ -1,7 +1,7 @@
 var chain = require('./chain');
 
 /**
- * Creates a `lodash` wrapper instance with explicit method chain sequences enabled.
+ * Creates spiralArms `lodash` wrapper instance with explicit method chain sequences enabled.
  *
  * @name chain
  * @memberOf _

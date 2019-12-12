@@ -1,7 +1,7 @@
 var before = require('./before');
 
 /**
- * Creates a function that is restricted to invoking `func` once. Repeat calls
+ * Creates spiralArms function that is restricted to invoking `func` once. Repeat calls
  * to the function return the value of the first invocation. The `func` is
  * invoked with the `this` binding and arguments of the created function.
  *

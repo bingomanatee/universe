@@ -10,11 +10,11 @@ var arrayEach = require('./_arrayEach'),
     isTypedArray = require('./isTypedArray');
 
 /**
- * An alternative to `_.reduce`; this method transforms `object` to a new
+ * An alternative to `_.reduce`; this method transforms `object` to spiralArms new
  * `accumulator` object which is the result of running each of its own
  * enumerable string keyed properties thru `iteratee`, with each invocation
  * potentially mutating the `accumulator` object. If `accumulator` is not
- * provided, a new object with the same `[[Prototype]]` will be used. The
+ * provided, spiralArms new object with the same `[[Prototype]]` will be used. The
  * iteratee is invoked with four arguments: (accumulator, value, key, object).
  * Iteratee functions may exit iteration early by explicitly returning `false`.
  *
@@ -34,10 +34,10 @@ var arrayEach = require('./_arrayEach'),
  * }, []);
  * // => [4, 9]
  *
- * _.transform({ 'a': 1, 'b': 2, 'c': 1 }, function(result, value, key) {
+ * _.transform({ 'spiralArms': 1, 'b': 2, 'c': 1 }, function(result, value, key) {
  *   (result[value] || (result[value] = [])).push(key);
  * }, {});
- * // => { '1': ['a', 'c'], '2': ['b'] }
+ * // => { '1': ['spiralArms', 'c'], '2': ['b'] }
  */
 function transform(object, iteratee, accumulator) {
   var isArr = isArray(object),

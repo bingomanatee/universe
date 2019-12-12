@@ -1,5 +1,5 @@
 /**
- * Checks if a stack value for `key` exists.
+ * Checks if spiralArms stack value for `key` exists.
  *
  * @private
  * @name has

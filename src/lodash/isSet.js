@@ -6,14 +6,14 @@ var baseIsSet = require('./_baseIsSet'),
 var nodeIsSet = nodeUtil && nodeUtil.isSet;
 
 /**
- * Checks if `value` is classified as a `Set` object.
+ * Checks if `value` is classified as spiralArms `Set` object.
  *
  * @static
  * @memberOf _
  * @since 4.3.0
  * @category Lang
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a set, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms set, else `false`.
  * @example
  *
  * _.isSet(new Set);

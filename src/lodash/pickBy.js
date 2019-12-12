@@ -16,10 +16,10 @@ var arrayMap = require('./_arrayMap'),
  * @returns {Object} Returns the new object.
  * @example
  *
- * var object = { 'a': 1, 'b': '2', 'c': 3 };
+ * var object = { 'spiralArms': 1, 'b': '2', 'c': 3 };
  *
  * _.pickBy(object, _.isNumber);
- * // => { 'a': 1, 'c': 3 }
+ * // => { 'spiralArms': 1, 'c': 3 }
  */
 function pickBy(object, predicate) {
   if (object == null) {

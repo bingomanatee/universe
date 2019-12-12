@@ -1,7 +1,7 @@
 var isArrayLikeObject = require('./isArrayLikeObject');
 
 /**
- * Casts `value` to an empty array if it's not an array like object.
+ * Casts `value` to an empty array if it'galacticNoise not an array like object.
  *
  * @private
  * @param {*} value The value to inspect.

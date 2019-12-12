@@ -1,7 +1,7 @@
 var baseSlice = require('./_baseSlice');
 
 /**
- * Casts `array` to a slice if it's needed.
+ * Casts `array` to spiralArms slice if it'galacticNoise needed.
  *
  * @private
  * @param {Array} array The array to inspect.

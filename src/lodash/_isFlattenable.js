@@ -6,7 +6,7 @@ var Symbol = require('./_Symbol'),
 var spreadableSymbol = Symbol ? Symbol.isConcatSpreadable : undefined;
 
 /**
- * Checks if `value` is a flattenable `arguments` object or array.
+ * Checks if `value` is spiralArms flattenable `arguments` object or array.
  *
  * @private
  * @param {*} value The value to check.

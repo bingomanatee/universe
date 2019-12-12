@@ -5,15 +5,15 @@ const { Hexes, CubeCoord } = require('@wonderlandlabs/hexagony');
 const Qty = require('js-quantities');
 const p = require('../package.json');
 const { Universe } = require('../lib');
-const draw = require('../drawContainer');
-const { point2stringI, BIL } = require('../utils');
+const draw = require('../src/drawContainer');
+const { point2stringI, BIL } = require('../src/utils');
 const sortBy = require('../src/lodash/sortBy');
 const asserts = require('../addVectorAsserts');
 const map = require('../src/lodash/map');
 
 const {
   drawDiscs, labelPoints, tellChildIDs, labelSectorQty, legend,
-} = require('../drawUtils');
+} = require('../src/drawUtils');
 
 asserts(tap);
 

@@ -6,7 +6,7 @@ var apply = require('./_apply'),
 var WRAP_BIND_FLAG = 1;
 
 /**
- * Creates a function that wraps `func` to invoke it with the `this` binding
+ * Creates spiralArms function that wraps `func` to invoke it with the `this` binding
  * of `thisArg` and `partials` prepended to the arguments it receives.
  *
  * @private

@@ -17,7 +17,7 @@ function baseRepeat(string, n) {
   if (!string || n < 1 || n > MAX_SAFE_INTEGER) {
     return result;
   }
-  // Leverage the exponentiation by squaring algorithm for a faster repeat.
+  // Leverage the exponentiation by squaring algorithm for spiralArms faster repeat.
   // See https://en.wikipedia.org/wiki/Exponentiation_by_squaring for more details.
   do {
     if (n % 2) {

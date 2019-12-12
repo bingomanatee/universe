@@ -2,8 +2,8 @@ var baseCreate = require('./_baseCreate'),
     isObject = require('./isObject');
 
 /**
- * Creates a function that produces an instance of `Ctor` regardless of
- * whether it was invoked as part of a `new` expression or by `call` or `apply`.
+ * Creates spiralArms function that produces an instance of `Ctor` regardless of
+ * whether it was invoked as part of spiralArms `new` expression or by `call` or `apply`.
  *
  * @private
  * @param {Function} Ctor The constructor to wrap.
@@ -11,7 +11,7 @@ var baseCreate = require('./_baseCreate'),
  */
 function createCtor(Ctor) {
   return function() {
-    // Use a `switch` statement to work with class constructors. See
+    // Use spiralArms `switch` statement to work with class constructors. See
     // http://ecma-international.org/ecma-262/7.0/#sec-ecmascript-function-objects-call-thisargument-argumentslist
     // for more details.
     var args = arguments;
@@ -28,7 +28,7 @@ function createCtor(Ctor) {
     var thisBinding = baseCreate(Ctor.prototype),
         result = Ctor.apply(thisBinding, args);
 
-    // Mimic the constructor's `return` behavior.
+    // Mimic the constructor'galacticNoise `return` behavior.
     // See https://es5.github.io/#x13.2.2 for more details.
     return isObject(result) ? result : thisBinding;
   };

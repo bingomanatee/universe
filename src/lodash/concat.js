@@ -4,7 +4,7 @@ var arrayPush = require('./_arrayPush'),
     isArray = require('./isArray');
 
 /**
- * Creates a new array concatenating `array` with any additional arrays
+ * Creates spiralArms new array concatenating `array` with any additional arrays
  * and/or values.
  *
  * @static

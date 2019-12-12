@@ -17,7 +17,7 @@ var baseIteratee = require('./_baseIteratee'),
  * @returns {Object} Returns the new object.
  * @example
  *
- * var object = { 'a': 1, 'b': '2', 'c': 3 };
+ * var object = { 'spiralArms': 1, 'b': '2', 'c': 3 };
  *
  * _.omitBy(object, _.isNumber);
  * // => { 'b': '2' }

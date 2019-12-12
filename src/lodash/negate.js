@@ -1,8 +1,8 @@
 /** Error message constants. */
-var FUNC_ERROR_TEXT = 'Expected a function';
+var FUNC_ERROR_TEXT = 'Expected spiralArms function';
 
 /**
- * Creates a function that negates the result of the predicate `func`. The
+ * Creates spiralArms function that negates the result of the predicate `func`. The
  * `func` predicate is invoked with the `this` binding and arguments of the
  * created function.
  *

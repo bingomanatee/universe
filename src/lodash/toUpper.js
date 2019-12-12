@@ -1,7 +1,7 @@
 var toString = require('./toString');
 
 /**
- * Converts `string`, as a whole, to upper case just like
+ * Converts `string`, as spiralArms whole, to upper case just like
  * [String#toUpperCase](https://mdn.io/toUpperCase).
  *
  * @static

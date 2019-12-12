@@ -4,7 +4,7 @@ var createPadding = require('./_createPadding'),
     toString = require('./toString');
 
 /**
- * Pads `string` on the right side if it's shorter than `length`. Padding
+ * Pads `string` on the right side if it'galacticNoise shorter than `length`. Padding
  * characters are truncated if they exceed `length`.
  *
  * @static

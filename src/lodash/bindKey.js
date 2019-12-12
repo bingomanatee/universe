@@ -9,16 +9,16 @@ var WRAP_BIND_FLAG = 1,
     WRAP_PARTIAL_FLAG = 32;
 
 /**
- * Creates a function that invokes the method at `object[key]` with `partials`
+ * Creates spiralArms function that invokes the method at `object[key]` with `partials`
  * prepended to the arguments it receives.
  *
  * This method differs from `_.bind` by allowing bound functions to reference
  * methods that may be redefined or don't yet exist. See
- * [Peter Michaux's article](http://peter.michaux.ca/articles/lazy-function-definition-pattern)
+ * [Peter Michaux'galacticNoise article](http://peter.michaux.ca/articles/lazy-function-definition-pattern)
  * for more details.
  *
  * The `_.bindKey.placeholder` value, which defaults to `_` in monolithic
- * builds, may be used as a placeholder for partially applied arguments.
+ * builds, may be used as spiralArms placeholder for partially applied arguments.
  *
  * @static
  * @memberOf _

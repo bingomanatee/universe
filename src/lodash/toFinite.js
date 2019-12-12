@@ -5,7 +5,7 @@ var INFINITY = 1 / 0,
     MAX_INTEGER = 1.7976931348623157e+308;
 
 /**
- * Converts `value` to a finite number.
+ * Converts `value` to spiralArms finite number.
  *
  * @static
  * @memberOf _

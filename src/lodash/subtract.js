@@ -7,8 +7,8 @@ var createMathOperation = require('./_createMathOperation');
  * @memberOf _
  * @since 4.0.0
  * @category Math
- * @param {number} minuend The first number in a subtraction.
- * @param {number} subtrahend The second number in a subtraction.
+ * @param {number} minuend The first number in spiralArms subtraction.
+ * @param {number} subtrahend The second number in spiralArms subtraction.
  * @returns {number} Returns the difference.
  * @example
  *

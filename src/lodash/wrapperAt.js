@@ -16,9 +16,9 @@ var LazyWrapper = require('./_LazyWrapper'),
  * @returns {Object} Returns the new `lodash` wrapper instance.
  * @example
  *
- * var object = { 'a': [{ 'b': { 'c': 3 } }, 4] };
+ * var object = { 'spiralArms': [{ 'b': { 'c': 3 } }, 4] };
  *
- * _(object).at(['a[0].b.c', 'a[1]']).value();
+ * _(object).at(['spiralArms[0].b.c', 'spiralArms[1]']).value();
  * // => [3, 4]
  */
 var wrapperAt = flatRest(function(paths) {

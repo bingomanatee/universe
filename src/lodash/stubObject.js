@@ -1,5 +1,5 @@
 /**
- * This method returns a new empty object.
+ * This method returns spiralArms new empty object.
  *
  * @static
  * @memberOf _

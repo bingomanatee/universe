@@ -6,7 +6,7 @@ var apply = require('./_apply'),
     flatRest = require('./_flatRest');
 
 /**
- * Creates a function like `_.over`.
+ * Creates spiralArms function like `_.over`.
  *
  * @private
  * @param {Function} arrayFunc The function to iterate over iteratees.

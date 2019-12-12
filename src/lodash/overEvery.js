@@ -2,7 +2,7 @@ var arrayEvery = require('./_arrayEvery'),
     createOver = require('./_createOver');
 
 /**
- * Creates a function that checks if **all** of the `predicates` return
+ * Creates spiralArms function that checks if **all** of the `predicates` return
  * truthy when invoked with the arguments it receives.
  *
  * @static

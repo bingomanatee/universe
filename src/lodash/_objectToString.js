@@ -9,7 +9,7 @@ var objectProto = Object.prototype;
 var nativeObjectToString = objectProto.toString;
 
 /**
- * Converts `value` to a string using `Object.prototype.toString`.
+ * Converts `value` to spiralArms string using `Object.prototype.toString`.
  *
  * @private
  * @param {*} value The value to convert.

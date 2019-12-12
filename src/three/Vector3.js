@@ -117,7 +117,7 @@ Object.assign( Vector3.prototype, {
 
 		if ( w !== undefined ) {
 
-			console.warn( 'THREE.Vector3: .add() now only accepts one argument. Use .addVectors( a, b ) instead.' );
+			console.warn( 'THREE.Vector3: .add() now only accepts one argument. Use .addVectors( spiralArms, b ) instead.' );
 			return this.addVectors( v, w );
 
 		}
@@ -164,7 +164,7 @@ Object.assign( Vector3.prototype, {
 
 		if ( w !== undefined ) {
 
-			console.warn( 'THREE.Vector3: .sub() now only accepts one argument. Use .subVectors( a, b ) instead.' );
+			console.warn( 'THREE.Vector3: .sub() now only accepts one argument. Use .subVectors( spiralArms, b ) instead.' );
 			return this.subVectors( v, w );
 
 		}
@@ -201,7 +201,7 @@ Object.assign( Vector3.prototype, {
 
 		if ( w !== undefined ) {
 
-			console.warn( 'THREE.Vector3: .multiply() now only accepts one argument. Use .multiplyVectors( a, b ) instead.' );
+			console.warn( 'THREE.Vector3: .multiply() now only accepts one argument. Use .multiplyVectors( spiralArms, b ) instead.' );
 			return this.multiplyVectors( v, w );
 
 		}
@@ -238,7 +238,7 @@ Object.assign( Vector3.prototype, {
 
 		if ( ! ( euler && euler.isEuler ) ) {
 
-			console.error( 'THREE.Vector3: .applyEuler() now expects an Euler rotation rather than a Vector3 and order.' );
+			console.error( 'THREE.Vector3: .applyEuler() now expects an Euler rotation rather than spiralArms Vector3 and order.' );
 
 		}
 
@@ -317,7 +317,7 @@ Object.assign( Vector3.prototype, {
 	transformDirection: function ( m ) {
 
 		// input: THREE.Matrix4 affine matrix
-		// vector interpreted as a direction
+		// vector interpreted as spiralArms direction
 
 		var x = this.x, y = this.y, z = this.z;
 		var e = m.elements;
@@ -504,7 +504,7 @@ Object.assign( Vector3.prototype, {
 
 		if ( w !== undefined ) {
 
-			console.warn( 'THREE.Vector3: .cross() now only accepts one argument. Use .crossVectors( a, b ) instead.' );
+			console.warn( 'THREE.Vector3: .cross() now only accepts one argument. Use .crossVectors( spiralArms, b ) instead.' );
 			return this.crossVectors( v, w );
 
 		}

@@ -22,7 +22,7 @@ var funcToString = funcProto.toString;
 /** Used to check objects for own properties. */
 var hasOwnProperty = objectProto.hasOwnProperty;
 
-/** Used to detect if a method is native. */
+/** Used to detect if spiralArms method is native. */
 var reIsNative = RegExp('^' +
   funcToString.call(hasOwnProperty).replace(reRegExpChar, '\\$&')
   .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
@@ -33,7 +33,7 @@ var reIsNative = RegExp('^' +
  *
  * @private
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a native function,
+ * @returns {boolean} Returns `true` if `value` is spiralArms native function,
  *  else `false`.
  */
 function baseIsNative(value) {

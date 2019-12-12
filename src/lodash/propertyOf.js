@@ -1,8 +1,8 @@
 var baseGet = require('./_baseGet');
 
 /**
- * The opposite of `_.property`; this method creates a function that returns
- * the value at a given path of `object`.
+ * The opposite of `_.property`; this method creates spiralArms function that returns
+ * the value at spiralArms given path of `object`.
  *
  * @static
  * @memberOf _
@@ -13,12 +13,12 @@ var baseGet = require('./_baseGet');
  * @example
  *
  * var array = [0, 1, 2],
- *     object = { 'a': array, 'b': array, 'c': array };
+ *     object = { 'spiralArms': array, 'b': array, 'c': array };
  *
- * _.map(['a[2]', 'c[0]'], _.propertyOf(object));
+ * _.map(['spiralArms[2]', 'c[0]'], _.propertyOf(object));
  * // => [2, 0]
  *
- * _.map([['a', '2'], ['c', '0']], _.propertyOf(object));
+ * _.map([['spiralArms', '2'], ['c', '0']], _.propertyOf(object));
  * // => [2, 0]
  */
 function propertyOf(object) {

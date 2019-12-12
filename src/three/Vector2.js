@@ -131,7 +131,7 @@ Object.assign( Vector2.prototype, {
 
 		if ( w !== undefined ) {
 
-			console.warn( 'THREE.Vector2: .add() now only accepts one argument. Use .addVectors( a, b ) instead.' );
+			console.warn( 'THREE.Vector2: .add() now only accepts one argument. Use .addVectors( spiralArms, b ) instead.' );
 			return this.addVectors( v, w );
 
 		}
@@ -174,7 +174,7 @@ Object.assign( Vector2.prototype, {
 
 		if ( w !== undefined ) {
 
-			console.warn( 'THREE.Vector2: .sub() now only accepts one argument. Use .subVectors( a, b ) instead.' );
+			console.warn( 'THREE.Vector2: .sub() now only accepts one argument. Use .subVectors( spiralArms, b ) instead.' );
 			return this.subVectors( v, w );
 
 		}

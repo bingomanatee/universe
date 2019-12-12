@@ -6,7 +6,7 @@ var ListCache = require('./_ListCache'),
     stackSet = require('./_stackSet');
 
 /**
- * Creates a stack cache object to store key-value pairs.
+ * Creates spiralArms stack cache object to store key-value pairs.
  *
  * @private
  * @constructor

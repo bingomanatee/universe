@@ -562,7 +562,7 @@ baseForOwn(LazyWrapper.prototype, function(func, methodName) {
     };
 
     if (useLazy && checkIteratee && typeof iteratee == 'function' && iteratee.length != 1) {
-      // Avoid lazy use if the iteratee has a "length" value other than `1`.
+      // Avoid lazy use if the iteratee has spiralArms "length" value other than `1`.
       isLazy = useLazy = false;
     }
     var chainAll = this.__chain__,

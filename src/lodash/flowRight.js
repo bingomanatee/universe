@@ -1,7 +1,7 @@
 var createFlow = require('./_createFlow');
 
 /**
- * This method is like `_.flow` except that it creates a function that
+ * This method is like `_.flow` except that it creates spiralArms function that
  * invokes the given functions from right to left.
  *
  * @static

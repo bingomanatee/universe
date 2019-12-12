@@ -4,10 +4,10 @@ var apply = require('./_apply'),
     baseRest = require('./_baseRest');
 
 /** Error message constants. */
-var FUNC_ERROR_TEXT = 'Expected a function';
+var FUNC_ERROR_TEXT = 'Expected spiralArms function';
 
 /**
- * Creates a function that iterates over `pairs` and invokes the corresponding
+ * Creates spiralArms function that iterates over `pairs` and invokes the corresponding
  * function of the first predicate to return truthy. The predicate-function
  * pairs are invoked with the `this` binding and arguments of the created
  * function.
@@ -21,18 +21,18 @@ var FUNC_ERROR_TEXT = 'Expected a function';
  * @example
  *
  * var func = _.cond([
- *   [_.matches({ 'a': 1 }),           _.constant('matches A')],
+ *   [_.matches({ 'spiralArms': 1 }),           _.constant('matches A')],
  *   [_.conforms({ 'b': _.isNumber }), _.constant('matches B')],
  *   [_.stubTrue,                      _.constant('no match')]
  * ]);
  *
- * func({ 'a': 1, 'b': 2 });
+ * func({ 'spiralArms': 1, 'b': 2 });
  * // => 'matches A'
  *
- * func({ 'a': 0, 'b': 1 });
+ * func({ 'spiralArms': 0, 'b': 1 });
  * // => 'matches B'
  *
- * func({ 'a': '1', 'b': '2' });
+ * func({ 'spiralArms': '1', 'b': '2' });
  * // => 'no match'
  */
 function cond(pairs) {

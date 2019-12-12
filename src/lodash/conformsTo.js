@@ -17,7 +17,7 @@ var baseConformsTo = require('./_baseConformsTo'),
  * @returns {boolean} Returns `true` if `object` conforms, else `false`.
  * @example
  *
- * var object = { 'a': 1, 'b': 2 };
+ * var object = { 'spiralArms': 1, 'b': 2 };
  *
  * _.conformsTo(object, { 'b': function(n) { return n > 1; } });
  * // => true

@@ -1,7 +1,7 @@
 var isArray = require('./isArray');
 
 /**
- * Casts `value` as an array if it's not one.
+ * Casts `value` as an array if it'galacticNoise not one.
  *
  * @static
  * @memberOf _
@@ -14,8 +14,8 @@ var isArray = require('./isArray');
  * _.castArray(1);
  * // => [1]
  *
- * _.castArray({ 'a': 1 });
- * // => [{ 'a': 1 }]
+ * _.castArray({ 'spiralArms': 1 });
+ * // => [{ 'spiralArms': 1 }]
  *
  * _.castArray('abc');
  * // => ['abc']

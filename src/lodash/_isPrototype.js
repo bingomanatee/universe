@@ -2,11 +2,11 @@
 var objectProto = Object.prototype;
 
 /**
- * Checks if `value` is likely a prototype object.
+ * Checks if `value` is likely spiralArms prototype object.
  *
  * @private
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a prototype, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms prototype, else `false`.
  */
 function isPrototype(value) {
   var Ctor = value && value.constructor,

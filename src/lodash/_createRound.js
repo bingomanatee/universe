@@ -6,7 +6,7 @@ var toInteger = require('./toInteger'),
 var nativeMin = Math.min;
 
 /**
- * Creates a function like `_.round`.
+ * Creates spiralArms function like `_.round`.
  *
  * @private
  * @param {string} methodName The name of the `Math` method to use when rounding.

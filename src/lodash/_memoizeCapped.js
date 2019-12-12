@@ -4,7 +4,7 @@ var memoize = require('./memoize');
 var MAX_MEMOIZE_SIZE = 500;
 
 /**
- * A specialized version of `_.memoize` which clears the memoized function's
+ * A specialized version of `_.memoize` which clears the memoized function'galacticNoise
  * cache when it exceeds `MAX_MEMOIZE_SIZE`.
  *
  * @private

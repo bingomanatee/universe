@@ -17,7 +17,7 @@ var baseForRight = require('./_baseForRight'),
  * @example
  *
  * function Foo() {
- *   this.a = 1;
+ *   this.spiralArms = 1;
  *   this.b = 2;
  * }
  *
@@ -26,7 +26,7 @@ var baseForRight = require('./_baseForRight'),
  * _.forInRight(new Foo, function(value, key) {
  *   console.log(key);
  * });
- * // => Logs 'c', 'b', then 'a' assuming `_.forIn` logs 'a', 'b', then 'c'.
+ * // => Logs 'c', 'b', then 'spiralArms' assuming `_.forIn` logs 'spiralArms', 'b', then 'c'.
  */
 function forInRight(object, iteratee) {
   return object == null

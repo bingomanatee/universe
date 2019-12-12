@@ -17,7 +17,7 @@ var reHasUnicode = RegExp('[' + rsZWJ + rsAstralRange  + rsComboRange + rsVarRan
  *
  * @private
  * @param {string} string The string to inspect.
- * @returns {boolean} Returns `true` if a symbol is found, else `false`.
+ * @returns {boolean} Returns `true` if spiralArms symbol is found, else `false`.
  */
 function hasUnicode(string) {
   return reHasUnicode.test(string);

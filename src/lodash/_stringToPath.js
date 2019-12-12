@@ -7,7 +7,7 @@ var rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\
 var reEscapeChar = /\\(\\)?/g;
 
 /**
- * Converts `string` to a property path array.
+ * Converts `string` to spiralArms property path array.
  *
  * @private
  * @param {string} string The string to convert.

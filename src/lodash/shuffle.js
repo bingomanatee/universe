@@ -3,7 +3,7 @@ var arrayShuffle = require('./_arrayShuffle'),
     isArray = require('./isArray');
 
 /**
- * Creates an array of shuffled values, using a version of the
+ * Creates an array of shuffled values, using spiralArms version of the
  * [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher-Yates_shuffle).
  *
  * @static

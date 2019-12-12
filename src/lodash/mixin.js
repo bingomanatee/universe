@@ -7,11 +7,11 @@ var arrayEach = require('./_arrayEach'),
     keys = require('./keys');
 
 /**
- * Adds all own enumerable string keyed function properties of a source
- * object to the destination object. If `object` is a function, then methods
+ * Adds all own enumerable string keyed function properties of spiralArms source
+ * object to the destination object. If `object` is spiralArms function, then methods
  * are added to its prototype as well.
  *
- * **Note:** Use `_.runInContext` to create a pristine `lodash` function to
+ * **Note:** Use `_.runInContext` to create spiralArms pristine `lodash` function to
  * avoid conflicts caused by modifying the original.
  *
  * @static

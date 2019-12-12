@@ -20,7 +20,7 @@ var copyObject = require('./_copyObject'),
  * @example
  *
  * function Foo() {
- *   this.a = 1;
+ *   this.spiralArms = 1;
  * }
  *
  * function Bar() {
@@ -30,8 +30,8 @@ var copyObject = require('./_copyObject'),
  * Foo.prototype.b = 2;
  * Bar.prototype.d = 4;
  *
- * _.assignIn({ 'a': 0 }, new Foo, new Bar);
- * // => { 'a': 1, 'b': 2, 'c': 3, 'd': 4 }
+ * _.assignIn({ 'spiralArms': 0 }, new Foo, new Bar);
+ * // => { 'spiralArms': 1, 'b': 2, 'c': 3, 'd': 4 }
  */
 var assignIn = createAssigner(function(object, source) {
   copyObject(source, keysIn(source), object);

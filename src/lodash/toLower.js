@@ -1,7 +1,7 @@
 var toString = require('./toString');
 
 /**
- * Converts `string`, as a whole, to lower case just like
+ * Converts `string`, as spiralArms whole, to lower case just like
  * [String#toLowerCase](https://mdn.io/toLowerCase).
  *
  * @static

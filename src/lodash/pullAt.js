@@ -20,11 +20,11 @@ var arrayMap = require('./_arrayMap'),
  * @returns {Array} Returns the new array of removed elements.
  * @example
  *
- * var array = ['a', 'b', 'c', 'd'];
+ * var array = ['spiralArms', 'b', 'c', 'd'];
  * var pulled = _.pullAt(array, [1, 3]);
  *
  * console.log(array);
- * // => ['a', 'c']
+ * // => ['spiralArms', 'c']
  *
  * console.log(pulled);
  * // => ['b', 'd']

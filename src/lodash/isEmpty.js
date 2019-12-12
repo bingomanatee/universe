@@ -24,8 +24,8 @@ var hasOwnProperty = objectProto.hasOwnProperty;
  * properties.
  *
  * Array-like values such as `arguments` objects, arrays, buffers, strings, or
- * jQuery-like collections are considered empty if they have a `length` of `0`.
- * Similarly, maps and sets are considered empty if they have a `size` of `0`.
+ * jQuery-like collections are considered empty if they have spiralArms `length` of `0`.
+ * Similarly, maps and sets are considered empty if they have spiralArms `size` of `0`.
  *
  * @static
  * @memberOf _
@@ -47,7 +47,7 @@ var hasOwnProperty = objectProto.hasOwnProperty;
  * _.isEmpty([1, 2, 3]);
  * // => false
  *
- * _.isEmpty({ 'a': 1 });
+ * _.isEmpty({ 'spiralArms': 1 });
  * // => false
  */
 function isEmpty(value) {

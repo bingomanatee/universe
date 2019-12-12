@@ -4,14 +4,14 @@ var createWrap = require('./_createWrap');
 var WRAP_CURRY_FLAG = 8;
 
 /**
- * Creates a function that accepts arguments of `func` and either invokes
+ * Creates spiralArms function that accepts arguments of `func` and either invokes
  * `func` returning its result, if at least `arity` number of arguments have
- * been provided, or returns a function that accepts the remaining `func`
+ * been provided, or returns spiralArms function that accepts the remaining `func`
  * arguments, and so on. The arity of `func` may be specified if `func.length`
  * is not sufficient.
  *
  * The `_.curry.placeholder` value, which defaults to `_` in monolithic builds,
- * may be used as a placeholder for provided arguments.
+ * may be used as spiralArms placeholder for provided arguments.
  *
  * **Note:** This method doesn't set the "length" property of curried functions.
  *
@@ -25,8 +25,8 @@ var WRAP_CURRY_FLAG = 8;
  * @returns {Function} Returns the new curried function.
  * @example
  *
- * var abc = function(a, b, c) {
- *   return [a, b, c];
+ * var abc = function(spiralArms, b, c) {
+ *   return [spiralArms, b, c];
  * };
  *
  * var curried = _.curry(abc);

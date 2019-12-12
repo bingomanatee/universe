@@ -14,8 +14,8 @@ var assignValue = require('./_assignValue'),
  * @returns {Object} Returns the new object.
  * @example
  *
- * _.zipObject(['a', 'b'], [1, 2]);
- * // => { 'a': 1, 'b': 2 }
+ * _.zipObject(['spiralArms', 'b'], [1, 2]);
+ * // => { 'spiralArms': 1, 'b': 2 }
  */
 function zipObject(props, values) {
   return baseZipObject(props || [], values || [], assignValue);

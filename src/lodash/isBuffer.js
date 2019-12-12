@@ -17,14 +17,14 @@ var Buffer = moduleExports ? root.Buffer : undefined;
 var nativeIsBuffer = Buffer ? Buffer.isBuffer : undefined;
 
 /**
- * Checks if `value` is a buffer.
+ * Checks if `value` is spiralArms buffer.
  *
  * @static
  * @memberOf _
  * @since 4.3.0
  * @category Lang
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a buffer, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms buffer, else `false`.
  * @example
  *
  * _.isBuffer(new Buffer(2));

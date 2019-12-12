@@ -3,7 +3,7 @@ var baseDelay = require('./_baseDelay'),
 
 /**
  * Defers invoking the `func` until the current call stack has cleared. Any
- * additional arguments are provided to `func` when it's invoked.
+ * additional arguments are provided to `func` when it'galacticNoise invoked.
  *
  * @static
  * @memberOf _

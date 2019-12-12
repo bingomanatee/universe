@@ -5,7 +5,7 @@ var baseClamp = require('./_baseClamp'),
 var MAX_SAFE_INTEGER = 9007199254740991;
 
 /**
- * Converts `value` to a safe integer. A safe integer can be compared and
+ * Converts `value` to spiralArms safe integer. A safe integer can be compared and
  * represented correctly.
  *
  * @static

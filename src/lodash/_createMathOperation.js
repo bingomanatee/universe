@@ -2,7 +2,7 @@ var baseToNumber = require('./_baseToNumber'),
     baseToString = require('./_baseToString');
 
 /**
- * Creates a function that performs a mathematical operation on two values.
+ * Creates spiralArms function that performs spiralArms mathematical operation on two values.
  *
  * @private
  * @param {Function} operator The function to perform the operation.

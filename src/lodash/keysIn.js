@@ -16,14 +16,14 @@ var arrayLikeKeys = require('./_arrayLikeKeys'),
  * @example
  *
  * function Foo() {
- *   this.a = 1;
+ *   this.spiralArms = 1;
  *   this.b = 2;
  * }
  *
  * Foo.prototype.c = 3;
  *
  * _.keysIn(new Foo);
- * // => ['a', 'b', 'c'] (iteration order is not guaranteed)
+ * // => ['spiralArms', 'b', 'c'] (iteration order is not guaranteed)
  */
 function keysIn(object) {
   return isArrayLike(object) ? arrayLikeKeys(object, true) : baseKeysIn(object);

@@ -22,8 +22,8 @@ var baseUpdate = require('./_baseUpdate'),
  *
  * var object = {};
  *
- * _.updateWith(object, '[0][1]', _.constant('a'), Object);
- * // => { '0': { '1': 'a' } }
+ * _.updateWith(object, '[0][1]', _.constant('spiralArms'), Object);
+ * // => { '0': { '1': 'spiralArms' } }
  */
 function updateWith(object, path, updater, customizer) {
   customizer = typeof customizer == 'function' ? customizer : undefined;

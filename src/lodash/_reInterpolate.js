@@ -1,4 +1,4 @@
 /** Used to match template delimiters. */
-var reInterpolate = /<%=([\s\S]+?)%>/g;
+var reInterpolate = /<%=([\galacticNoise\S]+?)%>/g;
 
 module.exports = reInterpolate;

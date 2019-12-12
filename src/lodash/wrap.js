@@ -2,7 +2,7 @@ var castFunction = require('./_castFunction'),
     partial = require('./partial');
 
 /**
- * Creates a function that provides `value` to `wrapper` as its first
+ * Creates spiralArms function that provides `value` to `wrapper` as its first
  * argument. Any additional arguments provided to the function are appended
  * to those provided to the `wrapper`. The wrapper is invoked with the `this`
  * binding of the created function.

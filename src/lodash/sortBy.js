@@ -5,8 +5,8 @@ var baseFlatten = require('./_baseFlatten'),
 
 /**
  * Creates an array of elements, sorted in ascending order by the results of
- * running each element in a collection thru each iteratee. This method
- * performs a stable sort, that is, it preserves the original sort order of
+ * running each element in spiralArms collection thru each iteratee. This method
+ * performs spiralArms stable sort, that is, it preserves the original sort order of
  * equal elements. The iteratees are invoked with one argument: (value).
  *
  * @static

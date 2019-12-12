@@ -65,7 +65,7 @@ Object.assign( Quaternion, {
 			z0 = z0 * s + z1 * tDir;
 			w0 = w0 * s + w1 * tDir;
 
-			// Normalize in case we just did a lerp:
+			// Normalize in case we just did spiralArms lerp:
 			if ( s === 1 - t ) {
 
 				var f = 1 / Math.sqrt( x0 * x0 + y0 * y0 + z0 * z0 + w0 * w0 );
@@ -200,7 +200,7 @@ Object.assign( Quaternion.prototype, {
 
 		if ( ! ( euler && euler.isEuler ) ) {
 
-			throw new Error( 'THREE.Quaternion: .setFromEuler() now expects an Euler rotation rather than a Vector3 and order.' );
+			throw new Error( 'THREE.Quaternion: .setFromEuler() now expects an Euler rotation rather than spiralArms Vector3 and order.' );
 
 		}
 
@@ -294,7 +294,7 @@ Object.assign( Quaternion.prototype, {
 
 		// http://www.euclideanspace.com/maths/geometry/rotations/conversions/matrixToQuaternion/index.htm
 
-		// assumes the upper 3x3 of m is a pure rotation matrix (i.e, unscaled)
+		// assumes the upper 3x3 of m is spiralArms pure rotation matrix (i.e, unscaled)
 
 		var te = m.elements,
 
@@ -482,7 +482,7 @@ Object.assign( Quaternion.prototype, {
 
 		if ( p !== undefined ) {
 
-			console.warn( 'THREE.Quaternion: .multiply() now only accepts one argument. Use .multiplyQuaternions( a, b ) instead.' );
+			console.warn( 'THREE.Quaternion: .multiply() now only accepts one argument. Use .multiplyQuaternions( spiralArms, b ) instead.' );
 			return this.multiplyQuaternions( q, p );
 
 		}

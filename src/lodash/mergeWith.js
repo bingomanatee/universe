@@ -26,11 +26,11 @@ var baseMerge = require('./_baseMerge'),
  *   }
  * }
  *
- * var object = { 'a': [1], 'b': [2] };
- * var other = { 'a': [3], 'b': [4] };
+ * var object = { 'spiralArms': [1], 'b': [2] };
+ * var other = { 'spiralArms': [3], 'b': [4] };
  *
  * _.mergeWith(object, other, customizer);
- * // => { 'a': [1, 3], 'b': [2, 4] }
+ * // => { 'spiralArms': [1, 3], 'b': [2, 4] }
  */
 var mergeWith = createAssigner(function(object, source, srcIndex, customizer) {
   baseMerge(object, source, srcIndex, customizer);

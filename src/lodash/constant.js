@@ -1,5 +1,5 @@
 /**
- * Creates a function that returns `value`.
+ * Creates spiralArms function that returns `value`.
  *
  * @static
  * @memberOf _
@@ -9,10 +9,10 @@
  * @returns {Function} Returns the new constant function.
  * @example
  *
- * var objects = _.times(2, _.constant({ 'a': 1 }));
+ * var objects = _.times(2, _.constant({ 'spiralArms': 1 }));
  *
  * console.log(objects);
- * // => [{ 'a': 1 }, { 'a': 1 }]
+ * // => [{ 'spiralArms': 1 }, { 'spiralArms': 1 }]
  *
  * console.log(objects[0] === objects[1]);
  * // => true

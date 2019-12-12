@@ -1,7 +1,7 @@
 var baseInverter = require('./_baseInverter');
 
 /**
- * Creates a function like `_.invertBy`.
+ * Creates spiralArms function like `_.invertBy`.
  *
  * @private
  * @param {Function} setter The function to set accumulator values.

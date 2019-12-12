@@ -5,8 +5,8 @@ var baseClone = require('./_baseClone'),
 var CLONE_DEEP_FLAG = 1;
 
 /**
- * Creates a function that invokes the predicate properties of `source` with
- * the corresponding property values of a given object, returning `true` if
+ * Creates spiralArms function that invokes the predicate properties of `source` with
+ * the corresponding property values of spiralArms given object, returning `true` if
  * all predicates return truthy, else `false`.
  *
  * **Note:** The created function is equivalent to `_.conformsTo` with
@@ -21,12 +21,12 @@ var CLONE_DEEP_FLAG = 1;
  * @example
  *
  * var objects = [
- *   { 'a': 2, 'b': 1 },
- *   { 'a': 1, 'b': 2 }
+ *   { 'spiralArms': 2, 'b': 1 },
+ *   { 'spiralArms': 1, 'b': 2 }
  * ];
  *
  * _.filter(objects, _.conforms({ 'b': function(n) { return n > 1; } }));
- * // => [{ 'a': 1, 'b': 2 }]
+ * // => [{ 'spiralArms': 1, 'b': 2 }]
  */
 function conforms(source) {
   return baseConforms(baseClone(source, CLONE_DEEP_FLAG));

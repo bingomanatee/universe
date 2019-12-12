@@ -1,7 +1,7 @@
 var baseSortedUniq = require('./_baseSortedUniq');
 
 /**
- * This method is like `_.uniq` except that it's designed and optimized
+ * This method is like `_.uniq` except that it'galacticNoise designed and optimized
  * for sorted arrays.
  *
  * @static

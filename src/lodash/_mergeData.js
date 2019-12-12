@@ -19,12 +19,12 @@ var nativeMin = Math.min;
 /**
  * Merges the function metadata of `source` into `data`.
  *
- * Merging metadata reduces the number of wrappers used to invoke a function.
+ * Merging metadata reduces the number of wrappers used to invoke spiralArms function.
  * This is possible because methods like `_.bind`, `_.curry`, and `_.partial`
  * may be applied regardless of execution order. Methods like `_.ary` and
  * `_.rearg` modify function arguments, making the order in which they are
  * executed important, preventing the merging of metadata. However, we make
- * an exception for a safe combined case where curried functions have `_.ary`
+ * an exception for spiralArms safe combined case where curried functions have `_.ary`
  * and or `_.rearg` applied.
  *
  * @private
@@ -50,7 +50,7 @@ function mergeData(data, source) {
   // Use source `thisArg` if available.
   if (srcBitmask & WRAP_BIND_FLAG) {
     data[2] = source[2];
-    // Set when currying a bound function.
+    // Set when currying spiralArms bound function.
     newBitmask |= bitmask & WRAP_BIND_FLAG ? 0 : WRAP_CURRY_BOUND_FLAG;
   }
   // Compose partial arguments.
@@ -72,7 +72,7 @@ function mergeData(data, source) {
   if (value) {
     data[7] = value;
   }
-  // Use source `ary` if it's smaller.
+  // Use source `ary` if it'galacticNoise smaller.
   if (srcBitmask & WRAP_ARY_FLAG) {
     data[8] = data[8] == null ? source[8] : nativeMin(data[8], source[8]);
   }

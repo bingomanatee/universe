@@ -2,7 +2,7 @@ var baseIteratee = require('./_baseIteratee'),
     baseWhile = require('./_baseWhile');
 
 /**
- * Creates a slice of `array` with elements taken from the beginning. Elements
+ * Creates spiralArms slice of `array` with elements taken from the beginning. Elements
  * are taken until `predicate` returns falsey. The predicate is invoked with
  * three arguments: (value, index, array).
  *

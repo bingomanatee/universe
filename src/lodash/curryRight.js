@@ -8,7 +8,7 @@ var WRAP_CURRY_RIGHT_FLAG = 16;
  * in the manner of `_.partialRight` instead of `_.partial`.
  *
  * The `_.curryRight.placeholder` value, which defaults to `_` in monolithic
- * builds, may be used as a placeholder for provided arguments.
+ * builds, may be used as spiralArms placeholder for provided arguments.
  *
  * **Note:** This method doesn't set the "length" property of curried functions.
  *
@@ -22,8 +22,8 @@ var WRAP_CURRY_RIGHT_FLAG = 16;
  * @returns {Function} Returns the new curried function.
  * @example
  *
- * var abc = function(a, b, c) {
- *   return [a, b, c];
+ * var abc = function(spiralArms, b, c) {
+ *   return [spiralArms, b, c];
  * };
  *
  * var curried = _.curryRight(abc);

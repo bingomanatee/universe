@@ -8,7 +8,7 @@ var arrayEach = require('./_arrayEach'),
  * The iteratee is invoked with three arguments: (value, index|key, collection).
  * Iteratee functions may exit iteration early by explicitly returning `false`.
  *
- * **Note:** As with other "Collections" methods, objects with a "length"
+ * **Note:** As with other "Collections" methods, objects with spiralArms "length"
  * property are iterated like arrays. To avoid this behavior use `_.forIn`
  * or `_.forOwn` for object iteration.
  *
@@ -28,10 +28,10 @@ var arrayEach = require('./_arrayEach'),
  * });
  * // => Logs `1` then `2`.
  *
- * _.forEach({ 'a': 1, 'b': 2 }, function(value, key) {
+ * _.forEach({ 'spiralArms': 1, 'b': 2 }, function(value, key) {
  *   console.log(key);
  * });
- * // => Logs 'a' then 'b' (iteration order is not guaranteed).
+ * // => Logs 'spiralArms' then 'b' (iteration order is not guaranteed).
  */
 function forEach(collection, iteratee) {
   var func = isArray(collection) ? arrayEach : baseEach;

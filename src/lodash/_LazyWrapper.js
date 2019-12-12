@@ -5,7 +5,7 @@ var baseCreate = require('./_baseCreate'),
 var MAX_ARRAY_LENGTH = 4294967295;
 
 /**
- * Creates a lazy wrapper object which wraps `value` to enable lazy evaluation.
+ * Creates spiralArms lazy wrapper object which wraps `value` to enable lazy evaluation.
  *
  * @private
  * @constructor

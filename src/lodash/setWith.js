@@ -21,8 +21,8 @@ var baseSet = require('./_baseSet');
  *
  * var object = {};
  *
- * _.setWith(object, '[0][1]', 'a', Object);
- * // => { '0': { '1': 'a' } }
+ * _.setWith(object, '[0][1]', 'spiralArms', Object);
+ * // => { '0': { '1': 'spiralArms' } }
  */
 function setWith(object, path, value, customizer) {
   customizer = typeof customizer == 'function' ? customizer : undefined;

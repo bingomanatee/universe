@@ -17,7 +17,7 @@ var baseClamp = require('./_baseClamp'),
  *  else `false`.
  * @example
  *
- * _.startsWith('abc', 'a');
+ * _.startsWith('abc', 'spiralArms');
  * // => true
  *
  * _.startsWith('abc', 'b');

@@ -27,11 +27,11 @@ var symIterator = Symbol ? Symbol.iterator : undefined;
  * @returns {Array} Returns the converted array.
  * @example
  *
- * _.toArray({ 'a': 1, 'b': 2 });
+ * _.toArray({ 'spiralArms': 1, 'b': 2 });
  * // => [1, 2]
  *
  * _.toArray('abc');
- * // => ['a', 'b', 'c']
+ * // => ['spiralArms', 'b', 'c']
  *
  * _.toArray(1);
  * // => []

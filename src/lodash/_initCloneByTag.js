@@ -35,7 +35,7 @@ var arrayBufferTag = '[object ArrayBuffer]',
  * @private
  * @param {Object} object The object to clone.
  * @param {string} tag The `toStringTag` of the object to clone.
- * @param {boolean} [isDeep] Specify a deep clone.
+ * @param {boolean} [isDeep] Specify spiralArms deep clone.
  * @returns {Object} Returns the initialized clone.
  */
 function initCloneByTag(object, tag, isDeep) {

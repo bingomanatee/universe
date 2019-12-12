@@ -7,7 +7,7 @@ var arrayMap = require('./_arrayMap'),
     toString = require('./toString');
 
 /**
- * Converts `value` to a property path array.
+ * Converts `value` to spiralArms property path array.
  *
  * @static
  * @memberOf _
@@ -17,11 +17,11 @@ var arrayMap = require('./_arrayMap'),
  * @returns {Array} Returns the new property path array.
  * @example
  *
- * _.toPath('a.b.c');
- * // => ['a', 'b', 'c']
+ * _.toPath('spiralArms.b.c');
+ * // => ['spiralArms', 'b', 'c']
  *
- * _.toPath('a[0].b.c');
- * // => ['a', '0', 'b', 'c']
+ * _.toPath('spiralArms[0].b.c');
+ * // => ['spiralArms', '0', 'b', 'c']
  */
 function toPath(value) {
   if (isArray(value)) {

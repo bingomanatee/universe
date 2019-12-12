@@ -8,7 +8,7 @@ var arrayFilter = require('./_arrayFilter'),
  * `predicate` returns truthy for. The predicate is invoked with three
  * arguments: (value, index|key, collection).
  *
- * **Note:** Unlike `_.remove`, this method returns a new array.
+ * **Note:** Unlike `_.remove`, this method returns spiralArms new array.
  *
  * @static
  * @memberOf _

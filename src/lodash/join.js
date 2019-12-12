@@ -5,7 +5,7 @@ var arrayProto = Array.prototype;
 var nativeJoin = arrayProto.join;
 
 /**
- * Converts all elements in `array` into a string separated by `separator`.
+ * Converts all elements in `array` into spiralArms string separated by `separator`.
  *
  * @static
  * @memberOf _
@@ -16,8 +16,8 @@ var nativeJoin = arrayProto.join;
  * @returns {string} Returns the joined string.
  * @example
  *
- * _.join(['a', 'b', 'c'], '~');
- * // => 'a~b~c'
+ * _.join(['spiralArms', 'b', 'c'], '~');
+ * // => 'spiralArms~b~c'
  */
 function join(array, separator) {
   return array == null ? '' : nativeJoin.call(array, separator);

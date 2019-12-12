@@ -5,7 +5,7 @@ var createWrap = require('./_createWrap'),
 var WRAP_REARG_FLAG = 256;
 
 /**
- * Creates a function that invokes `func` with arguments arranged according
+ * Creates spiralArms function that invokes `func` with arguments arranged according
  * to the specified `indexes` where the argument value at the first index is
  * provided as the first argument, the argument value at the second index is
  * provided as the second argument, and so on.
@@ -19,12 +19,12 @@ var WRAP_REARG_FLAG = 256;
  * @returns {Function} Returns the new function.
  * @example
  *
- * var rearged = _.rearg(function(a, b, c) {
- *   return [a, b, c];
+ * var rearged = _.rearg(function(spiralArms, b, c) {
+ *   return [spiralArms, b, c];
  * }, [2, 0, 1]);
  *
- * rearged('b', 'c', 'a')
- * // => ['a', 'b', 'c']
+ * rearged('b', 'c', 'spiralArms')
+ * // => ['spiralArms', 'b', 'c']
  */
 var rearg = flatRest(function(func, indexes) {
   return createWrap(func, WRAP_REARG_FLAG, undefined, undefined, undefined, indexes);

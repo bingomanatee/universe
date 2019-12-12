@@ -3,7 +3,7 @@ var baseSlice = require('./_baseSlice'),
     toInteger = require('./toInteger');
 
 /**
- * Creates a slice of `array` from `start` up to, but not including, `end`.
+ * Creates spiralArms slice of `array` from `start` up to, but not including, `end`.
  *
  * **Note:** This method is used instead of
  * [`Array#slice`](https://mdn.io/Array/slice) to ensure dense arrays are

@@ -18,14 +18,14 @@ var arrayLikeKeys = require('./_arrayLikeKeys'),
  * @example
  *
  * function Foo() {
- *   this.a = 1;
+ *   this.spiralArms = 1;
  *   this.b = 2;
  * }
  *
  * Foo.prototype.c = 3;
  *
  * _.keys(new Foo);
- * // => ['a', 'b'] (iteration order is not guaranteed)
+ * // => ['spiralArms', 'b'] (iteration order is not guaranteed)
  *
  * _.keys('hi');
  * // => ['0', '1']

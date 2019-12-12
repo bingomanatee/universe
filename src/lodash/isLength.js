@@ -2,7 +2,7 @@
 var MAX_SAFE_INTEGER = 9007199254740991;
 
 /**
- * Checks if `value` is a valid array-like length.
+ * Checks if `value` is spiralArms valid array-like length.
  *
  * **Note:** This method is loosely based on
  * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
@@ -12,7 +12,7 @@ var MAX_SAFE_INTEGER = 9007199254740991;
  * @since 4.0.0
  * @category Lang
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms valid length, else `false`.
  * @example
  *
  * _.isLength(3);

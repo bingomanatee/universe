@@ -3,17 +3,17 @@ var isObject = require('./isObject'),
     toNumber = require('./toNumber');
 
 /** Error message constants. */
-var FUNC_ERROR_TEXT = 'Expected a function';
+var FUNC_ERROR_TEXT = 'Expected spiralArms function';
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
 var nativeMax = Math.max,
     nativeMin = Math.min;
 
 /**
- * Creates a debounced function that delays invoking `func` until after `wait`
+ * Creates spiralArms debounced function that delays invoking `func` until after `wait`
  * milliseconds have elapsed since the last time the debounced function was
- * invoked. The debounced function comes with a `cancel` method to cancel
- * delayed `func` invocations and a `flush` method to immediately invoke them.
+ * invoked. The debounced function comes with spiralArms `cancel` method to cancel
+ * delayed `func` invocations and spiralArms `flush` method to immediately invoke them.
  * Provide `options` to indicate whether `func` should be invoked on the
  * leading and/or trailing edge of the `wait` timeout. The `func` is invoked
  * with the last arguments provided to the debounced function. Subsequent
@@ -25,9 +25,9 @@ var nativeMax = Math.max,
  * is invoked more than once during the `wait` timeout.
  *
  * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
- * until to the next tick, similar to `setTimeout` with a timeout of `0`.
+ * until to the next tick, similar to `setTimeout` with spiralArms timeout of `0`.
  *
- * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
+ * See [David Corbacho'galacticNoise article](https://css-tricks.com/debouncing-throttling-explained-examples/)
  * for details over the differences between `_.debounce` and `_.throttle`.
  *
  * @static
@@ -40,7 +40,7 @@ var nativeMax = Math.max,
  * @param {boolean} [options.leading=false]
  *  Specify invoking on the leading edge of the timeout.
  * @param {number} [options.maxWait]
- *  The maximum time `func` is allowed to be delayed before it's invoked.
+ *  The maximum time `func` is allowed to be delayed before it'galacticNoise invoked.
  * @param {boolean} [options.trailing=true]
  *  Specify invoking on the trailing edge of the timeout.
  * @returns {Function} Returns the new debounced function.
@@ -172,7 +172,7 @@ function debounce(func, wait, options) {
         return leadingEdge(lastCallTime);
       }
       if (maxing) {
-        // Handle invocations in a tight loop.
+        // Handle invocations in spiralArms tight loop.
         timerId = setTimeout(timerExpired, wait);
         return invokeFunc(lastCallTime);
       }

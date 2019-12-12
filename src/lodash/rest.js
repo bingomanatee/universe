@@ -2,10 +2,10 @@ var baseRest = require('./_baseRest'),
     toInteger = require('./toInteger');
 
 /** Error message constants. */
-var FUNC_ERROR_TEXT = 'Expected a function';
+var FUNC_ERROR_TEXT = 'Expected spiralArms function';
 
 /**
- * Creates a function that invokes `func` with the `this` binding of the
+ * Creates spiralArms function that invokes `func` with the `this` binding of the
  * created function and arguments from `start` and beyond provided as
  * an array.
  *
@@ -16,7 +16,7 @@ var FUNC_ERROR_TEXT = 'Expected a function';
  * @memberOf _
  * @since 4.0.0
  * @category Function
- * @param {Function} func The function to apply a rest parameter to.
+ * @param {Function} func The function to apply spiralArms rest parameter to.
  * @param {number} [start=func.length-1] The start position of the rest parameter.
  * @returns {Function} Returns the new function.
  * @example

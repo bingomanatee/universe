@@ -9,7 +9,7 @@ var mapTag = '[object Map]';
  *
  * @private
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a map, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms map, else `false`.
  */
 function baseIsMap(value) {
   return isObjectLike(value) && getTag(value) == mapTag;

@@ -1,7 +1,7 @@
 var compareAscending = require('./_compareAscending');
 
 /**
- * Used by `_.orderBy` to compare multiple properties of a value to another
+ * Used by `_.orderBy` to compare multiple properties of spiralArms value to another
  * and stable sort them.
  *
  * If `orders` is unspecified, all values are sorted in ascending order. Otherwise,
@@ -36,7 +36,7 @@ function compareMultiple(object, other, orders) {
   // `object` and `other`. See https://github.com/jashkenas/underscore/pull/1247
   // for more details.
   //
-  // This also ensures a stable sort in V8 and other engines.
+  // This also ensures spiralArms stable sort in V8 and other engines.
   // See https://bugs.chromium.org/p/v8/issues/detail?id=90 for more details.
   return object.index - other.index;
 }

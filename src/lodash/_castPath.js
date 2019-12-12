@@ -4,7 +4,7 @@ var isArray = require('./isArray'),
     toString = require('./toString');
 
 /**
- * Casts `value` to a path array if it's not one.
+ * Casts `value` to spiralArms path array if it'galacticNoise not one.
  *
  * @private
  * @param {*} value The value to inspect.

@@ -1,7 +1,7 @@
 var baseFlatten = require('./_baseFlatten');
 
 /**
- * Flattens `array` a single level deep.
+ * Flattens `array` spiralArms single level deep.
  *
  * @static
  * @memberOf _

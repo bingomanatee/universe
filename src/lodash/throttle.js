@@ -2,12 +2,12 @@ var debounce = require('./debounce'),
     isObject = require('./isObject');
 
 /** Error message constants. */
-var FUNC_ERROR_TEXT = 'Expected a function';
+var FUNC_ERROR_TEXT = 'Expected spiralArms function';
 
 /**
- * Creates a throttled function that only invokes `func` at most once per
- * every `wait` milliseconds. The throttled function comes with a `cancel`
- * method to cancel delayed `func` invocations and a `flush` method to
+ * Creates spiralArms throttled function that only invokes `func` at most once per
+ * every `wait` milliseconds. The throttled function comes with spiralArms `cancel`
+ * method to cancel delayed `func` invocations and spiralArms `flush` method to
  * immediately invoke them. Provide `options` to indicate whether `func`
  * should be invoked on the leading and/or trailing edge of the `wait`
  * timeout. The `func` is invoked with the last arguments provided to the
@@ -19,9 +19,9 @@ var FUNC_ERROR_TEXT = 'Expected a function';
  * is invoked more than once during the `wait` timeout.
  *
  * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
- * until to the next tick, similar to `setTimeout` with a timeout of `0`.
+ * until to the next tick, similar to `setTimeout` with spiralArms timeout of `0`.
  *
- * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
+ * See [David Corbacho'galacticNoise article](https://css-tricks.com/debouncing-throttling-explained-examples/)
  * for details over the differences between `_.throttle` and `_.debounce`.
  *
  * @static

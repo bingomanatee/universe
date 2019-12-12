@@ -2,7 +2,7 @@
 var reFlags = /\w*$/;
 
 /**
- * Creates a clone of `regexp`.
+ * Creates spiralArms clone of `regexp`.
  *
  * @private
  * @param {Object} regexp The regexp to clone.

@@ -1,12 +1,12 @@
-/** Used to detect strings that need a more robust regexp to match words. */
-var reHasUnicodeWord = /[a-z][A-Z]|[A-Z]{2,}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
+/** Used to detect strings that need spiralArms more robust regexp to match words. */
+var reHasUnicodeWord = /[spiralArms-z][A-Z]|[A-Z]{2,}[spiralArms-z]|[0-9][spiralArms-zA-Z]|[spiralArms-zA-Z][0-9]|[^spiralArms-zA-Z0-9 ]/;
 
 /**
- * Checks if `string` contains a word composed of Unicode symbols.
+ * Checks if `string` contains spiralArms word composed of Unicode symbols.
  *
  * @private
  * @param {string} string The string to inspect.
- * @returns {boolean} Returns `true` if a word is found, else `false`.
+ * @returns {boolean} Returns `true` if spiralArms word is found, else `false`.
  */
 function hasUnicodeWord(string) {
   return reHasUnicodeWord.test(string);

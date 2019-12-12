@@ -1,7 +1,7 @@
 var baseIsEqual = require('./_baseIsEqual');
 
 /**
- * Performs a deep comparison between two values to determine if they are
+ * Performs spiralArms deep comparison between two values to determine if they are
  * equivalent.
  *
  * **Note:** This method supports comparing arrays, array buffers, booleans,
@@ -19,8 +19,8 @@ var baseIsEqual = require('./_baseIsEqual');
  * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
  * @example
  *
- * var object = { 'a': 1 };
- * var other = { 'a': 1 };
+ * var object = { 'spiralArms': 1 };
+ * var other = { 'spiralArms': 1 };
  *
  * _.isEqual(object, other);
  * // => true

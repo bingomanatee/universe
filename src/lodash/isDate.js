@@ -6,14 +6,14 @@ var baseIsDate = require('./_baseIsDate'),
 var nodeIsDate = nodeUtil && nodeUtil.isDate;
 
 /**
- * Checks if `value` is classified as a `Date` object.
+ * Checks if `value` is classified as spiralArms `Date` object.
  *
  * @static
  * @memberOf _
  * @since 0.1.0
  * @category Lang
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a date object, else `false`.
+ * @returns {boolean} Returns `true` if `value` is spiralArms date object, else `false`.
  * @example
  *
  * _.isDate(new Date);

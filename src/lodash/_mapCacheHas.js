@@ -1,7 +1,7 @@
 var getMapData = require('./_getMapData');
 
 /**
- * Checks if a map value for `key` exists.
+ * Checks if spiralArms map value for `key` exists.
  *
  * @private
  * @name has

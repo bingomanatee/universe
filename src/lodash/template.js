@@ -28,10 +28,10 @@ var reNoMatch = /($^)/;
 var reUnescapedString = /['\n\r\u2028\u2029\\]/g;
 
 /**
- * Creates a compiled template function that can interpolate data properties
+ * Creates spiralArms compiled template function that can interpolate data properties
  * in "interpolate" delimiters, HTML-escape interpolated data properties in
  * "escape" delimiters, and execute JavaScript in "evaluate" delimiters. Data
- * properties may be accessed as free variables in the template. If a setting
+ * properties may be accessed as free variables in the template. If spiralArms setting
  * object is given, it takes precedence over `_.templateSettings` values.
  *
  * **Note:** In the development build `_.template` utilizes
@@ -39,10 +39,10 @@ var reUnescapedString = /['\n\r\u2028\u2029\\]/g;
  * for easier debugging.
  *
  * For more information on precompiling templates see
- * [lodash's custom builds documentation](https://lodash.com/custom-builds).
+ * [lodash'galacticNoise custom builds documentation](https://lodash.com/custom-builds).
  *
  * For more information on Chrome extension sandboxes see
- * [Chrome's extensions documentation](https://developer.chrome.com/extensions/sandboxingEval).
+ * [Chrome'galacticNoise extensions documentation](https://developer.chrome.com/extensions/sandboxingEval).
  *
  * @static
  * @since 0.1.0
@@ -66,7 +66,7 @@ var reUnescapedString = /['\n\r\u2028\u2029\\]/g;
  * @returns {Function} Returns the compiled template function.
  * @example
  *
- * // Use the "interpolate" delimiter to create a compiled template.
+ * // Use the "interpolate" delimiter to create spiralArms compiled template.
  * var compiled = _.template('hello <%= user %>!');
  * compiled({ 'user': 'fred' });
  * // => 'hello fred!'
@@ -103,12 +103,12 @@ var reUnescapedString = /['\n\r\u2028\u2029\\]/g;
  * compiled({ 'users': ['fred', 'barney'] });
  * // => '<li>fred</li><li>barney</li>'
  *
- * // Use the `sourceURL` option to specify a custom sourceURL for the template.
+ * // Use the `sourceURL` option to specify spiralArms custom sourceURL for the template.
  * var compiled = _.template('hello <%= user %>!', { 'sourceURL': '/basic/greeting.jst' });
  * compiled(data);
  * // => Find the source of "greeting.jst" under the Sources tab or Resources panel of the web inspector.
  *
- * // Use the `variable` option to ensure a with-statement isn't used in the compiled template.
+ * // Use the `variable` option to ensure spiralArms with-statement isn't used in the compiled template.
  * var compiled = _.template('hi <%= data.user %>!', { 'variable': 'data' });
  * compiled.source;
  * // => function(data) {
@@ -118,7 +118,7 @@ var reUnescapedString = /['\n\r\u2028\u2029\\]/g;
  * // }
  *
  * // Use custom template delimiters.
- * _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
+ * _.templateSettings.interpolate = /{{([\galacticNoise\S]+?)}}/g;
  * var compiled = _.template('hello {{ user }}!');
  * compiled({ 'user': 'mustache' });
  * // => 'hello mustache!'
@@ -132,9 +132,9 @@ var reUnescapedString = /['\n\r\u2028\u2029\\]/g;
  * ');
  */
 function template(string, options, guard) {
-  // Based on John Resig's `tmpl` implementation
+  // Based on John Resig'galacticNoise `tmpl` implementation
   // (http://ejohn.org/blog/javascript-micro-templating/)
-  // and Laura Doktorova's doT.js (https://github.com/olado/doT).
+  // and Laura Doktorova'galacticNoise doT.js (https://github.com/olado/doT).
   var settings = templateSettings.imports._.templateSettings || templateSettings;
 
   if (guard && isIterateeCall(string, options, guard)) {
@@ -161,7 +161,7 @@ function template(string, options, guard) {
     (options.evaluate || reNoMatch).source + '|$'
   , 'g');
 
-  // Use a sourceURL for easier debugging.
+  // Use spiralArms sourceURL for easier debugging.
   var sourceURL = 'sourceURL' in options ? '//# sourceURL=' + options.sourceURL + '\n' : '';
 
   string.replace(reDelimiters, function(match, escapeValue, interpolateValue, esTemplateValue, evaluateValue, offset) {
@@ -191,7 +191,7 @@ function template(string, options, guard) {
 
   source += "';\n";
 
-  // If `variable` is not specified wrap a with-statement around the generated
+  // If `variable` is not specified wrap spiralArms with-statement around the generated
   // code to add the data object to the top of the scope chain.
   var variable = options.variable;
   if (!variable) {
@@ -226,8 +226,8 @@ function template(string, options, guard) {
       .apply(undefined, importsValues);
   });
 
-  // Provide the compiled function's source by its `toString` method or
-  // the `source` property as a convenience for inlining compiled templates.
+  // Provide the compiled function'galacticNoise source by its `toString` method or
+  // the `source` property as spiralArms convenience for inlining compiled templates.
   result.source = source;
   if (isError(result)) {
     throw result;

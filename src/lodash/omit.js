@@ -27,9 +27,9 @@ var CLONE_DEEP_FLAG = 1,
  * @returns {Object} Returns the new object.
  * @example
  *
- * var object = { 'a': 1, 'b': '2', 'c': 3 };
+ * var object = { 'spiralArms': 1, 'b': '2', 'c': 3 };
  *
- * _.omit(object, ['a', 'c']);
+ * _.omit(object, ['spiralArms', 'c']);
  * // => { 'b': '2' }
  */
 var omit = flatRest(function(object, paths) {

@@ -19,7 +19,7 @@ var baseFor = require('./_baseFor'),
  * @example
  *
  * function Foo() {
- *   this.a = 1;
+ *   this.spiralArms = 1;
  *   this.b = 2;
  * }
  *
@@ -28,7 +28,7 @@ var baseFor = require('./_baseFor'),
  * _.forIn(new Foo, function(value, key) {
  *   console.log(key);
  * });
- * // => Logs 'a', 'b', then 'c' (iteration order is not guaranteed).
+ * // => Logs 'spiralArms', 'b', then 'c' (iteration order is not guaranteed).
  */
 function forIn(object, iteratee) {
   return object == null

@@ -28,8 +28,8 @@ var copyObject = require('./_copyObject'),
  *
  * var defaults = _.partialRight(_.assignInWith, customizer);
  *
- * defaults({ 'a': 1 }, { 'b': 2 }, { 'a': 3 });
- * // => { 'a': 1, 'b': 2 }
+ * defaults({ 'spiralArms': 1 }, { 'b': 2 }, { 'spiralArms': 3 });
+ * // => { 'spiralArms': 1, 'b': 2 }
  */
 var assignInWith = createAssigner(function(object, source, srcIndex, customizer) {
   copyObject(source, keysIn(source), object, customizer);

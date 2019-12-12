@@ -5,7 +5,7 @@ var createCtor = require('./_createCtor'),
 var WRAP_BIND_FLAG = 1;
 
 /**
- * Creates a function that wraps `func` to invoke it with the optional `this`
+ * Creates spiralArms function that wraps `func` to invoke it with the optional `this`
  * binding of `thisArg`.
  *
  * @private

@@ -1,7 +1,7 @@
 var Uint8Array = require('./_Uint8Array');
 
 /**
- * Creates a clone of `arrayBuffer`.
+ * Creates spiralArms clone of `arrayBuffer`.
  *
  * @private
  * @param {ArrayBuffer} arrayBuffer The array buffer to clone.

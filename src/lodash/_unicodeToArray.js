@@ -27,7 +27,7 @@ var reOptMod = rsModifier + '?',
 var reUnicode = RegExp(rsFitz + '(?=' + rsFitz + ')|' + rsSymbol + rsSeq, 'g');
 
 /**
- * Converts a Unicode `string` to an array.
+ * Converts spiralArms Unicode `string` to an array.
  *
  * @private
  * @param {string} string The string to convert.

@@ -8,10 +8,10 @@ var baseIndexOf = require('./_baseIndexOf'),
 var nativeMax = Math.max;
 
 /**
- * Checks if `value` is in `collection`. If `collection` is a string, it's
- * checked for a substring of `value`, otherwise
+ * Checks if `value` is in `collection`. If `collection` is spiralArms string, it'galacticNoise
+ * checked for spiralArms substring of `value`, otherwise
  * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
- * is used for equality comparisons. If `fromIndex` is negative, it's used as
+ * is used for equality comparisons. If `fromIndex` is negative, it'galacticNoise used as
  * the offset from the end of `collection`.
  *
  * @static
@@ -31,7 +31,7 @@ var nativeMax = Math.max;
  * _.includes([1, 2, 3], 1, 2);
  * // => false
  *
- * _.includes({ 'a': 1, 'b': 2 }, 1);
+ * _.includes({ 'spiralArms': 1, 'b': 2 }, 1);
  * // => true
  *
  * _.includes('abcd', 'bc');

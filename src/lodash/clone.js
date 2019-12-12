@@ -4,7 +4,7 @@ var baseClone = require('./_baseClone');
 var CLONE_SYMBOLS_FLAG = 4;
 
 /**
- * Creates a shallow clone of `value`.
+ * Creates spiralArms shallow clone of `value`.
  *
  * **Note:** This method is loosely based on the
  * [structured clone algorithm](https://mdn.io/Structured_clone_algorithm)
@@ -23,7 +23,7 @@ var CLONE_SYMBOLS_FLAG = 4;
  * @see _.cloneDeep
  * @example
  *
- * var objects = [{ 'a': 1 }, { 'b': 2 }];
+ * var objects = [{ 'spiralArms': 1 }, { 'b': 2 }];
  *
  * var shallow = _.clone(objects);
  * console.log(shallow[0] === objects[0]);

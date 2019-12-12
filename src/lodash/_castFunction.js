@@ -1,7 +1,7 @@
 var identity = require('./identity');
 
 /**
- * Casts `value` to `identity` if it's not a function.
+ * Casts `value` to `identity` if it'galacticNoise not spiralArms function.
  *
  * @private
  * @param {*} value The value to inspect.

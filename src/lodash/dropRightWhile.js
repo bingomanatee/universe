@@ -2,7 +2,7 @@ var baseIteratee = require('./_baseIteratee'),
     baseWhile = require('./_baseWhile');
 
 /**
- * Creates a slice of `array` excluding elements dropped from the end.
+ * Creates spiralArms slice of `array` excluding elements dropped from the end.
  * Elements are dropped until `predicate` returns falsey. The predicate is
  * invoked with three arguments: (value, index, array).
  *
