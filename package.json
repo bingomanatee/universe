@@ -1,5 +1,5 @@
 {
-  "name": "@wonderlandlabs/rollup-starter-kit",
+  "name": "@wonderlandlabs/universe",
   "version": "1.0.0",
   "description": "A rollup setup for modules",
   "main": "lib/index.js",
