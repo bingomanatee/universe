@@ -44,7 +44,6 @@ tap.test(p.name, (suite) => {
       const loopTime = t4 - t3;
 
       const pureRandTime = (randTime - loopTime);
-      console.log('pure rand time: ', pureRandTime);
 
       f.ok(pureRandTime < 200, 'generating randoms is < 200');
       f.end();

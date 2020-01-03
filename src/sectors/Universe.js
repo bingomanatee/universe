@@ -102,16 +102,12 @@ export default class Universe extends HexRegion {
     const starNoiseFine = new Noise(randomFor(`${this.id} fine noise`));
 
     const spirality = spiralNoise.noise2D(this.center.x, this.center.y);
-    console.log('spirality: ', spirality);
-
     const arms = _N(spirality)
       .plus(1)
       .div(2)
       .times(MAX_ARMS)
       .max(3)
       .round().value;
-
-    console.log('arms:', arms);
 
     const r1 = sn.noise2D(this.center.x, this.center.y);
     const r2 = sn2.noise2D(this.center.x, this.center.y);
@@ -124,25 +120,18 @@ export default class Universe extends HexRegion {
     const SCALAR = M * 5;
 
     const galaxyDiameter = rand.times(SCALAR).clamp(4 * K10, M).round().value;
-    console.log('rand = ', rand.value);
 
     this.set('galaxyDiameter', galaxyDiameter);
-
-    console.log('galaxy radius for ', this.id, 'is ', this.get('galaxyDiameter'));
 
     const childDiameter = this.diameter / this.childDivisions;
     const area = childDiameter ** 2;
     this.area = area;
     this.maxStars = area / 80;
 
-    console.log('maximum density: ', this.maxStars, '/ light year  in ', area, 'ly^2; diameter:', childDiameter);
-
     const twirly = _N(twirls.noise2D(this.center.x, this.center.y))
       .abs()
       .times(5)
       .plus(3);
-
-    console.log('twirliness:', twirly.value);
 
     const grossNoiseScale = 100 / this.diameter;
     const mediumNoiseScale = 200 / this.diameter;
@@ -167,7 +156,7 @@ export default class Universe extends HexRegion {
       const unitRadFromCenter = childRadFromCenter.div(diam);
 
       // general galactic noise -1 .. 1
-      child.galacticNoise = _N( grossNoise / 3)
+      child.galacticNoise = _N(grossNoise / 3)
         .plus(mediumNoise / 3)
         .plus(fineNoise / 3)
         .clamp(-1, 1)
@@ -212,9 +201,6 @@ export default class Universe extends HexRegion {
 
     const totalDs = sum(ds2);
 
-    // console.log('-------- universe ', this.id, 'has total ds:', sum(ds2), 'mean', m2, 'sd:', sd2);
-    //  const avgGalaxies = this.galaxies / this.size;
-
     let galaxiesUsed = 0;
     let dsUsed = 0;
     this.forEach((child) => {
@@ -230,16 +216,6 @@ export default class Universe extends HexRegion {
       galaxiesUsed += child.galaxies;
       dsUsed = nextDsUsed;
     });
-
-    const galaxies = map(this.getChildren(), 'galaxies');
-    // console.log('---- adjusted stats:', m, sd);
-    const mg = mean(galaxies);
-    const sg = standardDeviation(galaxies);
-
-    if (!this.parent && this.galaxies) {
-      console.log('-------- universe ', this.id, 'has total galaxies:', sum(galaxies),
-        '(target ', this.galaxies, '), mean', mg, 'sd:', sg);
-    }
   }
 }
 
@@ -252,4 +228,4 @@ proppify(Universe)
   .addProp('galacticCore', 0, 'number')
   .addProp('r', 0, 'number')
   .addProp('spiralArms', 0, 'number')
-  .addProp('galaxies', 2 * B100, 'integer');
+  .addProp('galaxies', 0);

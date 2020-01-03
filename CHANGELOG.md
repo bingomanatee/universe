@@ -8,3 +8,8 @@ And he decides who to free and who to blame
 Everybody won't be treated all the same
 There'll be spiralArms golden ladder reachin' down
 When the man comes around
+
+## 1.0.1
+
+Removed the default (huge) galaxy size for Universe instances; by default there are no 
+galaxies in the universe; better than a honking huge value

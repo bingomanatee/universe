@@ -66,8 +66,6 @@ const colorOf = (n, ranges, gradient) => {
 
 brackets = uniq(brackets);
 
-console.log('============ brackets:', ...brackets);
-
 const legend = (uni, ctx) => {
   const fontSize = 20;
   ctx.font = `bold ${fontSize}px Helvetica`;
@@ -219,14 +217,6 @@ const drawGalaxy = (uni, out, visual_scale) => {
       const starBrackets = legendStars(uni, ctx);
       uni.forEach(fillStars);
       uni.forEach((hex) => drawStars(hex, starBrackets));
-
-      console.log('drawing galaxy ', uni.id, ' with max stars:', uni.maxStars);
-
-      uni.forEach((hex) => {
-        if (hex.stars && !((hex.coord.x % 10) || (hex.coord.y % 10))) {
-          console.log('hex: ', hex.id, 'diam:', hex.diameter, 'stars: ', hex.stars, 'density:', hex.starDensity, 'r', hex.r);
-        }
-      });
     },
 
   }, out);
@@ -251,7 +241,7 @@ tap.test(p.name, (suite) => {
 
       const cbg = realUni.childrenByGalaxies(false, true);
 
-      d.skip('normal sector', async (ns) => {
+      d.test('normal sector', async (ns) => {
         const median = cbg[Math.floor(cbg.length / 2)];
 
         median.makeSubsectors(SUBSECTOR_DIV);
@@ -260,7 +250,7 @@ tap.test(p.name, (suite) => {
         await draw(median, 'normal subsector', 4 * K / median.diameter);
         ns.end();
       });
-      d.skip('thin sector', async (ns) => {
+      d.test('thin sector', async (ns) => {
         const thin = cbg[Math.floor(cbg.length * 0.05)];
 
         thin.makeSubsectors(SUBSECTOR_DIV);
@@ -269,7 +259,7 @@ tap.test(p.name, (suite) => {
         await draw(thin, 'thin subsector', 4 * K / thin.diameter);
         ns.end();
       });
-      d.skip('dense sector', async (ns) => {
+      d.test('dense sector', async (ns) => {
         const dense = cbg[Math.floor(cbg.length * 0.95)];
 
         dense.makeSubsectors(SUBSECTOR_DIV);

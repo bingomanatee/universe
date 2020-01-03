@@ -42,8 +42,6 @@ const draw = async (config = {}, outputFilename) => {
     throw new Error(`cannot make canvas bigger than 5000 pixels for ${outputFilename}, ${width}x${height}; visual_scale = ${visual_scale}`);
   }
 
-  console.log('drawing hexes -- ', outputFilename, width, 'x', height);
-
   let can;
   try {
     can = createCanvas(width, height);
@@ -94,9 +92,7 @@ const draw = async (config = {}, outputFilename) => {
   ctx.lineWidth = 1;
 
   if (fn) {
-    console.log('starting function');
     fn(ctx, screenCoord, can);
-    console.log('done with function');
   }
 
   const stream = can.createPNGStream();
@@ -107,10 +103,7 @@ const draw = async (config = {}, outputFilename) => {
   const p = new Promise((d) => {
     done = d;
   });
-  const dt = Date.now();
   writeStream.on('close', () => {
-    console.log('writeStream done writing', outputFilename);
-    console.log(((Date.now() - dt) / 1000).toFixed(1), 'seconds');
     done();
   });
   return p;
