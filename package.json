@@ -1,6 +1,6 @@
 {
   "name": "@wonderlandlabs/universe",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A rollup setup for modules",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -15,9 +15,9 @@
     "build": "node_modules/rollup/dist/bin/rollup -c='rollup.config.js'"
   },
   "dependencies": {
-    "@wonderlandlabs/hexagony": "^2.0.0",
-    "@wonderlandlabs/propper": "^3.0.0",
+    "@wonderlandlabs/hexagony": "latest",
     "@wonderlandlabs/n": "^1.0.2",
+    "@wonderlandlabs/propper": "^3.0.0",
     "babel-eslint": "^10.0.3",
     "eslint-plugin-react-hooks": "^2.1.1",
     "is": "^3.3.0",
