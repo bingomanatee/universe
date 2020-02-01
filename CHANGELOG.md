@@ -13,3 +13,7 @@ When the man comes around
 
 Removed the default (huge) galaxy size for Universe instances; by default there are no 
 galaxies in the universe; better than a honking huge value
+
+## 1.0.3 
+
+Incorporated latest version of hexagony

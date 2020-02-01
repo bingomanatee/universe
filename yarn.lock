@@ -131,15 +131,14 @@
   resolved "https://registry.yarnpkg.com/@types/tinycolor2/-/tinycolor2-1.4.2.tgz#721ca5c5d1a2988b4a886e35c2ffc5735b6afbdf"
   integrity sha512-PeHg/AtdW6aaIO2a+98Xj7rWY4KC1E6yOy7AFknJQ7VXUGNrMlyxDFxJo7HqLtjQms/ZhhQX52mLVW/EX3JGOw==
 
-"@wonderlandlabs/hexagony@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@wonderlandlabs/hexagony/-/hexagony-2.0.0.tgz#82a6fd2f35936f21755dec00ad2ab7f5a48136fb"
-  integrity sha512-EnPspa56l1BpsKnYnwVxYfHurYbdP5Qx19KlJuvPlsRi4aEOzAauMYlIGNAS8EnaIcFBtQweOZfxCIfDJicAdA==
+"@wonderlandlabs/hexagony@latest":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@wonderlandlabs/hexagony/-/hexagony-2.0.2.tgz#298ae53b311c68b9cc114c3db5fa03a66a0e436f"
+  integrity sha512-PcPQXPOWdJcfo9svtNHhqzrKd0R2pPtqUMLami05wLCVYZdnabE4PozXtINS2yi4KM5RunHx528G2RSLzeo1eg==
   dependencies:
     "@wonderlandlabs/n" "^1.0.2"
     "@wonderlandlabs/propper" "^2.0.5"
     is "^3.3.0"
-    lodash "^4.17.15"
 
 "@wonderlandlabs/inspector@^1.0.4":
   version "1.0.4"
